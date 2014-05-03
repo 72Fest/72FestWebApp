@@ -2,9 +2,9 @@
   "generator-backbone": {
     "appPath": "app",
     "appName": "72FestWebApp",
-    "coffee": false,
     "testFramework": "mocha",
-    "templateFramework": "lodash",
+    "templateFramework": "handlebars",
+    "coffee": false,
     "compassBootstrap": true,
     "includeRequireJS": true
   }
