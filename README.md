@@ -35,6 +35,15 @@ $ grunt
 
 The prompt should wait for any changes to the SASS files. When making any CSS changes, edit the .scss files, not the .css files. By running grunt, whenever a .scss file changes, the .css file will regenerate with the updated changes.
 
+
+To launch an instance of the app within a browser rather than just watching for scss changes by running the following:
+
+```
+$ grunt serve
+```
+
+A browser instance should be launched and will auto refresh whenever a file is changed.
+
 ### Server Setup
 Express is used to provide the RESTful api. Before you can launch the server, you need all of the dependencies.
 
