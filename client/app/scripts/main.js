@@ -1,5 +1,4 @@
 /*global require*/
-'use strict';
 
 require.config({
     shim: {
@@ -21,7 +20,16 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
-    Backbone.history.start();
+    'backbone',
+    "jquery",
+    "routes/Router"
+], function (Backbone, $, Router) {
+    "use strict";
+
+    //set up router after document is ready
+    $(function () {
+        var router = new Router();
+        Backbone.history.start();
+    });
+
 });
