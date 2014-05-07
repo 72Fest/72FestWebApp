@@ -32,14 +32,23 @@ define([
                     //the REST call was successful so start the timer
                     that.startTimer(that);
                 },
-                error: function (e) {
-                    alert("Failed to fetch countdown data:" + e);
+                error: function () {
+                    var timeLeft = {};
+                    console.log("Failed to fetch countdown data. The end point is not reachable!");
+
+                    timeLeft.day = "--";
+                    timeLeft.hour = "--";
+                    timeLeft.minute = "--";
+                    timeLeft.second = "--";
+
+                    //update model with generic place holders
+                    that.set({remainingTime: timeLeft});
                 }
             });
         },
 
         defaults: {
-            caption: "",
+            caption: "72 Fest",
             time: "",
             remainingTime: ""
         },
