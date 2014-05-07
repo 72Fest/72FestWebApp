@@ -21,12 +21,19 @@ define([
 
         initialize: function () {
             var that = this;
+            //while data is loading, we want to set the time remaining
+            //with place holder data
+//            var timeLeft = {
+//                    day: "--",
+//                    hour: "--",
+//                    minute: "--",
+//                    second: "--"
+//                },
+//                that = this;
+//
+//            this.set({remainingTime: timeLeft});
 
-            this.on("change", function (model) {
-                //alert("model aption:" + model.get("caption"));
-            });
-
-
+            //Attempt to retreive countdown data from the endpoint
             this.fetch({
                 success: function (m) {
                     //the REST call was successful so start the timer
@@ -36,21 +43,21 @@ define([
                     var timeLeft = {};
                     console.log("Failed to fetch countdown data. The end point is not reachable!");
 
-                    timeLeft.day = "--";
-                    timeLeft.hour = "--";
-                    timeLeft.minute = "--";
-                    timeLeft.second = "--";
-
-                    //update model with generic place holders
-                    that.set({remainingTime: timeLeft});
+                    //update model's caption
+                    that.set({caption: "72 Fest Unreachable"});
                 }
             });
         },
 
         defaults: {
-            caption: "72 Fest",
+            caption: "Loading ...",
             time: "",
-            remainingTime: ""
+            remainingTime:  {
+                day: "--",
+                hour: "--",
+                minute: "--",
+                second: "--"
+            }
         },
 
         validate: function (attrs, options) {
