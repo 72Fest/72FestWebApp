@@ -138,7 +138,7 @@ module.exports = function (grunt) {
                 cssDir: '<%= yeoman.app %>/styles',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
+                fontsDir: '<%= yeoman.app %>/fonts',
                 importPath: '<%= yeoman.app %>/bower_components',
                 relativeAssets: true
             },
@@ -159,8 +159,7 @@ module.exports = function (grunt) {
                         'templates': '../../.tmp/scripts/templates',
                         'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         'underscore': '../../<%= yeoman.app %>/bower_components/underscore/underscore',
-                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone'
-                    },
+                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone' },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
@@ -237,9 +236,17 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/{,*/}*.*',
-                        'bower_components/sass-bootstrap/fonts/*.*'
+                        'fonts/{,*/}*.*',
+                        'bower_components/sass-bootstrap/fonts/*.*',
+                        'bower_components/ratchet/dist/fonts/*.*'
                     ]
+                },
+                {
+                    expand: true,
+                    flatten: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>/fonts2',
+                    src: 'bower_components/ratchet/fonts/*.*',
                 }]
             }
         },
