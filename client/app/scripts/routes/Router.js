@@ -3,8 +3,9 @@
 define([
     'jquery',
     'backbone',
-    "views/HomeView"
-], function ($, Backbone, HomeView) {
+    "views/HomeView",
+    "views/GalleryView"
+], function ($, Backbone, HomeView, GalleryView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -35,11 +36,9 @@ define([
         },
         galleryHandler: function () {
             var that = this;
-            require(["views/GalleryView"], function (GalleryView) {
-                var newView = new GalleryView();
+            var newView = new GalleryView();
 
-                that.swapContent(newView.render().$el.html());
-            });
+            that.swapContent(newView.render().$el.html());
         },
         todoHandler: function () {
             alert("TODO");
