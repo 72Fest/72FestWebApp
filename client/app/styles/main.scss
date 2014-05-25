@@ -4,7 +4,7 @@ $fontPath: "../fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 
 @import '../bower_components/ratchet/dist/css/ratchet.css';
-@import './countdown.scss';
+@import './_countdown.scss';
 
 .browsehappy {
     margin: 0.2em 0;
