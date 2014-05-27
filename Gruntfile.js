@@ -1,10 +1,13 @@
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9000;
+var API_SERVER_PORT = 3000;
+var SERVER_PATH = './server/app.js';
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
+var path = require('path');
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -22,11 +25,31 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist'
+        dist: 'dist',
+        server: 'server'
     };
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        express: {
+            options: {
+                hostname: '*',
+                port: API_SERVER_PORT
+            },
+            dev: {
+                options: {
+                    server: path.resolve(SERVER_PATH),
+                    bases: ['.tmp', '<%= yeoman.server %>']
+                }
+            },
+            reload: {
+                options: {
+                    server: path.resolve(SERVER_PATH),
+                    bases: ['.tmp', '<%= yeoman.server %>'],
+                    serverreload: true
+                }
+            }
+        },
         watch: {
             options: {
                 nospawn: true,
@@ -301,6 +324,7 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'compass:server',
+                'express:dev',
                 'connect:test',
                 'open:test',
                 'watch'
@@ -312,6 +336,7 @@ module.exports = function (grunt) {
             'createDefaultTemplate',
             'handlebars',
             'compass:server',
+            'express:dev',
             'connect:livereload',
             'open:server',
             'watch'
@@ -355,9 +380,11 @@ module.exports = function (grunt) {
         'usemin'
     ]);
 
+
     grunt.registerTask('default', [
         'jshint',
         'compass',
+        'express:dev',
         'watch'
     ]);
 };

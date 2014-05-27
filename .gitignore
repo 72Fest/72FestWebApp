@@ -26,3 +26,12 @@ node_modules
 
 # SASS generated CSS map files
 *.css.map
+
+# aditional folders/files to ignore
+dist
+test/temp
+.sass-cache
+app/bower_components
+.tmp
+test/bower_components/
+app/styles/*.css
