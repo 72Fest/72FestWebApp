@@ -6,10 +6,53 @@
 
 * nodejs
 * mysql
+* mongodb
 
 ## Setup
 
-To get started, you need to grab all dependencies for the client and server.
+To get started,  you'll need nodejs and mongodb installed.
+
+### Installing Homebrew
+
+If on the Mac, the easiest way to manage open source packages is through homebrew. Homebrew is written in Ruby and can be installed with one line:
+
+```
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```
+
+To properly compile everything, you need to get Xcode command line tools. They can be retrieved with the following command:
+
+```
+xcode-select --install
+```
+
+### Mongodb Setup
+
+Now that homebrew is set up, install mongodb
+
+```
+brew mongodb
+```
+
+After the installation completes, manually start mongodb
+
+```
+mongod --config /usr/local/etc/mongod.conf
+```
+
+**NOTE:** You will have to manually start mongodb after each restart.
+
+You can optionally set mongodb to run at login time by typing the following:
+
+```
+ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+```
+
+Then to launch mongodb now type the following (this will not have to be typed after restarting):
+
+```
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+```
 
 
 ### Client Setup
