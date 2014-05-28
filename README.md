@@ -15,7 +15,6 @@ To get started, you need to grab all dependencies for the client and server.
 ### Client Setup
 
 ```
-$ cd client
 $ npm install
 $ bower install
 ```
