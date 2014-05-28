@@ -57,3 +57,5 @@ To start the server, run the following from inside the server folder
 $ npm start
 ```
 
+**NOTE:** The server also will be started when running `grunt serve`. 
+
