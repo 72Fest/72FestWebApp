@@ -182,7 +182,8 @@ module.exports = function (grunt) {
                         'templates': '../../.tmp/scripts/templates',
                         'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         'underscore': '../../<%= yeoman.app %>/bower_components/underscore/underscore',
-                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone' },
+                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
+                        'ratchet': '../../<%= yeoman.app %>/bower_components/ratchet/dist/js/ratchet'},
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
