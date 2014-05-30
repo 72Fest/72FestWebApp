@@ -24,14 +24,14 @@ define([
         model: new CountdownModel(),
 
         initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
+            //this.listenTo(this.model, 'change', this.render);
 
         },
 
         render: function () {
             //console.log("rendering count down view:" + this.$el);
             //TODO: change to cached jquery selector
-            $("#countdownContainer").html(this.template(this.model.toJSON()));
+            this.$el.html(this.template(this.model.toJSON()));
 
             return this;
         }

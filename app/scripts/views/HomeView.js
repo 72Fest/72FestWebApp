@@ -15,6 +15,8 @@ define([
 
         id: 'homeView',
 
+        tagName: 'div',
+
         $countdownEl: '',
 
         className: '',
@@ -27,34 +29,38 @@ define([
             //this.listenTo(this.model, 'change', this.render);
             this.countdownView = new CountdownView();
 
-            //this.listenTo(this.countdownView.model, "change", this.renderCountdown);
+            this.listenTo(this.countdownView.model, "change", this.renderCountdown);
         },
 
         render: function () {
-
+            var tmplStr = this.template();
             //populate view and then insert contents of subview
             this.$el.html(this.template());
+            tmplStr = this.renderCountdown();
 
-            this.renderCountdown();
 
             return this;
         },
 
         renderCountdown: function () {
+            var countdownContainerEl = this.$el.find("#countdownContainer"),
+                countdownEl = this.countdownView.render().$el;
+
+
             //first render subview and get needed values
-            var countdownEl,
+            var
                 countdownSel;
 
-            this.countdownView.render();
 
-            if (!this.$countdownEl) {
+
+            //if (!this.$countdownEl) {
                 //first render subview and get needed values
-                countdownEl = this.countdownView.$el;
-                countdownSel = "#" + countdownEl.attr("id");
+                //countdownEl = this.countdownView.$el;
+                //countdownSel = "#" + countdownEl.attr("id");
 
-                this.$countdownEl = this.$el.find(countdownSel);
-                this.$countdownEl.html(this.countdownView.$el.html());
-            }
+                //this.$countdownEl = this.$el.find(countdownSel);
+                countdownContainerEl.html(countdownEl.html());
+            //}
 
         }
     });
