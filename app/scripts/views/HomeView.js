@@ -17,7 +17,7 @@ define([
 
         tagName: 'div',
 
-        $countdownEl: '',
+        $countdownContainerEl: null,
 
         className: '',
 
@@ -33,35 +33,38 @@ define([
         },
 
         render: function () {
-            var tmplStr = this.template();
+            //remove cached version of jquery object
+            this.$countdownContainerEl = null;
             //populate view and then insert contents of subview
             this.$el.html(this.template());
-            tmplStr = this.renderCountdown();
-
+            this.renderCountdown();
 
             return this;
         },
 
-        renderCountdown: function () {
-            var countdownContainerEl = this.$el.find("#countdownContainer"),
+        renderCountdown: function (containerEl) {
+            var containerEl,
                 countdownEl = this.countdownView.render().$el;
 
+            //if there is a cached version of the countdown container
+            //set that as the container element to insert the updated
+            //html content
+            if (this.$countdownContainerEl) {
+                containerEl = this.$countdownContainerEl;
+            } else {
+                //first try and grab container from DOM
+                containerEl = $("#countdownContainer");
+                if (containerEl.length === 1) {
+                    //if found in the DOM, cache the jquery call
+                    this.$countdownContainerEl = containerEl;
+                } else {
+                    //if not found in DOM, just set the current
+                    containerEl = this.$el.find("#countdownContainer");
+                }
+            }
 
-            //first render subview and get needed values
-            var
-                countdownSel;
-
-
-
-            //if (!this.$countdownEl) {
-                //first render subview and get needed values
-                //countdownEl = this.countdownView.$el;
-                //countdownSel = "#" + countdownEl.attr("id");
-
-                //this.$countdownEl = this.$el.find(countdownSel);
-                countdownContainerEl.html(countdownEl.html());
-            //}
-
+            //populate html container file with updated rendering
+            containerEl.html(countdownEl.html());
         }
     });
 
