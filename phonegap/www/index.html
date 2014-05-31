@@ -1,63 +1,43 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>72FestWebApp</title>
-        <meta name="description" content="">
-        <!-- Sets initial viewport load and disables zooming  -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
-        <meta name="format-detection" content="telephone=no">
-
-
-        <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/79075edc.main.css">
-        <script src="scripts/vendor/a52a8685.modernizr.js"></script>
-        <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
     </head>
     <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Make sure all your bars are the first things in your <body> -->
-        <header class="bar bar-nav">
-          <h1 class="title">72 Fest</h1>
-        </header>
-
-        <nav class="bar bar-tab">
-          <a class="tab-item active" data-ignore="push" href="#">
-            <span class="icon icon-home"></span>
-            <span class="tab-label">Home</span>
-          </a>
-          <a class="tab-item" data-ignore="push" href="#gallery">
-            <span class="icon icon-gear"></span>
-            <span class="tab-label">Gallery</span>
-          </a>
-          <a class="tab-item" data-ignore="push" href="#teams">
-            <span class="icon icon-person"></span>
-            <span class="tab-label">Teams</span>
-          </a>
-          <a class="tab-item" data-ignore="push" href="#about">
-            <span class="icon icon-info"></span>
-            <span class="tab-label">About</span>
-          </a>
-          <a class="tab-item" data-ignore="push" href="#search">
-            <span class="icon icon-search"></span>
-            <span class="tab-label">Search</span>
-          </a>
-        </nav>
-
-        <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-        <div id="contentContainer" class="content">
-
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
         </div>
-
-
-        <script data-main="scripts/d266e317.main" src="bower_components/requirejs/require.js"></script>
-</body>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
 </html>
