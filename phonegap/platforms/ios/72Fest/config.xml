@@ -69,4 +69,7 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     <access origin="http://127.0.0.1*" />
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
 </widget>
