@@ -26,7 +26,8 @@ module.exports = function (grunt) {
     var yeomanConfig = {
         app: 'app',
         dist: 'dist',
-        server: 'server'
+        server: 'server',
+        phonegap: 'phonegap/www'
     };
 
     grunt.initConfig({
@@ -272,7 +273,30 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/fonts2',
                     src: 'bower_components/ratchet/fonts/*.*',
                 }]
-            }
+            },
+            phonegap: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.phonegap %>',
+                    src: [
+                        '*.{ico,txt}',
+                        '.htaccess',
+                        'images/{,*/}*.{webp,gif}',
+                        'fonts/{,*/}*.*',
+                        'bower_components/sass-bootstrap/fonts/*.*',
+                        'bower_components/ratchet/dist/fonts/*.*'
+                    ]
+                },
+                {
+                    expand: true,
+                    flatten: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.phonegap %>/fonts2',
+                    src: 'bower_components/ratchet/fonts/*.*',
+                }]
+            },
         },
         bower: {
             all: {
@@ -381,6 +405,10 @@ module.exports = function (grunt) {
         'usemin'
     ]);
 
+    grunt.registerTask('stage', [
+        'build',
+        'copy:phonegap'
+    ]);
 
     grunt.registerTask('default', [
         'jshint',
