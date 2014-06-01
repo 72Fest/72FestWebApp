@@ -19,6 +19,21 @@ define([
             "about": "todoHandler",
             "search": "todoHandler"
         },
+        initialize: function() {
+            $("a.tab-item").click(function (e) {
+
+                //remove selection state from all tab items
+                $("a.tab-item").each(function() {
+                    $(this).removeClass("active");
+                });
+
+                //apply selection state to current tab item
+                $(this).addClass("active");
+
+                //retieve the tab label name
+                var tabLabelName = $(this).find(".tab-label").text();
+            });
+        },
         homeHandler: function () {
             var newContent;
             //we want to keep home view around
