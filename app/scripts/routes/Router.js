@@ -4,8 +4,9 @@ define([
     'jquery',
     'backbone',
     "views/HomeView",
-    "views/GalleryView"
-], function ($, Backbone, HomeView, GalleryView) {
+    "views/GalleryView",
+    "views/TeamsView"
+], function ($, Backbone, HomeView, GalleryView, TeamsView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -14,7 +15,7 @@ define([
         routes: {
             "": "homeHandler",
             "gallery": "galleryHandler",
-            "teams": "todoHandler",
+            "teams": "teamsViewHandler",
             "about": "todoHandler",
             "search": "todoHandler"
         },
@@ -39,6 +40,11 @@ define([
             var newView = new GalleryView();
 
             that.swapContent(newView.render().$el.html());
+        },
+        teamsViewHandler: function () {
+            var newView = new TeamsView();
+
+            this.swapContent(newView.render().$el.html());
         },
         todoHandler: function () {
             alert("TODO");
