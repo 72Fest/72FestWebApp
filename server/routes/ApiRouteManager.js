@@ -35,8 +35,8 @@ var express = require('express'),
             isSuccess: isSucc,
             message: msg
         };
-        res.writeHead(200, {'content-type': 'application/json'});
-        res.end(JSON.stringify(obj));
+        //res.writeHead(200, {'content-type': 'application/json'});
+        res.jsonp(JSON.stringify(obj));
     },
     processUpload = function (fileObj, callback) {
         "use strict";
