@@ -27,6 +27,9 @@ node_modules
 # SASS generated CSS map files
 *.css.map
 
+# uploaded photos folder
+server/public/photos/
+
 # aditional folders/files to ignore
 dist
 test/temp

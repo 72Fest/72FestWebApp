@@ -53,8 +53,8 @@ var express = require('express'),
         });
 
         //TODO: fix this to not hardcode extensions
-        newPhotoPath = path.resolve(path.join(photosBasePath, photo._id + ".jpg"));
-        thumbPath = path.resolve(path.join(photosBasePath, photo._id + "-thumb.jpg"));
+        newPhotoPath = path.resolve(path.join(__dirname, "..", photosBasePath, photo._id + ".jpg"));
+        thumbPath = path.resolve(path.join(__dirname, "..", photosBasePath, photo._id + "-thumb.jpg"));
         //lets move the photo into the uploads folder
 
         fs.rename(fileObj.path, newPhotoPath, function (err) {
@@ -102,7 +102,8 @@ var express = require('express'),
         });
     },
     ApiRouter = function (dbRef, d) {
-        var fullPhotoPath = path.resolve(photosBasePath);
+        //we want the base path to be reference from parent folder of cur directory
+        var fullPhotoPath = path.resolve(path.join(__dirname, "..", photosBasePath));
 
         //save reference to delegate
         delegate = d;
