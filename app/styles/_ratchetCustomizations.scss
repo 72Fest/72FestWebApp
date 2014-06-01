@@ -2,3 +2,9 @@
 .bar-tab .tab-item {
     text-decoration: none;
 }
+
+//the iOS 7 nav bar title isn't align properly
+//not sure if this will effect android adversly
+h1.title {
+    padding-top: 5px;
+}
