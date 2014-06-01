@@ -15,7 +15,9 @@ define([
 
         id: 'homeView',
 
-        $countdownEl: '',
+        tagName: 'div',
+
+        $countdownContainerEl: null,
 
         className: '',
 
@@ -27,35 +29,42 @@ define([
             //this.listenTo(this.model, 'change', this.render);
             this.countdownView = new CountdownView();
 
-            //this.listenTo(this.countdownView.model, "change", this.renderCountdown);
+            this.listenTo(this.countdownView.model, "change", this.renderCountdown);
         },
 
         render: function () {
-
+            //remove cached version of jquery object
+            this.$countdownContainerEl = null;
             //populate view and then insert contents of subview
             this.$el.html(this.template());
-
             this.renderCountdown();
 
             return this;
         },
 
-        renderCountdown: function () {
-            //first render subview and get needed values
-            var countdownEl,
-                countdownSel;
+        renderCountdown: function (containerEl) {
+            var containerEl,
+                countdownEl = this.countdownView.render().$el;
 
-            this.countdownView.render();
-
-            if (!this.$countdownEl) {
-                //first render subview and get needed values
-                countdownEl = this.countdownView.$el;
-                countdownSel = "#" + countdownEl.attr("id");
-
-                this.$countdownEl = this.$el.find(countdownSel);
-                this.$countdownEl.html(this.countdownView.$el.html());
+            //if there is a cached version of the countdown container
+            //set that as the container element to insert the updated
+            //html content
+            if (this.$countdownContainerEl) {
+                containerEl = this.$countdownContainerEl;
+            } else {
+                //first try and grab container from DOM
+                containerEl = $("#countdownContainer");
+                if (containerEl.length === 1) {
+                    //if found in the DOM, cache the jquery call
+                    this.$countdownContainerEl = containerEl;
+                } else {
+                    //if not found in DOM, just set the current
+                    containerEl = this.$el.find("#countdownContainer");
+                }
             }
 
+            //populate html container file with updated rendering
+            containerEl.html(countdownEl.html());
         }
     });
 

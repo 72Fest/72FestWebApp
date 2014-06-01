@@ -58,7 +58,6 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 ### Client Setup
 
 ```
-$ cd client
 $ npm install
 $ bower install
 ```
@@ -99,5 +98,46 @@ To start the server, run the following from inside the server folder
 
 ```
 $ npm start
+```
+
+**NOTE:** The server also will be started when running `grunt serve`.
+
+## Phonegap
+
+Phonegap wraps the HTML into an iOS/Adroid app and henceforth is the final destination of the code. Before getting started with phonegap make sure you installed Xcode if you're wanting to install the app locally.
+
+We need to make sure we have phonegap installed globally
+
+```
+$ npm install -g phonegap
+```
+
+### iOS Setup
+
+Phonegap requires additional npm packages to deploy to the iOS device and iOS simulator
+
+```
+$ npm install -g ios-sim
+$ npm install -g ios-deploy
+```
+
+### Stage code for Phonegap
+
+**TODO**
+
+### Launching app on iOS
+
+Phonegap can be used to launch the app in either the simulator or directly to the device.
+
+To launch with the simulator:
+
+```
+$ phonegap run ios --emulator
+```
+
+To launch directly to the device:
+
+```
+$ phonegape run ios --device
 ```
 

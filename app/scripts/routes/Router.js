@@ -4,8 +4,9 @@ define([
     'jquery',
     'backbone',
     "views/HomeView",
-    "views/GalleryView"
-], function ($, Backbone, HomeView, GalleryView) {
+    "views/GalleryView",
+    "views/TeamsView"
+], function ($, Backbone, HomeView, GalleryView, TeamsView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -14,9 +15,24 @@ define([
         routes: {
             "": "homeHandler",
             "gallery": "galleryHandler",
-            "teams": "todoHandler",
+            "teams": "teamsViewHandler",
             "about": "todoHandler",
             "search": "todoHandler"
+        },
+        initialize: function() {
+            $("a.tab-item").click(function (e) {
+
+                //remove selection state from all tab items
+                $("a.tab-item").each(function() {
+                    $(this).removeClass("active");
+                });
+
+                //apply selection state to current tab item
+                $(this).addClass("active");
+
+                //retieve the tab label name
+                var tabLabelName = $(this).find(".tab-label").text();
+            });
         },
         homeHandler: function () {
             var newContent;
@@ -39,6 +55,11 @@ define([
             var newView = new GalleryView();
 
             that.swapContent(newView.render().$el.html());
+        },
+        teamsViewHandler: function () {
+            var newView = new TeamsView();
+
+            this.swapContent(newView.render().$el.html());
         },
         todoHandler: function () {
             alert("TODO");

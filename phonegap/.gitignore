@@ -1,0 +1,5 @@
+//we don't want to track anything from platform builds
+platforms/*/www
+
+//we shouldn't really be committing new things in the www folder either
+www/

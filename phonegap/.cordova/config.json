@@ -1,1 +1,9 @@
-{"lib":{"www":{"id":"phonegap","version":"3.0.0","uri":"https://github.com/phonegap/phonegap-app-hello-world/archive/3.0.0.tar.gz"}},"id":"com.lonnygomes.72Fest","name":"72 Fest"}
+{
+    "lib": {
+        "www": {
+            "id": "com.lonnygomes.72Fest",
+            "version": "3.4.0",
+            "uri": "https://github.com/phonegap/phonegap-app-hello-world/archive/3.4.0.tar.gz"
+        }
+    }
+}
