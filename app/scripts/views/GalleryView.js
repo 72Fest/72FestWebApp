@@ -27,16 +27,30 @@ define([
         collection: new PhotosCollection(),
 
         initialize: function () {
-            this.listenTo(this.collection, 'add', this.addPhoto);
+            this.listenTo(this.collection, 'add', function (m) {
+                this.addPhoto(m);
+            });
         },
 
         render: function (model) {
+            var that = this,
+                c; //container to append photos
             this.$el.html(this.template());
+            c = this.$el.find("#" + this.galleryContainerId);
+
+            //add all photos to DOM
+            //TODO: make this more efficient to write to the DOM only once
+            this.collection.each(function (m) {
+                console.log("trying to add");
+                console.dir(c);
+                //supply the container it needs to add to
+                that.addPhoto(m, c);
+            });
             return this;
         },
 
-        addPhoto: function (m) {
-            var containerEl = $("#" + this.galleryContainerId),
+        addPhoto: function (m, contEl) {
+            var containerEl = contEl || $("#" + this.galleryContainerId),
                 photoView = new PhotoView({model: m});
             containerEl.prepend(photoView.render().$el);
         }

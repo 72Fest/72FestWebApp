@@ -27,7 +27,8 @@ module.exports = function (grunt) {
         app: 'app',
         dist: 'dist',
         server: 'server',
-        phonegap: 'phonegap/www'
+        phonegap: 'phonegap/www',
+        photos: 'server/public'
     };
 
     grunt.initConfig({
@@ -96,7 +97,8 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.app),
+                            mountFolder(connect, yeomanConfig.photos)
                         ];
                     }
                 }
