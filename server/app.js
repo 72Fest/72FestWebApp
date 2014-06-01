@@ -7,6 +7,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//monog db connection
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/72Fest');
+var db = mongoose.connection;
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var countDown = require('./routes/countDown');
@@ -61,5 +66,13 @@ app.use(function (err, req, res, next) {
     });
 });
 
+//handle DB stuff
+db.on('error', function (err) {
+    console.error("Had problems connecting to mongodb: " + err);
+    process.exit(1);
+});
+db.once('open', function callback () {
+  console.log("We connected to mongodb!");
+});
 
 module.exports = app;
