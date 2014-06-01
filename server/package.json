@@ -14,6 +14,8 @@
     "morgan": "~1.0.0",
     "mysql": "^2.2.0",
     "static-favicon": "~1.0.0",
-    "mongoose": "~3.8.12"
+    "mongoose": "~3.8.12",
+    "formidable": "~1.0.14",
+    "easyimage": "~0.1.6"
   }
 }
