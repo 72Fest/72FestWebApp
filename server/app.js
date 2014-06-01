@@ -33,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/photos", express.static(path.resolve(path.join(__dirname, 'public/photos'))));
 
 app.use('/', routes);
 app.use('/users', users);
