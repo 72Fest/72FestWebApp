@@ -52,7 +52,7 @@ define([
         addPhoto: function (m, contEl) {
             var containerEl = contEl || $("#" + this.galleryContainerId),
                 photoView = new PhotoView({model: m});
-            containerEl.prepend(photoView.render().$el);
+            containerEl.append(photoView.render().$el);
         }
     });
 

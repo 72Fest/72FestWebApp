@@ -1,3 +1,4 @@
+/*jslint nomen: true */
 /*global define*/
 
 define([
@@ -20,6 +21,16 @@ define([
                     console.error("Failed to retrieve photos");
                 }
             });
+        },
+        comparator: function (m1, m2) {
+            //we want to sort the collection by timestamp
+            var date1 = new Date(m1.get("timestamp")),
+                date2 = new Date(m2.get("timestamp"));
+
+            if (date1.getTime() === date2.getTime()) {
+                return 0;
+            }
+            return (date1.getTime() > date2.getTime()) ? -1 : 1;
         },
         parse: function (response) {
             //the expected api response is as follows:
