@@ -1,3 +1,4 @@
+/*jslint nomen: true */
 /*global define*/
 
 define([
@@ -5,8 +6,9 @@ define([
     'underscore',
     'backbone',
     'models/PhotoModel',
+    'events/PhotoEventManager',
     'templates'
-], function ($, _, Backbone, PhotoModel, JST) {
+], function ($, _, Backbone, PhotoModel, PhotoEventManager, JST) {
     'use strict';
 
     var PhotoView = Backbone.View.extend({
@@ -18,9 +20,17 @@ define([
 
         id: '',
 
-        className: '',
+        className: 'galleryPhotoContainer',
 
-        events: {},
+        events: {
+            'click': function (evt) {
+                //notify listeners of the PhotoEventManager that a
+                //photo was clicked
+                PhotoEventManager.trigger("photoClicked", {
+                    e: evt
+                });
+            }
+        },
 
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);

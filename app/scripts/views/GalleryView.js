@@ -7,8 +7,9 @@ define([
     'backbone',
     'collections/PhotosCollection',
     'views/PhotoView',
+    'events/PhotoEventManager',
     'templates'
-], function ($, _, Backbone, PhotosCollection, PhotoView, JST) {
+], function ($, _, Backbone, PhotosCollection, PhotoView, PhotoEventManager, JST) {
     'use strict';
 
     var GalleryView = Backbone.View.extend({
@@ -29,6 +30,10 @@ define([
         initialize: function () {
             this.listenTo(this.collection, 'add', function (m) {
                 this.addPhoto(m);
+            });
+
+            this.listenTo(PhotoEventManager, 'photoClicked', function (e) {
+                alert("now we are cooking");
             });
         },
 

@@ -9,7 +9,7 @@ define([
     var PhotoModelModel = Backbone.Model.extend({
         url: '',
 
-        initialize: function() {
+        initialize: function () {
         },
 
         idAttribute: '_id',
@@ -19,10 +19,10 @@ define([
             thumbUrl: ''
         },
 
-        validate: function(attrs, options) {
+        validate: function (attrs, options) {
         },
 
-        parse: function(response, options)  {
+        parse: function (response, options) {
             return response;
         }
     });
