@@ -17,14 +17,14 @@ define([
         routes: {
             "": "homeHandler",
             "gallery": "galleryHandler",
-            "teams": "teamsViewHandler",
+            "teams": "teamsHandler",
             "about": "aboutHandler",
             "search": "searchHandler"
         },
         tabsMap: {
             "homeHandler": "Home",
             "galleryHandler": "Gallery",
-            "teamsViewHandler": "Teams",
+            "teamsHandler": "Teams",
             "aboutHandler": "About",
             "searchHandler": "Search"
         },
@@ -54,7 +54,7 @@ define([
 
             that.swapContent(newView.render().$el.html());
         },
-        teamsViewHandler: function () {
+        teamsHandler: function () {
             var newView = new TeamsView();
 
             this.swapContent(newView.render().$el.html());
@@ -73,16 +73,17 @@ define([
             this.contentEl.html(contentHtml);
         },
         updateTab: function (routeName) {
-            var tabName = this.tabsMap[routeName];
+            var tabName = this.tabsMap[routeName],
+                curTabItem;
 
             //remove selection state from all tab items
             $("a.tab-item").each(function () {
                 $(this).removeClass("active");
             });
 
-            //
+            //if we found a mapping tabname lets move forward
             if (tabName) {
-                var curTabItem = $("span.tab-label:contains('" + tabName + "')").parent();
+                curTabItem = $("span.tab-label:contains('" + tabName + "')").parent();
 
                 //we found the parent tab item
                 if (curTabItem.length === 1) {
@@ -90,7 +91,6 @@ define([
                     curTabItem.addClass("active");
 
                 }
-                console.dir(curTabItem);
             } else {
                 console.error("Could not find tab name for " + routeName);
             }
