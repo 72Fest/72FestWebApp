@@ -123,7 +123,13 @@ $ npm install -g ios-deploy
 
 ### Stage code for Phonegap
 
-**TODO**
+Before deploying the app to phonegap, the current source code and related assets must be staged into the proper folders. We currently have a basic grunt process that runs the build process and copies the output into the proper phonegap directories.
+
+```
+$ grunt stage
+```
+
+After running the stage process, the latest codebase is staged for deployment to the emulator or mobile device.
 
 ### Launching app on iOS
 
