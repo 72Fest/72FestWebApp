@@ -19,6 +19,9 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
     <name>72Fest</name>
     <description>
         The offical mobile app for the Frederick 72Fest annual film festival.
@@ -69,7 +72,4 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     <access origin="http://127.0.0.1*" />
-    <feature name="Camera">
-        <param name="ios-package" value="CDVCamera" />
-    </feature>
 </widget>
