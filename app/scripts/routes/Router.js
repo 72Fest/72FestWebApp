@@ -19,20 +19,16 @@ define([
             "about": "todoHandler",
             "search": "todoHandler"
         },
-        initialize: function() {
-            $("a.tab-item").click(function (e) {
-
-                //remove selection state from all tab items
-                $("a.tab-item").each(function() {
-                    $(this).removeClass("active");
-                });
-
-                //apply selection state to current tab item
-                $(this).addClass("active");
-
-                //retieve the tab label name
-                var tabLabelName = $(this).find(".tab-label").text();
-            });
+        tabsMap: {
+            "homeHandler": "Home",
+            "galleryHandler": "Gallery",
+            "teamsViewHandler": "Teams",
+            "aboutHandler": "About",
+            "searchHandler": "Search"
+        },
+        initialize: function () {
+            //listen for route event and handle the tab updates
+            this.listenTo(this, "route", this.updateTab);
         },
         homeHandler: function () {
             var newContent;
@@ -51,8 +47,8 @@ define([
             this.swapContent(newContent);
         },
         galleryHandler: function () {
-            var that = this;
-            var newView = new GalleryView();
+            var that = this,
+                newView = new GalleryView();
 
             that.swapContent(newView.render().$el.html());
         },
@@ -66,6 +62,30 @@ define([
         },
         swapContent: function (contentHtml) {
             this.contentEl.html(contentHtml);
+        },
+        updateTab: function (routeName) {
+            var tabName = this.tabsMap[routeName];
+
+            //remove selection state from all tab items
+            $("a.tab-item").each(function () {
+                $(this).removeClass("active");
+            });
+
+            //
+            if (tabName) {
+                var curTabItem = $("span.tab-label:contains('" + tabName + "')").parent();
+
+                //we found the parent tab item
+                if (curTabItem.length === 1) {
+                    //apply selection state to current tab item
+                    curTabItem.addClass("active");
+
+                }
+                console.dir(curTabItem);
+            } else {
+                console.error("Could not find tab name for " + routeName);
+            }
+
         }
 
     });
