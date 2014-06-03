@@ -5,8 +5,9 @@ define([
     'backbone',
     "views/HomeView",
     "views/GalleryView",
-    "views/TeamsView"
-], function ($, Backbone, HomeView, GalleryView, TeamsView) {
+    "views/TeamsView",
+    "views/SearchView"
+], function ($, Backbone, HomeView, GalleryView, TeamsView, SearchView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -17,7 +18,7 @@ define([
             "gallery": "galleryHandler",
             "teams": "teamsViewHandler",
             "about": "todoHandler",
-            "search": "todoHandler"
+            "search": "searchHandler"
         },
         tabsMap: {
             "homeHandler": "Home",
@@ -54,6 +55,11 @@ define([
         },
         teamsViewHandler: function () {
             var newView = new TeamsView();
+
+            this.swapContent(newView.render().$el.html());
+        },
+        searchHandler: function () {
+            var newView = new SearchView();
 
             this.swapContent(newView.render().$el.html());
         },
