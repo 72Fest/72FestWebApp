@@ -21,7 +21,14 @@ define([
 
         className: '',
 
-        events: {},
+        events: {
+            "click #cameraBtn": function (e) {
+                alert("TODO: implement phonegap camera api");
+            },
+            "touchstart #cameraBtn": function () {
+                alert("???");
+            }
+        },
 
         countdownView: {},
 
@@ -42,7 +49,7 @@ define([
             return this;
         },
 
-        renderCountdown: function (containerEl) {
+        renderCountdown: function () {
             var containerEl,
                 countdownEl = this.countdownView.render().$el;
 
