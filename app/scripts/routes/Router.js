@@ -5,8 +5,10 @@ define([
     'backbone',
     "views/HomeView",
     "views/GalleryView",
-    "views/TeamsView"
-], function ($, Backbone, HomeView, GalleryView, TeamsView) {
+    "views/TeamsView",
+    "views/SearchView",
+    "views/AboutView"
+], function ($, Backbone, HomeView, GalleryView, TeamsView, SearchView, AboutView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -15,24 +17,20 @@ define([
         routes: {
             "": "homeHandler",
             "gallery": "galleryHandler",
-            "teams": "teamsViewHandler",
-            "about": "todoHandler",
-            "search": "todoHandler"
+            "teams": "teamsHandler",
+            "about": "aboutHandler",
+            "search": "searchHandler"
         },
-        initialize: function() {
-            $("a.tab-item").click(function (e) {
-
-                //remove selection state from all tab items
-                $("a.tab-item").each(function() {
-                    $(this).removeClass("active");
-                });
-
-                //apply selection state to current tab item
-                $(this).addClass("active");
-
-                //retieve the tab label name
-                var tabLabelName = $(this).find(".tab-label").text();
-            });
+        tabsMap: {
+            "homeHandler": "Home",
+            "galleryHandler": "Gallery",
+            "teamsHandler": "Teams",
+            "aboutHandler": "About",
+            "searchHandler": "Search"
+        },
+        initialize: function () {
+            //listen for route event and handle the tab updates
+            this.listenTo(this, "route", this.updateTab);
         },
         homeHandler: function () {
             var newContent;
@@ -51,21 +49,52 @@ define([
             this.swapContent(newContent);
         },
         galleryHandler: function () {
-            var that = this;
-            var newView = new GalleryView();
+            var that = this,
+                newView = new GalleryView();
 
             that.swapContent(newView.render().$el.html());
         },
-        teamsViewHandler: function () {
+        teamsHandler: function () {
             var newView = new TeamsView();
 
             this.swapContent(newView.render().$el.html());
         },
-        todoHandler: function () {
-            alert("TODO");
+        aboutHandler: function () {
+            var newView = new AboutView();
+
+            this.swapContent(newView.render().$el.html());
+        },
+        searchHandler: function () {
+            var newView = new SearchView();
+
+            this.swapContent(newView.render().$el.html());
         },
         swapContent: function (contentHtml) {
             this.contentEl.html(contentHtml);
+        },
+        updateTab: function (routeName) {
+            var tabName = this.tabsMap[routeName],
+                curTabItem;
+
+            //remove selection state from all tab items
+            $("a.tab-item").each(function () {
+                $(this).removeClass("active");
+            });
+
+            //if we found a mapping tabname lets move forward
+            if (tabName) {
+                curTabItem = $("span.tab-label:contains('" + tabName + "')").parent();
+
+                //we found the parent tab item
+                if (curTabItem.length === 1) {
+                    //apply selection state to current tab item
+                    curTabItem.addClass("active");
+
+                }
+            } else {
+                console.error("Could not find tab name for " + routeName);
+            }
+
         }
 
     });
