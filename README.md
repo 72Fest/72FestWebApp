@@ -31,7 +31,7 @@ xcode-select --install
 Now that homebrew is set up, install mongodb
 
 ```
-brew mongodb
+brew install mongodb
 ```
 
 After the installation completes, manually start mongodb
