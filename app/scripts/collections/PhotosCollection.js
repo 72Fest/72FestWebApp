@@ -4,13 +4,16 @@
 define([
     'underscore',
     'backbone',
-    'models/PhotoModel'
-], function (_, Backbone, PhotoModel) {
+    'models/PhotoModel',
+    'util/ConfigManager'
+], function (_, Backbone, PhotoModel, ConfigManager) {
     'use strict';
 
     var PhotosCollection = Backbone.Collection.extend({
         model: PhotoModel,
-        url: 'http://localhost:3000/api/photos?callback=?',
+        url: function () {
+            return ConfigManager.baseAPIURL + '/api/photos?callback=?';
+        },
         initialize: function () {
 
             this.fetch({

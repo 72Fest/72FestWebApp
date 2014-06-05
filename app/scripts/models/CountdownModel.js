@@ -3,8 +3,9 @@
 
 define([
     'underscore',
-    'backbone'
-], function (_, Backbone) {
+    'backbone',
+    'util/ConfigManager'
+], function (_, Backbone, ConfigManager) {
     'use strict';
 
     var formatTimeValue,
@@ -17,7 +18,9 @@ define([
     CountdownModel = Backbone.Model.extend({
 
         //TODO: add a config var for this
-        url: 'http://localhost:3000/countDown?callback=?',
+        url: function () {
+            return ConfigManager.baseAPIURL + "/countDown?callback=?";
+        },
 
         initialize: function () {
             var that = this;
