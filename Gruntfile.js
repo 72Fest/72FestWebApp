@@ -193,7 +193,8 @@ module.exports = function (grunt) {
                         'underscore': '../../<%= yeoman.app %>/bower_components/underscore/underscore',
                         'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
                         'ratchet': '../../<%= yeoman.app %>/bower_components/ratchet/dist/js/ratchet',
-                        'fastclick': '../../<%= yeoman.app %>/bower_components/fastclick/lib/fastclick'},
+                        'fastclick': '../../<%= yeoman.app %>/bower_components/fastclick/lib/fastclick',
+                        'text': '../../<%= yeoman.app %>/bower_components/requirejs-text/text'},
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,

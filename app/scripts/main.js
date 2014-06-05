@@ -17,7 +17,8 @@ require.config({
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
         handlebars: '../bower_components/handlebars/handlebars',
         ratchet: '../bower_components/ratchet/dist/js/ratchet',
-        fastclick: '../bower_components/fastclick/lib/fastclick'
+        fastclick: '../bower_components/fastclick/lib/fastclick',
+        text: '../bower_components/requirejs-text/text'
     }
 });
 
