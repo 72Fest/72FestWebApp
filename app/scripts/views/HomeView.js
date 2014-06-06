@@ -43,7 +43,7 @@ define([
             //remove cached version of jquery object
             this.$countdownContainerEl = null;
             //populate view and then insert contents of subview
-            this.$el.html(this.template());
+            this.$el.html(this.template({isAuth: false}));
             this.renderCountdown();
 
             return this;
