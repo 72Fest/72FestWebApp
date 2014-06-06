@@ -33,7 +33,6 @@ define([
             this.listenTo(this, "route", this.updateTab);
         },
         homeHandler: function () {
-            var newContent;
             //we want to keep home view around
             if (this.homeView === null) {
                 this.homeView = new HomeView();
@@ -42,35 +41,27 @@ define([
             //render the view
             this.homeView.render();
 
-            //get reference to the html
-            newContent = this.homeView.$el.html();
-
             //pass in new content
-            this.swapContent(newContent);
+            this.swapContent(this.homeView);
         },
         galleryHandler: function () {
-            var that = this,
-                newView = new GalleryView();
-
-            that.swapContent(newView.render().$el.html());
+            this.swapContent(new GalleryView());
         },
         teamsHandler: function () {
-            var newView = new TeamsView();
-
-            this.swapContent(newView.render().$el.html());
+            this.swapContent(new TeamsView());
         },
         aboutHandler: function () {
-            var newView = new AboutView();
-
-            this.swapContent(newView.render().$el.html());
+            this.swapContent(new AboutView());
         },
         searchHandler: function () {
-            var newView = new SearchView();
-
-            this.swapContent(newView.render().$el.html());
+            this.swapContent(new SearchView());
         },
-        swapContent: function (contentHtml) {
-            this.contentEl.html(contentHtml);
+        swapContent: function (view) {
+            //render view and replace content into placeholder
+            this.contentEl.html(view.render().$el.html());
+
+            //notify view it is ready for the DOM
+            view.trigger("ready", {});
         },
         updateTab: function (routeName) {
             var tabName = this.tabsMap[routeName],
