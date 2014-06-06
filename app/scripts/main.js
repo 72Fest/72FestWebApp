@@ -18,7 +18,8 @@ require.config({
         handlebars: '../bower_components/handlebars/handlebars',
         ratchet: '../bower_components/ratchet/dist/js/ratchet',
         fastclick: '../bower_components/fastclick/lib/fastclick',
-        text: '../bower_components/requirejs-text/text'
+        text: '../bower_components/requirejs-text/text',
+        localstorage: '../bower_components/backbone-localstorage/backbone-localstorage'
     }
 });
 
