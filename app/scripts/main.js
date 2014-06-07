@@ -8,6 +8,13 @@ require.config({
         },
         handlebars: {
             exports: 'Handlebars'
+        },
+        localstorage: {
+            deps: ['backbone']
+        },
+        backbone: {
+            deps: ['underscore'],
+            exports: 'Backbone'
         }
     },
     paths: {
@@ -16,10 +23,10 @@ require.config({
         underscore: '../bower_components/underscore/underscore',
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
         handlebars: '../bower_components/handlebars/handlebars',
-        ratchet: '../bower_components/ratchet/dist/js/ratchet',
+        ratchet_segmented_control: '../bower_components/ratchet/js/segmented-controllers',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         text: '../bower_components/requirejs-text/text',
-        localstorage: '../bower_components/backbone-localstorage/backbone-localstorage'
+        localstorage: '../bower_components/backbone.localStorage/backbone.localStorage'
     }
 });
 
@@ -27,8 +34,7 @@ require([
     'backbone',
     "jquery",
     "fastclick",
-    "routes/Router",
-    "ratchet"
+    "routes/Router"
 ], function (Backbone, $, FastClick, Router) {
     "use strict";
 
