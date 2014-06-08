@@ -8,7 +8,8 @@ define([
     'collections/PhotosCollection',
     'views/PhotoView',
     'events/PhotoEventManager',
-    'templates'
+    'templates',
+    'swipebox'
 ], function ($, _, Backbone, PhotosCollection, PhotoView, PhotoEventManager, JST) {
     'use strict';
 
@@ -33,7 +34,13 @@ define([
             });
 
             this.listenTo(PhotoEventManager, 'photoClicked', function (e) {
-                alert("now we are cooking");
+                //TODO:
+            });
+
+            this.listenTo(this, 'ready', function (e) {
+                console.log("ummm, ready");
+                //set up swiping
+                $('.swipebox').swipebox();
             });
         },
 

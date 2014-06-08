@@ -15,6 +15,9 @@ require.config({
         backbone: {
             deps: ['underscore'],
             exports: 'Backbone'
+        },
+        swipebox: {
+            deps: ['jquery']
         }
     },
     paths: {
@@ -26,7 +29,8 @@ require.config({
         ratchet_segmented_control: '../bower_components/ratchet/js/segmented-controllers',
         fastclick: '../bower_components/fastclick/lib/fastclick',
         text: '../bower_components/requirejs-text/text',
-        localstorage: '../bower_components/backbone.localStorage/backbone.localStorage'
+        localstorage: '../bower_components/backbone.localStorage/backbone.localStorage',
+        swipebox: '../bower_components/swipebox/src/js/jquery.swipebox'
     }
 });
 
