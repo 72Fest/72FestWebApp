@@ -5,6 +5,7 @@
 #Requirements
 
 * nodejs
+* ruby
 * mysql
 * mongodb
 
@@ -114,7 +115,7 @@ $ npm install -g phonegap
 
 ### iOS Setup
 
-Phonegap requires additional npm packages to deploy to the iOS device and iOS simulator
+Phonegap requires additional npm packages to deploy to the iOS device and iOS simulator. This only has to be run once.
 
 ```
 $ npm install -g ios-sim
@@ -144,6 +145,6 @@ $ phonegap run ios --emulator
 To launch directly to the device:
 
 ```
-$ phonegape run ios --device
+$ phonegap run ios --device
 ```
 
