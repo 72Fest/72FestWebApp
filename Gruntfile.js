@@ -331,6 +331,18 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+        shell: {
+            npmInstall: {
+                command: [
+                    'npm install',
+                    'cd server',
+                    'npm install'
+                ].join('&&')
+            },
+            bowerInstall: {
+                command: 'bower install'
+            }
         }
     });
 
@@ -414,6 +426,11 @@ module.exports = function (grunt) {
         'clean:phonegap',
         'build',
         'copy:phonegap'
+    ]);
+
+    grunt.registerTask('install', [
+        'shell:npmInstall',
+        'shell:bowerInstall'
     ]);
 
     grunt.registerTask('default', [
