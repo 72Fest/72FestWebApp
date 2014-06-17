@@ -342,6 +342,22 @@ module.exports = function (grunt) {
             },
             bowerInstall: {
                 command: 'bower install'
+            },
+            phonegapRuniOSDevice: {
+                options: {
+                    execOptions: {
+                        cwd: '<%= yeoman.phonegap %>'
+                    }
+                },
+                command: 'phonegap run ios --device'
+            },
+            phonegapRuniOSSim: {
+                options: {
+                    execOptions: {
+                        cwd: '<%= yeoman.phonegap %>'
+                    }
+                },
+                command: 'phonegap run ios --emulator'
             }
         }
     });
@@ -426,6 +442,11 @@ module.exports = function (grunt) {
         'clean:phonegap',
         'build',
         'copy:phonegap'
+    ]);
+
+    grunt.registerTask('device', [
+        'stage',
+        'shell:phonegapRuniOSDevice'
     ]);
 
     grunt.registerTask('install', [

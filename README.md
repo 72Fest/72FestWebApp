@@ -56,11 +56,12 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 ```
 
 
-### Client Setup
+### Initial Setup
+
+After cloning the project or pulling in new changes to the project, npm and bower must be run to ensure all the dependencies are retrieved. A grunt class was created to simplify the process.
 
 ```
-$ npm install
-$ bower install
+$ grunt install
 ```
 
 Next, since we are using SASS we need to install the Ruby gem name compass (not sure if this is needed to be honest)
