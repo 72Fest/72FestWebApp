@@ -2,21 +2,24 @@
 
 define([
     'underscore',
-    'backbone'
-], function (_, Backbone) {
+    'backbone',
+    'util/ConfigManager'
+], function (_, Backbone, ConfigManager) {
     'use strict';
 
     var PhotoModelModel = Backbone.Model.extend({
         url: '',
 
         initialize: function () {
+            this.set({baseUrl: ConfigManager.baseAPIURL});
         },
 
         idAttribute: '_id',
 
         defaults: {
             photoUrl: '',
-            thumbUrl: ''
+            thumbUrl: '',
+            baseUrl: ''
         },
 
         validate: function (attrs, options) {
