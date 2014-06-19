@@ -18,13 +18,13 @@ To get started,  you'll need nodejs and mongodb installed.
 If on the Mac, the easiest way to manage open source packages is through homebrew. Homebrew is written in Ruby and can be installed with one line:
 
 ```
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 ```
 
 To properly compile everything, you need to get Xcode command line tools. They can be retrieved with the following command:
 
 ```
-xcode-select --install
+$ xcode-select --install
 ```
 
 ### Mongodb Setup
@@ -32,13 +32,13 @@ xcode-select --install
 Now that homebrew is set up, install mongodb
 
 ```
-brew install mongodb
+$ brew install mongodb
 ```
 
 After the installation completes, manually start mongodb
 
 ```
-mongod --config /usr/local/etc/mongod.conf
+$ mongod --config /usr/local/etc/mongod.conf
 ```
 
 **NOTE:** You will have to manually start mongodb after each restart.
@@ -46,13 +46,13 @@ mongod --config /usr/local/etc/mongod.conf
 You can optionally set mongodb to run at login time by typing the following:
 
 ```
-ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+$ ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 ```
 
 Then to launch mongodb now type the following (this will not have to be typed after restarting):
 
 ```
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 ```
 
 
@@ -149,3 +149,16 @@ To launch directly to the device:
 $ phonegap run ios --device
 ```
 
+Alternatively, a grunt tasks were created to both stage and launch the app into phonegap.
+
+#### Launching App for iOS to Device Using Grunt
+
+```
+$ grunt device
+```
+
+#### Launching App for iOS to Simulator Using Grunt
+
+```
+$ grunt simulator
+```
