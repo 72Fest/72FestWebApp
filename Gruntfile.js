@@ -449,6 +449,11 @@ module.exports = function (grunt) {
         'shell:phonegapRuniOSDevice'
     ]);
 
+    grunt.registerTask('simulator', [
+        'stage',
+        'shell:phonegapRuniOSSim'
+    ]);
+
     grunt.registerTask('install', [
         'shell:npmInstall',
         'shell:bowerInstall'
