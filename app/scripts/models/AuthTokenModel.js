@@ -1,3 +1,4 @@
+/*jslint nomen: true */
 /*global define*/
 
 define([
@@ -7,17 +8,17 @@ define([
     'use strict';
 
     var AuthTokenModel = Backbone.Model.extend({
-        initialize: function() {
+        initialize: function () {
         },
 
         defaults: {
             authToken: ''
         },
 
-        validate: function(attrs, options) {
+        validate: function (attrs, options) {
         },
 
-        parse: function(response, options)  {
+        parse: function (response, options) {
             return response;
         }
     });

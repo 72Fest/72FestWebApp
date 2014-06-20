@@ -24,17 +24,6 @@ define([
 
         initialize: function () {
             var that = this;
-            //while data is loading, we want to set the time remaining
-            //with place holder data
-//            var timeLeft = {
-//                    day: "--",
-//                    hour: "--",
-//                    minute: "--",
-//                    second: "--"
-//                },
-//                that = this;
-//
-//            this.set({remainingTime: timeLeft});
 
             //Attempt to retreive countdown data from the endpoint
             this.fetch({

@@ -38,7 +38,6 @@ define([
             });
 
             this.listenTo(this, 'ready', function (e) {
-                console.log("ummm, ready");
                 //set up swiping
                 $('.swipebox').swipebox();
             });
@@ -53,8 +52,6 @@ define([
             //add all photos to DOM
             //TODO: make this more efficient to write to the DOM only once
             this.collection.each(function (m) {
-                console.log("trying to add");
-                console.dir(c);
                 //supply the container it needs to add to
                 that.addPhoto(m, c);
             });

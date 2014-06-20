@@ -1,3 +1,4 @@
+/*jslint nomen: true */
 /*global define*/
 
 define([
