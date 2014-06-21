@@ -8,6 +8,8 @@
 * ruby
 * mysql
 * mongodb
+* grunt
+* phonegap
 
 ## Setup
 
@@ -106,7 +108,7 @@ $ npm start
 
 ## Phonegap
 
-Phonegap wraps the HTML into an iOS/Adroid app and henceforth is the final destination of the code. Before getting started with phonegap make sure you installed Xcode if you're wanting to install the app locally.
+Phonegap wraps the HTML into an iOS/Adroid app which how the code will be delivered. Before getting started with phonegap make sure you installed Xcode if you're wanting to install the app locally.
 
 We need to make sure we have phonegap installed globally
 
