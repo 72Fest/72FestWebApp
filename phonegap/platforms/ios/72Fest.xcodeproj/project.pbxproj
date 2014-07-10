@@ -41,6 +41,7 @@
 		12F9835C0304471E84739481 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CA11D13619482CA3FC110D /* CDVCamera.m */; };
 		E6B1ABDEB8A446AD8FC82B9F /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EEADB85887CE4E91948DBAA8 /* CDVJpegHeaderWriter.m */; };
 		25FC3792F3434C5C9F00AE57 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D94F6679BE64836A512F2FC /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ADD1697749964A79BFFC5B78 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A84692D8854091868B8AFE /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		71D8FB953A3245AF9B6DAB91 /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVJpegHeaderWriter.h"; path = "org.apache.cordova.camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		727F76FDE1434C9D883ABC06 /* CDVExif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVExif.h"; path = "org.apache.cordova.camera/CDVExif.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		1D94F6679BE64836A512F2FC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		83A84692D8854091868B8AFE /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		D3E9E3F42D1D4F48A848BF5E /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +241,8 @@
 				96C707F6EC5742CEB40F06F8 /* CDVCamera.h */,
 				71D8FB953A3245AF9B6DAB91 /* CDVJpegHeaderWriter.h */,
 				727F76FDE1434C9D883ABC06 /* CDVExif.h */,
+				83A84692D8854091868B8AFE /* CDVDevice.m */,
+				D3E9E3F42D1D4F48A848BF5E /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = "72Fest/Plugins";
@@ -434,6 +439,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				12F9835C0304471E84739481 /* CDVCamera.m in Sources */,
 				E6B1ABDEB8A446AD8FC82B9F /* CDVJpegHeaderWriter.m in Sources */,
+				ADD1697749964A79BFFC5B78 /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
