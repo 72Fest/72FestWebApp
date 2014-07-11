@@ -196,7 +196,9 @@ module.exports = function (grunt) {
                         'fastclick': '../../<%= yeoman.app %>/bower_components/fastclick/lib/fastclick',
                         'text': '../../<%= yeoman.app %>/bower_components/requirejs-text/text',
                         'localstorage': '../../<%= yeoman.app %>/bower_components/backbone.localStorage/backbone.localStorage',
-                        'swipebox': '../../<%= yeoman.app %>/bower_components/swipebox/src/js/jquery.swipebox'},
+                        'swipebox': '../../<%= yeoman.app %>/bower_components/swipebox/src/js/jquery.swipebox',
+                        'phonegap': '../../<%= yeoman.phonegap %>/../platforms/ios/www/phonegap'
+                    },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,

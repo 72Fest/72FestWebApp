@@ -30,7 +30,8 @@ require.config({
         fastclick: '../bower_components/fastclick/lib/fastclick',
         text: '../bower_components/requirejs-text/text',
         localstorage: '../bower_components/backbone.localStorage/backbone.localStorage',
-        swipebox: '../bower_components/swipebox/src/js/jquery.swipebox'
+        swipebox: '../bower_components/swipebox/src/js/jquery.swipebox',
+        phonegap: '../bower_components/phonegap.shim/phonegap.shim'
     }
 });
 
@@ -38,7 +39,8 @@ require([
     'backbone',
     "jquery",
     "fastclick",
-    "routes/Router"
+    "routes/Router",
+    "phonegap"
 ], function (Backbone, $, FastClick, Router) {
     "use strict";
 
