@@ -70,10 +70,11 @@ define([
 
             //Home screen will stick around so we really
             this.listenTo(this, "ready", function () {
+                var that = this;
 
                 $("#authForm").submit(mangageAuth);
                 $("#cameraBtn").click(function (e) {
-                    alert("TODO");
+                    that.retreivePhoto();
                 });
             });
 
@@ -122,6 +123,31 @@ define([
 
             //populate html container file with updated rendering
             containerEl.html(countdownEl.html());
+        },
+
+        retreivePhoto: function () {
+            //for now, if not run within phonegap don't continue
+            if (!Camera) {
+                alert("Phonegap API not available");
+                return false;
+            }
+
+            var photoOptions = {
+                quality: 45,
+                targetWidth: 1000,
+                targetHeight: 1000,
+                destinationType: Camera.DestinationType.FILE_URI,
+                encodingType: Camera.EncodingType.JPEG,
+                sourceType: Camera.PictureSourceType.CAMERA
+            };
+
+            navigator.camera.getPicture(function (imageURI) {
+                console.log("image URI:" + imageURI);
+            }, function (message) {
+                //console log
+            }, photoOptions);
+
+            return false;
         }
     });
 
