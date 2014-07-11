@@ -13,7 +13,8 @@
     "ratchet": "~2.0.2",
     "fastclick": "~1.0.2",
     "backbone.localStorage": "~1.1.7",
-    "swipebox": "~1.2.9"
+    "swipebox": "~1.2.9",
+    "phonegap.shim": "~0.3.0"
   },
   "devDependencies": {}
 }
