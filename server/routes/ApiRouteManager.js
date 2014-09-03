@@ -7,6 +7,7 @@ var express = require('express'),
     util = require('util'),
     fs = require('fs'),
     path = require('path'),
+    extend = require('util')._extend,
     photosBasePath = 'public/photos',
     thumbnailDimension = 100,
     db = null,
@@ -24,6 +25,10 @@ var express = require('express'),
             minute: 0,
             second: 0
         }
+    },
+    //default photos metadata if not retreived from DB
+    photosMetadata = {
+        baseUrl: "http://localhost:3000"
     },
     initPhotoSchema = function (mg) {
         "use strict";
@@ -159,13 +164,21 @@ router.get('/countDown', function (req, res) {
 router.get('/photos', function (req, res) {
     "use strict";
 
+    var resultsObj = {
+        metadata: extend({}, photosMetadata),
+        photos: []
+    };
+
+    //TODO: retrieve photos metadata from mongodb
+
     Photo.find({}).sort({timestamp: -1}).exec(function (err, models) {
         //handle photo results
         if (err) {
             sendResult(res, false, "Failed to retrieve list of photos!");
         } else {
-            //res.end(JSON.stringify(models));
-            sendResult(res, true, models);
+            //add results to photos
+            resultsObj.photos = models;
+            sendResult(res, true, resultsObj);
         }
     });
 });
