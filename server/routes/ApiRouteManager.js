@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-/*global require, module, exports */
+/*global require, module, exports, __dirname */
 var express = require('express'),
     router = express.Router(),
     formidable = require('formidable'),
@@ -147,7 +147,7 @@ var express = require('express'),
 
 router.get('/', function (req, res) {
     "use strict";
-    res.end("OK");
+    sendResult(res, true, "Invalid API call");
 });
 
 router.get('/countDown', function (req, res) {
