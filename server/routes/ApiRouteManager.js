@@ -13,6 +13,18 @@ var express = require('express'),
     photoSchema = null,
     Photo = null,
     delegate = null,
+    //TODO: remove hardcoded reference into Mongo DB
+    countdownMetadata = {
+        caption: "Film Screening Countdown",
+        time: {
+            year: 2014,
+            month: 10,
+            day: 11,
+            hour: 18,
+            minute: 0,
+            second: 0
+        }
+    },
     initPhotoSchema = function (mg) {
         "use strict";
 
@@ -136,6 +148,12 @@ var express = require('express'),
 router.get('/', function (req, res) {
     "use strict";
     res.end("OK");
+});
+
+router.get('/countDown', function (req, res) {
+    "use strict";
+
+    sendResult(res, true, JSON.stringify(countdownMetadata));
 });
 
 router.get('/photos', function (req, res) {
