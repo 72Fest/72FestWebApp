@@ -48,7 +48,7 @@ var express = require('express'),
             message: msg
         };
         //res.writeHead(200, {'content-type': 'application/json'});
-        res.jsonp(JSON.stringify(obj));
+        res.jsonp(obj);
     },
     processUpload = function (fileObj, callback) {
         "use strict";
@@ -153,7 +153,7 @@ router.get('/', function (req, res) {
 router.get('/countDown', function (req, res) {
     "use strict";
 
-    sendResult(res, true, JSON.stringify(countdownMetadata));
+    sendResult(res, true, countdownMetadata);
 });
 
 router.get('/photos', function (req, res) {
@@ -165,7 +165,7 @@ router.get('/photos', function (req, res) {
             sendResult(res, false, "Failed to retrieve list of photos!");
         } else {
             //res.end(JSON.stringify(models));
-            sendResult(res, true, JSON.stringify(models));
+            sendResult(res, true, models);
         }
     });
 });
