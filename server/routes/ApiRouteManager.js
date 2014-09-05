@@ -244,11 +244,63 @@ router.get('/votes/:voteId', function (req, res) {
         if (err) {
             sendResult(res, false, "Failed to retrieve votes for specified id!");
         } else if (voteModel === null) {
+            //if not in the DB, just return zero votes
             sendResult(res, true, { id: voteId, votes: 0});
         } else {
-            sendResult(res, true, req.params.voteId);
+            sendResult(res, true, { id: voteId, votes: voteModel.votes});
         }
     });
+});
+router.post('/vote', function (req, res) {
+    "use strict";
+
+    var form = new formidable.IncomingForm(),
+        voteId,
+        voteTotal,
+        unliked;
+
+    form.parse(req, function (err, fields, files) {
+        if (err) {
+            sendResult(res, false, "Failed to process vote request!");
+        } else {
+            voteId = fields.id;
+            unliked = (fields.unlike === undefined) ? false : true;
+
+            if (!voteId) {
+                sendResult(res, false, "Invalid vote request!");
+                return;
+            }
+
+            //lets get current value
+            Vote.findOne({ id: voteId}, 'id votes', function (err, voteModel) {
+                if (err) {
+                    sendResult(res, false, "Failed to process vote request!");
+                    return;
+                }
+
+                if (voteModel) {
+                    voteTotal = Math.max((unliked) ? voteModel.votes -= 1 : voteModel.votes += 1, 0);
+                    voteModel.votes = voteTotal;
+                } else {
+                    voteTotal = 1;
+                    voteModel = new Vote({id: voteId, votes: voteTotal});
+                }
+
+                voteModel.save(function (err) {
+                    if (err) {
+                        sendResult(res, false, "Failed to process vote request!");
+                    } else {
+                        console.log("TOTAL VOTES: " + voteId + ", " + voteTotal);
+                        sendResult(res, true, { id: voteId, votes: voteTotal});
+                    }
+                });
+
+            });
+
+            console.log("the ID:" + voteId + ", and unlike status:" + unliked);
+        }
+    });
+
 });
 
 router.post('/upload', function (req, res) {
