@@ -52,7 +52,7 @@ var express = require('express'),
 
         var schema = mg.Schema({
             id: String,
-            votes: Number
+            votes: { type: Number, default: 0 }
         });
 
         return schema;
@@ -234,6 +234,23 @@ router.get('/votes', function (req, res) {
 
     });
 });
+router.get('/votes/:voteId', function (req, res) {
+    "use strict";
+
+    var voteId = req.params.voteId;
+
+    //TODO: sanatize the voteId
+    Vote.findOne({ id: voteId}, 'id votes', function (err, voteModel) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve votes for specified id!");
+        } else if (voteModel === null) {
+            sendResult(res, true, { id: voteId, votes: 0});
+        } else {
+            sendResult(res, true, req.params.voteId);
+        }
+    });
+});
+
 router.post('/upload', function (req, res) {
     "use strict";
 
