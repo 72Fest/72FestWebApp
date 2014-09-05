@@ -13,6 +13,8 @@ var express = require('express'),
     db = null,
     photoSchema = null,
     Photo = null,
+    voteSchema = null,
+    Vote = null,
     delegate = null,
     //TODO: remove hardcoded reference into Mongo DB
     countdownMetadata = {
@@ -41,6 +43,16 @@ var express = require('express'),
             originalPath: String,
             originalPhotoName: String,
             timestamp: Date
+        });
+
+        return schema;
+    },
+    initVoteSchema = function (mg) {
+        "use strict";
+
+        var schema = mg.Schema({
+            id: String,
+            votes: Number
         });
 
         return schema;
@@ -128,9 +140,12 @@ var express = require('express'),
         //save mongo reference
         db = dbRef;
 
-        //initialize mongoose schema and models
+        //initialize mongoose schemas and models
         photoSchema = initPhotoSchema(db);
         Photo = db.model("Photo", photoSchema);
+
+        voteSchema = initVoteSchema(db);
+        Vote = db.model("Vote", voteSchema);
 
         //create the ouptfolder if it doesn't already exist
         //make sure dir exists
@@ -172,14 +187,51 @@ router.get('/photos', function (req, res) {
     //TODO: retrieve photos metadata from mongodb
 
     Photo.find({}).sort({timestamp: -1}).exec(function (err, models) {
+        var idx,
+            curObj,
+            results = [];
+
         //handle photo results
         if (err) {
             sendResult(res, false, "Failed to retrieve list of photos!");
         } else {
+            //loop through results and build index
+            for (idx = 0; idx < models.length; idx += 1) {
+                curObj = {
+                    id: models[idx]._id,
+                    photoUrl: models[idx].photoUrl,
+                    thumbUrl: models[idx].thumbUrl
+                };
+
+                results.push(curObj);
+            }
             //add results to photos
-            resultsObj.photos = models;
+            resultsObj.photos = results;
             sendResult(res, true, resultsObj);
         }
+    });
+});
+router.get('/votes', function (req, res) {
+    "use strict";
+
+    var idx,
+        results = [];
+
+    Vote.find({}).exec(function (err, models) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve list of votes!");
+        } else {
+            //loop through all votes
+            for (idx = 0; idx < models.length; idx += 1) {
+                results.push({
+                    id: models[idx].id,
+                    votes: models[idx].votes
+                });
+            }
+
+            sendResult(res, true, results);
+        }
+
     });
 });
 router.post('/upload', function (req, res) {
