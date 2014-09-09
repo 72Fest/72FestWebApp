@@ -11,10 +11,9 @@ var express = require('express'),
     photosBasePath = 'public/photos',
     thumbnailDimension = 100,
     db = null,
-    photoSchema = null,
     Photo = null,
-    voteSchema = null,
     Vote = null,
+    schemas = require('../schemas'),
     delegate = null,
     //TODO: remove hardcoded reference into Mongo DB
     countdownMetadata = {
@@ -30,32 +29,7 @@ var express = require('express'),
     },
     //default photos metadata if not retreived from DB
     photosMetadata = {
-        baseUrl: "http://localhost:3000"
-    },
-    initPhotoSchema = function (mg) {
-        "use strict";
-
-        var schema = mg.Schema({
-            size: Number,
-            photoUrl: String,
-            thumbUrl: String,
-            thumbPath: String,
-            originalPath: String,
-            originalPhotoName: String,
-            timestamp: Date
-        });
-
-        return schema;
-    },
-    initVoteSchema = function (mg) {
-        "use strict";
-
-        var schema = mg.Schema({
-            id: String,
-            votes: { type: Number, default: 0 }
-        });
-
-        return schema;
+        baseUrl: "http://192.168.1.10:3000"
     },
     sendResult = function (res, isSucc, msg) {
         "use strict";
@@ -141,11 +115,8 @@ var express = require('express'),
         db = dbRef;
 
         //initialize mongoose schemas and models
-        photoSchema = initPhotoSchema(db);
-        Photo = db.model("Photo", photoSchema);
-
-        voteSchema = initVoteSchema(db);
-        Vote = db.model("Vote", voteSchema);
+        Photo = schemas.Photo;
+        Vote = schemas.Vote;
 
         //create the ouptfolder if it doesn't already exist
         //make sure dir exists

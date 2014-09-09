@@ -11,12 +11,16 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/72Fest');
 var db = mongoose.connection;
+var schemas = require('./schemas');
 
 //routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var ApiRouteManager = require('./routes/ApiRouteManager');
 var api = new ApiRouteManager(mongoose, app);
+
+//seed data process
+var SeedImporter = require('./seed');
 
 var app = express();
 
@@ -75,7 +79,11 @@ db.on('error', function (err) {
     process.exit(1);
 });
 db.once('open', function callback () {
-  console.log("We connected to mongodb!");
+    console.log("We connected to mongodb!");
+
+    //initialize schemas before anyone tries using them
+    schemas.init(mongoose);
+    var seedImporter = new SeedImporter(mongoose);
 });
 
 module.exports = app;

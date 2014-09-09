@@ -1,0 +1,54 @@
+[
+    {
+        "teamName": "Film.Lovables",
+        "bio": "We are that team with the cool t-shirts every year",
+        "website": "http://www.filmlovables.com",
+        "logo": "filmLovablesLogo.png",
+        "films": [
+            {
+                "title": "2013 Entry",
+                "year": 2013,
+                "url": "https://www.youtube.com/watch?v=sZV42YMz96Q"
+            },
+            {
+                "title": "2012 Entry",
+                "year": 2012,
+                "url": "https://www.youtube.com/watch?v=IO56A47IA0g"
+            },
+            {
+                "title": "2011 Entry",
+                "year": 2011,
+                "url": "https://www.youtube.com/watch?v=IO56A47IA0g"
+            }
+        ]
+    },
+    {
+        "teamName": "The Collective",
+        "bio": "The Collective is one of the most significant groups of filmmakers ever to exist collectively.",
+        "website": "http://xthecollectivex.webs.com/",
+        "logo": "theCollectiveLogo.png"
+    },
+    {
+        "teamName": "Henlivision",
+        "bio": "Anthropomorphizing inanimate objects and calling it art",
+        "website": "http://www.henlivision.com",
+        "logo": "henlivisionLogo.jpg.png",
+        "films": [
+            {
+                "title": "Shape the Future",
+                "year": 2013,
+                "url": "http://vimeo.com/76356276"
+            },
+            {
+                "title": "Trip or Treat",
+                "year": 2012,
+                "url": "http://vimeo.com/51414160"
+            },
+            {
+                "title": "Duty of the Beast",
+                "year": 2010,
+                "url": "https://www.youtube.com/watch?v=xb6oNQCXS6Y"
+            }
+        ]
+    }
+]
