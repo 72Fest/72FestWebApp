@@ -82,7 +82,7 @@ db.on('error', function (err) {
 db.once('open', function callback () {
     console.log("We connected to mongodb!");
 
-    //initialize schemas before anyone tries using them
+    //initialize schemas
     schemas.init(mongoose);
     var seedImporter = new SeedImporter(mongoose);
 });

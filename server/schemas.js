@@ -8,7 +8,7 @@
         Vote,
         Team,
         initPhotoSchema = function (mg) {
-            var schema = mg.Schema({
+            var schema = new mg.Schema({
                 size: Number,
                 photoUrl: String,
                 thumbUrl: String,
@@ -22,7 +22,7 @@
         },
         initVoteSchema = function (mg) {
 
-            var schema = mg.Schema({
+            var schema = new mg.Schema({
                 id: String,
                 votes: { type: Number, default: 0 }
             });
@@ -30,7 +30,7 @@
             return schema;
         },
         initTeamSchema = function (mg) {
-            var schema = mg.Schema({
+            var schema = new mg.Schema({
                 teamName: String,
                 bio: String,
                 website: String,
@@ -49,15 +49,24 @@
         init = function (dbVal) {
             this.db = dbVal;
 
-            //initialize schemas
-            var photoSchema = initPhotoSchema(dbVal),
-                voteSchema = initVoteSchema(dbVal),
-                teamSchema = initTeamSchema(dbVal);
+            //define or retrieve schemas and save to a namespace
+            try {
+                this.Photo = dbVal.model("Photo");
+            } catch (err) {
+                this.Photo = dbVal.model("Photo", initPhotoSchema(dbVal));
+            }
 
-            //save schemas to namespace
-            this.Photo = dbVal.model("Photo", photoSchema);
-            this.Vote = dbVal.model("Vote", voteSchema);
-            this.Team = dbVal.model("Team", teamSchema);
+            try {
+                this.Vote = dbVal.model("Vote");
+            } catch (err2) {
+                this.Vote = dbVal.model("Vote", initVoteSchema(dbVal));
+            }
+
+            try {
+                this.Team = dbVal.model("Team");
+            } catch (err3) {
+                this.Team = dbVal.model("Team", initTeamSchema(dbVal));
+            }
         };
 
     exports.init = init;

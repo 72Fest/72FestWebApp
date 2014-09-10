@@ -6,6 +6,7 @@
     var teamsData = require("./seedData/teams.json"),
         schemas = require("./schemas"),
         SeedImporter = function (db) {
+            schemas.init(db);
             var Team = schemas.Team;
 
             //check if there are documents for the Team Schema
