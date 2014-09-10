@@ -13,6 +13,7 @@ var express = require('express'),
     db = null,
     Photo = null,
     Vote = null,
+    Team = null,
     schemas = require('../schemas'),
     delegate = null,
     //TODO: remove hardcoded reference into Mongo DB
@@ -115,8 +116,10 @@ var express = require('express'),
         db = dbRef;
 
         //initialize mongoose schemas and models
+        schemas.init(db);
         Photo = schemas.Photo;
         Vote = schemas.Vote;
+        Team = schemas.Team;
 
         //create the ouptfolder if it doesn't already exist
         //make sure dir exists
@@ -272,6 +275,40 @@ router.post('/vote', function (req, res) {
         }
     });
 
+});
+
+router.get('/teams', function (req, res) {
+    "use strict";
+
+    var idx;
+
+    Team.find({}).exec(function (err, models) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve list of teams!");
+        } else {
+            //return team models minus the _id field
+            sendResult(res, true, models);
+        }
+
+    });
+});
+router.get('/teams/:teamId', function (req, res) {
+    "use strict";
+
+    var teamId = req.params.teamId;
+
+    //TODO: sanatize the teamId
+    Team.findOne({ _id: teamId}, function (err, teamModel) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve details for specified team id!");
+        } else if (teamModel === null) {
+            //if not in the DB, just return empty object
+            sendResult(res, false, {});
+        } else {
+            //return team data
+            sendResult(res, true, teamModel);
+        }
+    });
 });
 
 router.post('/upload', function (req, res) {
