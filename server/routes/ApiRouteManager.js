@@ -18,19 +18,20 @@ var express = require('express'),
     delegate = null,
     //TODO: remove hardcoded reference into Mongo DB
     countdownMetadata = {
-        caption: "Film Screening Countdown",
+        caption: "Launch PartyCountdown",
         time: {
             year: 2014,
             month: 10,
-            day: 11,
-            hour: 18,
+            day: 2,
+            hour: 19,
             minute: 0,
             second: 0
         }
     },
     //default photos metadata if not retreived from DB
     photosMetadata = {
-        baseUrl: "http://192.168.1.10:3000"
+        baseUrl: "http://192.168.1.10:3000",
+        logosPath: "/logos"
     },
     sendResult = function (res, isSucc, msg) {
         "use strict";
@@ -287,6 +288,12 @@ router.get('/teams', function (req, res) {
             sendResult(res, false, "Failed to retrieve list of teams!");
         } else {
             //return team models minus the _id field
+            //also append full URL onto each model
+            models.forEach(function (teamModel) {
+                teamModel.logo = photosMetadata.baseUrl +
+                                 photosMetadata.logosPath + "/" +
+                                 teamModel.logo;
+            });
             sendResult(res, true, models);
         }
 
@@ -295,7 +302,8 @@ router.get('/teams', function (req, res) {
 router.get('/teams/:teamId', function (req, res) {
     "use strict";
 
-    var teamId = req.params.teamId;
+    var that = this,
+        teamId = req.params.teamId;
 
     //TODO: sanatize the teamId
     Team.findOne({ _id: teamId}, function (err, teamModel) {
@@ -306,6 +314,10 @@ router.get('/teams/:teamId', function (req, res) {
             sendResult(res, false, {});
         } else {
             //return team data
+            //pass full URL of logo when querying an individual team
+            teamModel.logo = photosMetadata.baseUrl +
+                             photosMetadata.logosPath + "/" +
+                             teamModel.logo;
             sendResult(res, true, teamModel);
         }
     });
