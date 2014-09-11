@@ -98,6 +98,27 @@ $ cd server
 $ npm install
 ```
 
+The node server uses imagemagick to process the images and must be installed on your system.
+
+#### On Ubuntu
+
+```
+$ apt-get install imagemagick
+```
+#### On Mac OS X
+
+```
+$ brew install imagemagick
+```
+
+#### On CentOS
+
+````
+$ yum install imagemagick
+
+```
+
+
 To start the server, run the following from inside the server folder
 
 ```
