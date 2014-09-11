@@ -8,17 +8,17 @@
             {
                 "title": "2013 Entry",
                 "year": 2013,
-                "url": "https://www.youtube.com/watch?v=sZV42YMz96Q"
+                "url": "http://www.youtube.com/embed/sZV42YMz96Q?feature=player_embedded"
             },
             {
                 "title": "2012 Entry",
                 "year": 2012,
-                "url": "https://www.youtube.com/watch?v=IO56A47IA0g"
+                "url": "https://www.youtube.com/embed/IO56A47IA0g?feature=player_embedded"
             },
             {
                 "title": "2011 Entry",
                 "year": 2011,
-                "url": "https://www.youtube.com/watch?v=IO56A47IA0g"
+                "url": "https://www.youtube.com/embed/zXCQRRNfaJY?feature=player_embedded"
             }
         ]
     },
@@ -32,22 +32,22 @@
         "teamName": "Henlivision",
         "bio": "Anthropomorphizing inanimate objects and calling it art",
         "website": "http://www.henlivision.com",
-        "logo": "henlivisionLogo.jpg.png",
+        "logo": "henlivisionLogo.jpg",
         "films": [
             {
                 "title": "Shape the Future",
                 "year": 2013,
-                "url": "http://vimeo.com/76356276"
+                "url": "http://player.vimeo.com/video/76356276"
             },
             {
                 "title": "Trip or Treat",
                 "year": 2012,
-                "url": "http://vimeo.com/51414160"
+                "url": "http://player.vimeo.com/video/51414160"
             },
             {
                 "title": "Duty of the Beast",
                 "year": 2010,
-                "url": "https://www.youtube.com/watch?v=xb6oNQCXS6Y"
+                "url": "https://www.youtube.com/embed/xb6oNQCXS6Y?feature=player_embedded"
             }
         ]
     }
