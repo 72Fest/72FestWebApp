@@ -2,12 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name = "viewport" content = "initial-scale = 1.0" />
     <title>72 Fest News Feed</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 50px;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            background-color: #599ea8;
+        }
+
+        .banner {
+            width: 100%;
+            height: 45px;
+            position: fixed;
+            border-bottom: 1px solid #959595;
+            background-color: #eee;
+            z-index: 4;
+        }
+
+        h1 {
+            font-family: "AvenirNextCondensed-Bold", Helvetica, sans-serif;
+            color: #404040;
+            margin: 3px 5px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .content {
+            position: relative;
+            top: 55px;
+
+        }
+
+        .feedContainer {
+            width: 90%;
+            background-color: #eee;
+            border: 2px solid #eee;
+            margin: auto;
+            margin-bottom: 15px;
+        }
+
+        .feedDate {
+            text-align: right;
+            padding: 0px 5px;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .feedContent {
+            padding: 3px 8px;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .feedMedia {
+            margin: auto;
+            width: 80%;
+        }
+
+
+    </style>
 </head>
 <body>
-    <h2>News Feed</h2>
+    <div class="banner">
+        <h1>News Feed</h1>
+    </div>
 
+    <div class="content">
+    <div class="feedContainer">
+        <p class="feedDate">October 2, 2014</p>
+        <p class="feedContent">Launch Party at Cafe 611 in Frederick Maryland OR Potomac Lounge. University Union. Towson Univ. Or Get your Criteria ONLINE.</p>
+    </div>
 
+    <div class="feedContainer">
+        <p class="feedDate">September 10, 2014</p>
+        <p class="feedContent">Your hosts Mikael Johnson and Doug Powell take on the classic Heat scene starring Al Pacino and Robert De Niro. A New one is released every Tuesday</p>
+        <div class="feedMedia">
+            <iframe width="240" height="170" src="//www.youtube.com/embed/QWElWkLub3A?feature=player_embedded" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+    </div>
+    <div class="feedContainer">
+        <p class="feedDate">September 12, 2014</p>
+        <p class="feedContent">Regular registration ends, prices go up.</p>
+    </div>
+    </div>
 </body>
 </html>
 
