@@ -50,5 +50,233 @@
                 "url": "https://www.youtube.com/embed/xb6oNQCXS6Y?feature=player_embedded"
             }
         ]
+    },
+    {
+        "teamName": "Haunted Sideshow",
+        "bio": "Haunted Sideshow Press is a small vanity press and creative group based in Ashburn, VA.",
+        "website": "http://www.hauntedsideshow.com/",
+        "logo": "Haunted_Sideshow_logo.jpg"
+    },
+    {
+        "teamName": "Lounge Rat Productions",
+        "bio": "Back for more!",
+        "logo": "Loungerats-2.jpg",
+        "films": [
+            {
+                "title": "The Death(s) of Gabe",
+                "year": 2013,
+                "url": "http://player.vimeo.com/video/dCY1BAV0kEI"
+            },
+            {
+                "title": "Hearts, Trees, and Cardboard Dreams",
+                "year": 2012,
+                "url": "http://player.vimeo.com/video/78MPrhkMZyE"
+            }
+        ]
+    },
+    {
+        "teamName": "Pecos Bill & The Wranglers",
+        "bio": "There’s a snake in my boots!",
+        "logo": "Pecos-FREEZE-TOMMY.jpg",
+        "films": [
+            {
+                "title": "Jeffery",
+                "year": 2013,
+                "url": "http://player.vimeo.com/video/76384225"
+            },
+            {
+                "title": "The Great Adventure",
+                "year": 2010,
+                "url": "http://player.vimeo.com/video/15742442"
+            },
+            {
+                "title": "Hearts, Trees, and Cardboard Dreams",
+                "year": 2008,
+                "url": "http://player.vimeo.com/video/2075794"
+            }
+        ]
+    },
+    {
+        "teamName": "Great Vengeance & Furious Anger",
+        "bio": "Returning for a 3rd year… this time, with even Greater Vengeance & more Furious Anger!",
+        "logo": "Great-VEngeance-IMG_8310.jpg",
+        "films": [
+            {
+                "title": "Domus",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/nZXxnxTDdPA?feature=player_embedded"
+            },
+            {
+                "title": "Web and Flow",
+                "year": 2011,
+                "url": "https://www.youtube.com/embed/Voxag14wN98?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Stepdad Productions",
+        "bio": "A group of people involved in the Frederick County Correctional Work Release Program. Once a year, we are let out to participate in the Frederick 72 Film Fest. In the past years, we’ve killed it.",
+        "logo": "stepdadCHAIRS-IMAGE-.jpg",
+        "films": [
+            {
+                "title": "Chairs",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/yn6Omp-s55k?feature=player_embedded"
+            },
+            {
+                "title": "Sheep People",
+                "year": 2011,
+                "url": "https://www.youtube.com/embed/-xvhQ8FnRgA?feature=player_embedded"
+            },
+            {
+                "title": "The Other Side",
+                "year": 2010,
+                "url": "https://www.youtube.com/embed/y6f4dYne8j0?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Black Lagoon",
+        "bio": "We have this crazy fetish where we have to point cameras at things and record them. It’s weird.",
+        "website": "https://www.youtube.com/channel/UCjhlV5GZVV0KmNVTM5IpnVw",
+        "logo": "BlackLagoon.png",
+        "films": [
+            {
+                "title": "Cult Classic",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/F0l2eXbofTY?feature=player_embedded"
+            },
+            {
+                "title": "Resolution",
+                "year": 2012,
+                "url": "https://www.youtube.com/embed/BKHG6-ghM6A?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Bright Boy Alert",
+        "bio": "Animation. Plagued.",
+        "logo": "bba-ico1-6.gif"
+    },
+    {
+        "teamName": "Unimental",
+        "bio": "Casey Morin and Adam Grayson were born. Born to make movies.",
+        "logo": "unimental-with-background.png",
+         "films": [
+            {
+                "title": "Deadmeat Pete",
+                "year": 2013,
+                "url": "http://player.vimeo.com/video/78491843"
+            },
+            {
+                "title": "Patricia's Box",
+                "year": 2012,
+                "url": "http://player.vimeo.com/video/51868769"
+            }
+        ]
+    },
+    {
+        "teamName": "Ophiuchus Pictures",
+        "bio": "Ophiuchus Pictures is a team of filmmakers dedicated to creating innovative and original video productions.",
+        "website": "http://www.vimeo.com/josiekaye",
+        "logo": "Ophiuchus-logo-thumbnail.png",
+        "films": [
+            {
+                "title": "High Stakes",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/fPWV2jZIMlk?feature=player_embedded"
+            },
+            {
+                "title": "Night Walk",
+                "year": 2012,
+                "url": "http://player.vimeo.com/video/57035121"
+            },
+            {
+                "title": "The World's Smelliest Man",
+                "year": 2011,
+                "url": "https://www.youtube.com/embed/GocL0zqCizQ?feature=player_embedded"
+            }
+        ]
+    },
+     {
+        "teamName": "Moonslaves",
+        "bio": "A fun, a dedicated group in dangerous relationship with cinematography.",
+        "logo": "MoonslavesSmall.jpg",
+         "films": [
+            {
+                "title": "Screw",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/Dt36eHopbaU?feature=player_embedded"
+            }
+        ]
+    },
+     {
+        "teamName": "DW Films",
+        "bio": "A committed film group who want to provoke and surprise ALL viewers.",
+        "website": "http://www.72fest.com/dallas-white-films/www.facebook.com/dallaswhitefilms",
+        "logo": "DWFILMS.jpg",
+         "films": [
+            {
+                "title": "Irreversible",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/1zo6cXLS2GQ?feature=player_embedded"
+            },
+            {
+                "title": "The Vanishing Field",
+                "year": 2012,
+                "url": "https://www.youtube.com/embed/neNfyIX3reU?feature=player_embedded"
+            }
+        ]
+    },
+     {
+        "teamName": "Crowded Elevator Pictures",
+        "bio": "We make short films in the DC metro area. 2,500 lbs is less of a \"limit\" and more of a \"goal.\"",
+        "website": "https://www.facebook.com/CrowdedElevator",
+        "logo": "CEP2.jpg",
+         "films": [
+            {
+                "title": "Parental Advisory",
+                "year": 2013,
+                "url": "http://player.vimeo.com/video/76774890"
+            },
+            {
+                "title": "Made For Each Other",
+                "year": 2012,
+                "url": "http://player.vimeo.com/video/51886371"
+            },
+            {
+                "title": "Ripped Off",
+                "year": 2011,
+                "url": "http://player.vimeo.com/video/29942663"
+            }
+        ]
+    },
+     {
+        "teamName": "Missing Link Cinema",
+        "bio": "Two guys, a girl, and a camera. That’s the dream",
+        "website": "http://missinglinkcinema.tumblr.com/",
+        "logo": "mlc.jpg",
+         "films": [
+            {
+                "title": "Uncertian Principles",
+                "year": 2013,
+                "url": "http://player.vimeo.com/video/76802253"
+            },
+            {
+                "title": "The Rising",
+                "year": 2012,
+                "url": "http://player.vimeo.com/video/51854025"
+            }
+        ]
+    },
+     {
+        "teamName": "Weapons Grade Geranium",
+        "bio": "We came from the future to dominate the 72 with the powers of friendship, teamwork, and boobies",
+        "logo": "wgg200pxlogo.jpg"
+    },
+     {
+        "teamName": "The Hateful Seven",
+        "bio": "The Hateful Seven is a group of film, communications, and music performance students at Camden County College in Blackwood, NJ. The members are Joe Romano, Matthew Mahoney, Emily Vidas, Spencer Taylor, Kellar Moore, Samantha Hitman, and Harrison Hitman. After being united over a forced love for beat poetry, the students decided to do another project together before they graduate and move apart.",
+        "logo": "hateful-seven-logo.png"
     }
 ]
