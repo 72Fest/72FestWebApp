@@ -283,7 +283,7 @@ router.get('/teams', function (req, res) {
 
     var idx;
 
-    Team.find({}).exec(function (err, models) {
+    Team.find({}).sort({teamName: 'asc'}).exec(function (err, models) {
         if (err) {
             sendResult(res, false, "Failed to retrieve list of teams!");
         } else {
@@ -294,6 +294,18 @@ router.get('/teams', function (req, res) {
                                  photosMetadata.logosPath + "/" +
                                  teamModel.logo;
             });
+
+            //Temporary patch to fix current iOS app
+            var tmpObj = {
+                "teamName": "",
+                "bio": "",
+                "website": "",
+                "logo": ""
+            };
+
+            models.push(tmpObj);
+            models.push(tmpObj);
+
             sendResult(res, true, models);
         }
 
