@@ -6,6 +6,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 //monog db connection
 var mongoose = require('mongoose');
@@ -23,6 +24,10 @@ var api = new ApiRouteManager(mongoose, app);
 var SeedImporter = require('./seed');
 
 var app = express();
+
+// set up logging
+var logFile = fs.createWriteStream('./access.log', {flags: 'a'});
+app.use(connect.logger({stream: logFile}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
