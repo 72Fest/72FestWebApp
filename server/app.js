@@ -26,8 +26,15 @@ var SeedImporter = require('./seed');
 var app = express();
 
 // set up logging
-var logFile = fs.createWriteStream('./access.log', {flags: 'a'});
-app.use(connect.logger({stream: logFile}));
+var logPath = __dirname + '/logs';
+var logFile = logPath + '/access.log';
+//if log path doesn't exist, create it
+if (!fs.existsSync(logPath)) {
+    fs.mkdirSync(logPath);
+}
+var accessLogStream = fs.createWriteStream(logFile, {flags: 'a'});
+console.log("Starting logging at: " + logFile);
+app.use(logger('combined', {stream: accessLogStream}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,7 +43,6 @@ app.set('view engine', 'jade');
 app.enable("jsonp callback");
 
 app.use(favicon());
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
