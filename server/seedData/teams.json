@@ -278,5 +278,70 @@
         "teamName": "The Hateful Seven",
         "bio": "The Hateful Seven is a group of film, communications, and music performance students at Camden County College in Blackwood, NJ. The members are Joe Romano, Matthew Mahoney, Emily Vidas, Spencer Taylor, Kellar Moore, Samantha Hitman, and Harrison Hitman. After being united over a forced love for beat poetry, the students decided to do another project together before they graduate and move apart.",
         "logo": "hateful-seven-logo.png"
+    },
+    {
+        "teamName": "Ah Muy Face",
+        "bio": "Offending old people since 2002!",
+        "logo": "amf.jpg"
+    },
+    {
+        "teamName": "Carpet Wall",
+        "bio": "Making movies after the bell",
+        "logo": "carpet.png"
+    },
+    {
+        "teamName": "Eye Jelly Cinema",
+        "bio": "We are the inevitable crusty stuff that gathers in the corners of your eye after a long sleep. The unattractive aftermath of a beautiful dream. The ‘rheum’ of life makes for the most interesting stories.",
+        "logo": "eye-jelly-logo.jpg"
+    },
+    {
+        "teamName": "On Call Collective",
+        "bio": "Art articulated to capture the attention of your senses. Youth meeting experience. Visual, Audio, and Written expression under one collective, displaying the passion and creativity of the next wave artists. On Call Collective consists of artists from the Frederick area spanning to California, New York and New Orleans.",
+        "logo": "On-Call-Collective-logo.jpg"
+    },
+    {
+        "teamName": "Visually Wird",
+        "bio": "A team of Digital Film Production Students of the Art Institute of Washington.",
+        "logo": "Team_VisuallyWired_Logo.png"
+    },
+    {
+        "teamName": "Empty Bottle Studios",
+        "bio": "Empty Bottle Studios is the combined effort of several individuals to make something worthwhile and entertaining.",
+        "logo": "empbotstu-logo-sized-for-film-fest.png",
+        "films": [
+            {
+                "title": "Dimishing Returns",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/2YrbZIN3r1A?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Molten Llama Films",
+        "bio": "We were once a bunch of high school kids making movies. Now we’re a bunch of college kids making movies.",
+        "logo": "Molten-Llama-Logo-2014.png",
+        "website":"https://www.facebook.com/MoltenLlamaFilms",
+        "films": [
+            {
+                "title": "Resistance",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/2mMf3qi1f6c?feature=player_embedded"
+            },
+            {
+                "title": "A Bad Day at the Office",
+                "year": 2012,
+                 "url": "https://www.youtube.com/embed/kEaje5EWJgM?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Brunch Club Productions",
+        "bio": "Students from Fairhaven School, all hyped up about filming. \"All hyped up? Are you kidding? We’re all dorks.\" – Student",
+        "website":"www.fairhavenschool.com"
+    },
+    {
+        "teamName": "Smith Brothers Productions",
+        "bio": "We’re about kicking ass, taking names, and making movies!",
+        "website": "http://smithbrothersproductions.com/"
     }
 ]
