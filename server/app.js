@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var auth = require('./auth');
 
 //monog db connection
 var mongoose = require('mongoose');
@@ -18,7 +19,9 @@ var schemas = require('./schemas');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var ApiRouteManager = require('./routes/ApiRouteManager');
+var AdminRouteManager = require('./routes/AdminRouteManager');
 var api = new ApiRouteManager(mongoose, app);
+var admin = new AdminRouteManager(mongoose, app);
 
 //seed data process
 var SeedImporter = require('./seed');
@@ -46,6 +49,7 @@ app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(auth.basicAuth('default', 'tluafed'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/photos", express.static(path.resolve(path.join(__dirname, 'public/photos'))));
 app.use("/logos", express.static(path.resolve(path.join(__dirname, 'public/logos'))));
@@ -53,6 +57,7 @@ app.use("/logos", express.static(path.resolve(path.join(__dirname, 'public/logos
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api.router);
+app.use('/admin', admin.router);
 
 /// catch 404 and forwarding to error handler
 app.use(function (req, res, next) {
