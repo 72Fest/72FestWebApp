@@ -15,7 +15,8 @@
                 thumbPath: String,
                 originalPath: String,
                 originalPhotoName: String,
-                timestamp: Date
+                timestamp: Date,
+                isRejected: { type: Boolean, default: false }
             });
 
             return schema;
