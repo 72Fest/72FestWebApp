@@ -49,7 +49,6 @@ app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(auth.basicAuth('default', 'tluafed'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/photos", express.static(path.resolve(path.join(__dirname, 'public/photos'))));
 app.use("/logos", express.static(path.resolve(path.join(__dirname, 'public/logos'))));
@@ -57,7 +56,7 @@ app.use("/logos", express.static(path.resolve(path.join(__dirname, 'public/logos
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api.router);
-app.use('/admin', admin.router);
+app.use('/admin', auth.basicAuth('default', 'tluafed'), admin.router);
 app.use("/admin/approve", express.static(path.resolve(path.join(__dirname, 'approve'))));
 
 /// catch 404 and forwarding to error handler
