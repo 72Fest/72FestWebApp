@@ -1,4 +1,4 @@
-/*global angular, $ */
+/*global angular, $, $timeout */
 
 var app = angular.module('App', []);
 
@@ -11,30 +11,34 @@ app.directive('helloWorld', function () {
     };
 });
 
-app.controller("PhotosController", function ($scope,  $timeout, photoService) {
+app.directive('lgPhotoThumb', function ($timeout) {
     "use strict";
-    console.log("instantiating the photos contorller");
 
-    $scope.$on('photosLoaded', function (evt, args) {
-        //activate the lazy load
-        $("img.lazy").lazyload({
-            effect: "fadeIn"
-        });
-        $(".imageLink").photoSwipe({captionAndToolbarHide: false, captionAndToolbarShowEmptyCaptions: true});
-        Code.PhotoSwipe.attach(window.document.querySelectorAll('.imageLink'), { enableMouseWheel: false, enableKeyboard: false });
+    return {
+        restrict: 'AE',
+        replace: true,
+        templateUrl: 'templates/imageThumb.html',
+        link: function ($scope, element, attrs) {
+            if ($scope.$last === true) {
+                $timeout(function () {
+                    //activate the lazy load
+                    $("img.lazy").lazyload({
+                        effect: "fadeIn"
+                    });
 
-        window.scrollTo(0, 10);
-    });
-
-    $scope.initPhotos = function () {
-
-        //TODO: fix so we don't need a timeout
-        $timeout(function () {
-            $scope.$broadcast("photosLoaded");
-        }, 500);
+                    //activate the photo swipe
+                    $(".imageLink").photoSwipe({captionAndToolbarHide: false, captionAndToolbarShowEmptyCaptions: true});
+                    Code.PhotoSwipe.attach(window.document.querySelectorAll('.imageLink'), { enableMouseWheel: false, enableKeyboard: false });
+                     window.scrollTo(0, 10);
+                });
+            }
+        }
     };
+});
+app.controller("PhotosController", function ($scope, photoService) {
+    "use strict";
 
-
+    //retrieve photos
     photoService.getPhotos()
         .then(function (data) {
             console.log("We should have data now!!!" + data.message);
