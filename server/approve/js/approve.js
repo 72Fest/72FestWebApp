@@ -2,15 +2,6 @@
 
 var app = angular.module('App', []);
 
-app.directive('helloWorld', function () {
-    "use strict";
-    return {
-        restrict: 'AE',
-        replace: 'true',
-        template: '<h3>Hello World!!</h3>'
-    };
-});
-
 app.directive('lgPhotoThumb', function ($timeout) {
     "use strict";
 
@@ -64,7 +55,7 @@ app.service("photoService", function ($http, $q) {
     function getPhotos() {
         var request = $http({
             method: "get",
-            url: "/api/photos"
+            url: "/api/photos/all"
         });
 
         return (request.then(handleSuccess, handleError));

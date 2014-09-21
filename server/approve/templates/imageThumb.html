@@ -3,5 +3,5 @@
         <img class="lazy" src="css/loader.gif" data-original="/{{photo.thumbUrl}}">
     </a>
 
-    <a class="button disapproveButton" src="#"></a>
+    <a class="button" ng-class="{ approveButton: photo.isRejected, disapproveButton: !photo.isRejected}" src="#"></a>
 </div>
