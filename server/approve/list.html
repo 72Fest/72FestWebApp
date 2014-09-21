@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Approve Photos</title>
+
+    <link href="css/approval.css" rel="stylesheet" type="text/css" />
+    <link href="css/photoswipe.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="js/klass.min.js"></script>
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery.lazyload.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript" src="js/code.photoswipe.jquery-3.0.5.min.js"></script> -->
+    <script type="text/javascript" src="js/code.photoswipe-3.0.5.min.js"></script>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+    <hello-world></hello-world>
+
+    <div ng-controller="PhotosController">
+
+        <div class="imageDiv" ng-repeat="photo in photos">
+            <a class="imageLink" href="/{{photo.photoUrl}}">
+                <img class="lazy" src="loader.gif" data-original="/{{photo.thumbUrl}}">
+            </a>
+
+            <a class="button disapproveButton" src="#"></a>
+        </div>
+
+        <div ng-init="initPhotos()"></div>
+    </div>
+    <script src="approve.js"></script>
+    <script>
+    </script>
+</body>
+</html>
