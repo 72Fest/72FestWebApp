@@ -205,6 +205,19 @@ router.get('/photos', function (req, res) {
 
     processPhotoList(req, res, PhotoListType.APPROVED);
 });
+
+router.get('/photos/all', function (req, res) {
+    "use strict";
+
+    processPhotoList(req, res, PhotoListType.ALL);
+});
+
+router.get('/photos/rejected', function (req, res) {
+    "use strict";
+
+    processPhotoList(req, res, PhotoListType.REJECTED);
+});
+
 router.get('/votes', function (req, res) {
     "use strict";
 
