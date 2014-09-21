@@ -25,7 +25,7 @@
 
         <div class="imageDiv" ng-repeat="photo in photos">
             <a class="imageLink" href="/{{photo.photoUrl}}">
-                <img class="lazy" src="loader.gif" data-original="/{{photo.thumbUrl}}">
+                <img class="lazy" src="css/loader.gif" data-original="/{{photo.thumbUrl}}">
             </a>
 
             <a class="button disapproveButton" src="#"></a>
@@ -33,7 +33,7 @@
 
         <div ng-init="initPhotos()"></div>
     </div>
-    <script src="approve.js"></script>
+    <script src="js/approve.js"></script>
     <script>
     </script>
 </body>
