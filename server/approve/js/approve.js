@@ -1,4 +1,4 @@
-/*global angular, $, $timeout */
+/*global angular, $, $timeout, Code, console */
 
 var app = angular.module('App', []);
 
@@ -10,6 +10,7 @@ app.directive('lgPhotoThumb', function ($timeout) {
         replace: true,
         templateUrl: 'templates/imageThumb.html',
         link: function ($scope, element, attrs) {
+            //once the ng-repeat is done, initialize lazy load and photo swipe
             if ($scope.$last === true) {
                 $timeout(function () {
                     //activate the lazy load
@@ -19,13 +20,17 @@ app.directive('lgPhotoThumb', function ($timeout) {
 
                     //activate the photo swipe
                     $(".imageLink").photoSwipe({captionAndToolbarHide: false, captionAndToolbarShowEmptyCaptions: true});
-                    Code.PhotoSwipe.attach(window.document.querySelectorAll('.imageLink'), { enableMouseWheel: false, enableKeyboard: false });
-                     window.scrollTo(0, 10);
+                    Code.PhotoSwipe.attach(window.document.querySelectorAll('.imageLink'), {
+                        enableMouseWheel: false,
+                        enableKeyboard: false
+                    });
+                    window.scrollTo(0, 10);
                 });
             }
         }
     };
 });
+
 app.controller("PhotosController", function ($scope, photoService) {
     "use strict";
 
@@ -37,6 +42,32 @@ app.controller("PhotosController", function ($scope, photoService) {
             $scope.metadata = data.message.metadata;
             $scope.photos = data.message.photos;
         });
+
+    $scope.toggleApproval = function (curPhoto) {
+        console.dir(curPhoto.isRejected);
+
+        if (curPhoto.isRejected) {
+            $scope.approvePhoto(curPhoto.id);
+            curPhoto.isRejected = false;
+        } else {
+            $scope.rejectPhoto(curPhoto.id);
+            curPhoto.isRejected = true;
+        }
+    };
+
+    $scope.approvePhoto = function (photoId) {
+        photoService.approvePhoto(photoId)
+            .then(function (data) {
+                console.log("got approval data!");
+            });
+    };
+
+    $scope.rejectPhoto = function (photoId) {
+        photoService.rejectPhoto(photoId)
+            .then(function (data) {
+                console.log("got approval data!");
+            });
+    };
 });
 
 app.service("photoService", function ($http, $q) {
@@ -52,6 +83,16 @@ app.service("photoService", function ($http, $q) {
         return response.data;
     }
 
+    function handleApprovalSuccess(response) {
+        return response.data;
+    }
+
+    function handleApprovalError(response) {
+        console.error("Failed to process request");
+
+        return "failed!";
+    }
+
     function getPhotos() {
         var request = $http({
             method: "get",
@@ -61,7 +102,27 @@ app.service("photoService", function ($http, $q) {
         return (request.then(handleSuccess, handleError));
     }
 
+    function approvePhoto(photoId) {
+        var request = $http({
+            method: "get",
+            url: "/api/photo/approve/" + photoId
+        });
+
+        return (request.then(handleApprovalSuccess, handleApprovalError));
+    }
+
+    function rejectPhoto(photoId) {
+        var request = $http({
+            method: "get",
+            url: "/api/photo/reject/" + photoId
+        });
+
+        return (request.then(handleApprovalSuccess, handleApprovalError));
+    }
+
     return ({
-        getPhotos: getPhotos
+        getPhotos: getPhotos,
+        approvePhoto: approvePhoto,
+        rejectPhoto: rejectPhoto
     });
 });
