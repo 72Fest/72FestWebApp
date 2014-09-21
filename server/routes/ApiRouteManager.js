@@ -7,6 +7,7 @@ var express = require('express'),
     util = require('util'),
     fs = require('fs'),
     path = require('path'),
+    ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
     extend = require('util')._extend,
     photosBasePath = 'public/photos',
     thumbnailDimension = 100,
@@ -216,6 +217,36 @@ router.get('/photos/rejected', function (req, res) {
     "use strict";
 
     processPhotoList(req, res, PhotoListType.REJECTED);
+});
+
+router.get('/photo/reject/:photoId', function (req, res) {
+    "use strict";
+
+    var photoId = req.params.photoId,
+        query = { _id: new ObjectId(photoId) };
+
+    Photo.findOneAndUpdate(query, { isRejected: true }, function (err, model) {
+        if (err) {
+            sendResult(res, false, "Failed to reject photo!");
+        } else {
+            sendResult(res, true, {success: true});
+        }
+    });
+});
+
+router.get('/photo/approve/:photoId', function (req, res) {
+    "use strict";
+
+    var photoId = req.params.photoId,
+        query = { _id: new ObjectId(photoId) };
+
+    Photo.findOneAndUpdate(query, { isRejected: false }, function (err, model) {
+        if (err) {
+            sendResult(res, false, "Failed to approve photo!");
+        } else {
+            sendResult(res, true, {success: true});
+        }
+    });
 });
 
 router.get('/votes', function (req, res) {
