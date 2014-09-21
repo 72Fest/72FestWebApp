@@ -43,6 +43,9 @@ app.controller("PhotosController", function ($scope, photoService) {
             $scope.photos = data.message.photos;
         });
 
+    //we want to toggle this value on and off
+    $scope.showingRejected = false;
+
     $scope.toggleApproval = function (curPhoto) {
         console.dir(curPhoto.isRejected);
 

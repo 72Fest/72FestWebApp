@@ -19,7 +19,7 @@
 </head>
 <body>
     <div ng-controller="PhotosController">
-        <lg-photo-thumb ng-repeat="photo in photos"></lg-photo-photo-thumb>
+        <lg-photo-thumb ng-repeat="photo in photos | filter: { isRejected: showingRejected }"></lg-photo-photo-thumb>
     </div>
 
     <script src="js/approve.js"></script>
