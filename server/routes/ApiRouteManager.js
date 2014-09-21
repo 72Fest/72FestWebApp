@@ -28,6 +28,11 @@ var express = require('express'),
             second: 0
         }
     },
+    PhotoListType = {
+        ALL: "allPhotos",
+        REJECTED: "rejectedPhotos",
+        APPROVED: "approvedPhotos"
+    },
     //default photos metadata if not retreived from DB
     photosMetadata = {
         baseUrl: "http://192.168.1.10:3000",
@@ -106,6 +111,50 @@ var express = require('express'),
             }
         });
     },
+    processPhotoList = function (req, res, listType) {
+        "use strict";
+        var photosQuery = Photo.find({});
+
+        //handle the different cases for listing photos
+        switch (listType) {
+        case PhotoListType.APPROVED:
+            photosQuery = photosQuery.where('isRejected').equals(false);
+            break;
+        case PhotoListType.REJECTED:
+            photosQuery = photosQuery.where('isRejected').equals(true);
+            break;
+        }
+
+        photosQuery.sort({timestamp: -1}).exec(function (err, models) {
+            //TODO: retrieve photos metadata from mongodb
+            var idx,
+                curObj,
+                results = [],
+                resultsObj = {
+                    metadata: extend({}, photosMetadata),
+                    photos: []
+                };
+
+            //handle photo results
+            if (err) {
+                sendResult(res, false, "Failed to retrieve list of photos!");
+            } else {
+                //loop through results and build index
+                for (idx = 0; idx < models.length; idx += 1) {
+                    curObj = {
+                        id: models[idx]._id,
+                        photoUrl: models[idx].photoUrl,
+                        thumbUrl: models[idx].thumbUrl
+                    };
+
+                    results.push(curObj);
+                }
+                //add results to photos
+                resultsObj.photos = results;
+                sendResult(res, true, resultsObj);
+            }
+        });
+    },
     ApiRouter = function (dbRef, d) {
         //we want the base path to be reference from parent folder of cur directory
         var fullPhotoPath = path.resolve(path.join(__dirname, "..", photosBasePath));
@@ -154,37 +203,7 @@ router.get('/countDown', function (req, res) {
 router.get('/photos', function (req, res) {
     "use strict";
 
-    var resultsObj = {
-        metadata: extend({}, photosMetadata),
-        photos: []
-    };
-
-    //TODO: retrieve photos metadata from mongodb
-
-    Photo.find({}).sort({timestamp: -1}).exec(function (err, models) {
-        var idx,
-            curObj,
-            results = [];
-
-        //handle photo results
-        if (err) {
-            sendResult(res, false, "Failed to retrieve list of photos!");
-        } else {
-            //loop through results and build index
-            for (idx = 0; idx < models.length; idx += 1) {
-                curObj = {
-                    id: models[idx]._id,
-                    photoUrl: models[idx].photoUrl,
-                    thumbUrl: models[idx].thumbUrl
-                };
-
-                results.push(curObj);
-            }
-            //add results to photos
-            resultsObj.photos = results;
-            sendResult(res, true, resultsObj);
-        }
-    });
+    processPhotoList(req, res, PhotoListType.APPROVED);
 });
 router.get('/votes', function (req, res) {
     "use strict";
