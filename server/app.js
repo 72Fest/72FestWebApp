@@ -20,13 +20,30 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var ApiRouteManager = require('./routes/ApiRouteManager');
 var AdminRouteManager = require('./routes/AdminRouteManager');
-var api = new ApiRouteManager(mongoose, app);
-var admin = new AdminRouteManager(mongoose, app);
 
 //seed data process
 var SeedImporter = require('./seed');
 
 var app = express();
+
+//set up socket io variable and "setter"
+var io = null;
+app.setSocket = function (socket) {
+    "use strict";
+    //socket should be set
+    io = socket;
+
+    io.on('connection', function (socket) {
+        console.log("* Socket io client connected");
+    });
+};
+app.getSocket = function () {
+    return io;
+};
+
+//instantiate route managers
+var api = new ApiRouteManager(mongoose, app);
+var admin = new AdminRouteManager(mongoose, app);
 
 // set up logging
 var logPath = __dirname + '/logs';

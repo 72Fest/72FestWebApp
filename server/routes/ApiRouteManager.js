@@ -11,6 +11,7 @@ var express = require('express'),
     extend = require('util')._extend,
     photosBasePath = 'public/photos',
     thumbnailDimension = 100,
+    io = null,
     db = null,
     Photo = null,
     Vote = null,
@@ -99,7 +100,7 @@ var express = require('express'),
                                 callback(true, "Failed while processing image!");
                             } else {
                                 if (delegate) {
-                                    delegate.onUploadSuccess(photo);
+                                    delegate.getSocket().emit('photoUploaded', {"photo": photo});
                                 }
                                 callback(false, "Photo upload was a success");
                             }
@@ -231,6 +232,7 @@ router.get('/photo/reject/:photoId', function (req, res) {
             sendResult(res, false, "Failed to reject photo!");
         } else {
             sendResult(res, true, {success: true});
+            delegate.getSocket().emit('photoRejected', { photo: model });
         }
     });
 });
@@ -246,6 +248,7 @@ router.get('/photo/approve/:photoId', function (req, res) {
             sendResult(res, false, "Failed to approve photo!");
         } else {
             sendResult(res, true, {success: true});
+            delegate.getSocket().emit('photoApproved', { photo: model });
         }
     });
 });

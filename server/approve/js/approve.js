@@ -1,4 +1,4 @@
-/*global angular, $, $timeout, Code, console */
+/*global angular, $, $timeout, Code, console, io */
 
 var app = angular.module('App', []);
 
@@ -45,13 +45,29 @@ app.controller("PhotosController", function ($scope, photoService) {
     });
 
     //retrieve photos
-    photoService.getPhotos()
-        .then(function (data) {
-            console.log("We should have data now!!!" + data.message);
-            //console.dir(data.message);
-            $scope.metadata = data.message.metadata;
-            $scope.photos = data.message.photos;
+    $scope.getPhotos = function () {
+        photoService.getPhotos()
+            .then(function (data) {
+                console.log("We should have data now!!!" + data.message);
+                //console.dir(data.message);
+                $scope.metadata = data.message.metadata;
+                $scope.photos = data.message.photos;
+            });
+    };
+
+    $scope.initSocketIO = function () {
+        $scope.socket = io.connect('http://localhost');
+        $scope.socket.on('photoRejected', function (data) {
+            $scope.getPhotos();
         });
+        $scope.socket.on('photoApproved', function (data) {
+            //$scope.socket.emit('my other event', { my: 'data' });
+            $scope.getPhotos();
+        });
+        $scope.socket.on('photoUploaded', function (data) {
+            $scope.getPhotos();
+        });
+    };
 
     //we want to toggle this value on and off
     $scope.stateData = {
@@ -83,6 +99,12 @@ app.controller("PhotosController", function ($scope, photoService) {
                 console.log("got approval data!");
             });
     };
+
+    //retrieve photos
+    $scope.getPhotos();
+
+    //initialize socket io
+    $scope.initSocketIO();
 });
 
 app.service("photoService", function ($http, $q) {
