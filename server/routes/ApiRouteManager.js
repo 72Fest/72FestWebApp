@@ -7,6 +7,7 @@ var express = require('express'),
     util = require('util'),
     fs = require('fs'),
     path = require('path'),
+    ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
     extend = require('util')._extend,
     photosBasePath = 'public/photos',
     thumbnailDimension = 100,
@@ -27,6 +28,11 @@ var express = require('express'),
             minute: 0,
             second: 0
         }
+    },
+    PhotoListType = {
+        ALL: "allPhotos",
+        REJECTED: "rejectedPhotos",
+        APPROVED: "approvedPhotos"
     },
     //default photos metadata if not retreived from DB
     photosMetadata = {
@@ -106,6 +112,51 @@ var express = require('express'),
             }
         });
     },
+    processPhotoList = function (req, res, listType) {
+        "use strict";
+        var photosQuery = Photo.find({});
+
+        //handle the different cases for listing photos
+        switch (listType) {
+        case PhotoListType.APPROVED:
+            photosQuery = photosQuery.where('isRejected').equals(false);
+            break;
+        case PhotoListType.REJECTED:
+            photosQuery = photosQuery.where('isRejected').equals(true);
+            break;
+        }
+
+        photosQuery.sort({timestamp: -1}).exec(function (err, models) {
+            //TODO: retrieve photos metadata from mongodb
+            var idx,
+                curObj,
+                results = [],
+                resultsObj = {
+                    metadata: extend({}, photosMetadata),
+                    photos: []
+                };
+
+            //handle photo results
+            if (err) {
+                sendResult(res, false, "Failed to retrieve list of photos!");
+            } else {
+                //loop through results and build index
+                for (idx = 0; idx < models.length; idx += 1) {
+                    curObj = {
+                        id: models[idx]._id,
+                        photoUrl: models[idx].photoUrl,
+                        thumbUrl: models[idx].thumbUrl,
+                        isRejected: models[idx].isRejected
+                    };
+
+                    results.push(curObj);
+                }
+                //add results to photos
+                resultsObj.photos = results;
+                sendResult(res, true, resultsObj);
+            }
+        });
+    },
     ApiRouter = function (dbRef, d) {
         //we want the base path to be reference from parent folder of cur directory
         var fullPhotoPath = path.resolve(path.join(__dirname, "..", photosBasePath));
@@ -154,38 +205,51 @@ router.get('/countDown', function (req, res) {
 router.get('/photos', function (req, res) {
     "use strict";
 
-    var resultsObj = {
-        metadata: extend({}, photosMetadata),
-        photos: []
-    };
+    processPhotoList(req, res, PhotoListType.APPROVED);
+});
 
-    //TODO: retrieve photos metadata from mongodb
+router.get('/photos/all', function (req, res) {
+    "use strict";
 
-    Photo.find({}).sort({timestamp: -1}).exec(function (err, models) {
-        var idx,
-            curObj,
-            results = [];
+    processPhotoList(req, res, PhotoListType.ALL);
+});
 
-        //handle photo results
+router.get('/photos/rejected', function (req, res) {
+    "use strict";
+
+    processPhotoList(req, res, PhotoListType.REJECTED);
+});
+
+router.get('/photo/reject/:photoId', function (req, res) {
+    "use strict";
+
+    var photoId = req.params.photoId,
+        query = { _id: new ObjectId(photoId) };
+
+    Photo.findOneAndUpdate(query, { isRejected: true }, function (err, model) {
         if (err) {
-            sendResult(res, false, "Failed to retrieve list of photos!");
+            sendResult(res, false, "Failed to reject photo!");
         } else {
-            //loop through results and build index
-            for (idx = 0; idx < models.length; idx += 1) {
-                curObj = {
-                    id: models[idx]._id,
-                    photoUrl: models[idx].photoUrl,
-                    thumbUrl: models[idx].thumbUrl
-                };
-
-                results.push(curObj);
-            }
-            //add results to photos
-            resultsObj.photos = results;
-            sendResult(res, true, resultsObj);
+            sendResult(res, true, {success: true});
         }
     });
 });
+
+router.get('/photo/approve/:photoId', function (req, res) {
+    "use strict";
+
+    var photoId = req.params.photoId,
+        query = { _id: new ObjectId(photoId) };
+
+    Photo.findOneAndUpdate(query, { isRejected: false }, function (err, model) {
+        if (err) {
+            sendResult(res, false, "Failed to approve photo!");
+        } else {
+            sendResult(res, true, {success: true});
+        }
+    });
+});
+
 router.get('/votes', function (req, res) {
     "use strict";
 
