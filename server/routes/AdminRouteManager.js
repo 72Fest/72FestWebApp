@@ -49,4 +49,10 @@ router.get('/', function (req, res) {
     sendResult(res, true, "Invalid API call");
 });
 
+//add route to html page related to approvals
+router.get('/approve/', function (req, res) {
+    "use strict";
+    res.sendFile(path.resolve(path.join(__dirname, '../approve/list.html')));
+});
+
 module.exports = AdminRouter;
