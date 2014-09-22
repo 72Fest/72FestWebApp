@@ -343,5 +343,27 @@
         "teamName": "Smith Brothers Productions",
         "bio": "We’re about kicking ass, taking names, and making movies!",
         "website": "http://smithbrothersproductions.com/"
+    },
+    {
+        "teamName": "Chimney Sweep Pictures",
+        "bio": "The minds that brought you DOOM COP. Writing, shooting, and chopping pictures & sounds since 2012.",
+        "website": "http://originalhampster.ytmnd.com",
+        "films": [
+            {
+                "title": "DOOM COP",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/OgZ2lrwoTBw?feature=player_embedded"
+            },
+            {
+                "title": "The Lebeaux File",
+                "year": 2012,
+                 "url": "https://www.youtube.com/embed/kqEVBRXxO3Y?feature=player_embedded"
+            }
+        ]
+    }
+    ,
+    {
+        "teamName": "Mango City Media",
+        "bio": "We organized in haste, and conquered with impunity."
     }
 ]
