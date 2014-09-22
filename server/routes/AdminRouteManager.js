@@ -52,7 +52,7 @@ router.get('/', function (req, res) {
 //add route to html page related to approvals
 router.get('/approve/', function (req, res) {
     "use strict";
-    res.sendFile(path.resolve(path.join(__dirname, '../approve/list.html')));
+    res.sendFile(path.resolve(path.join(__dirname, '../approve/approve.html')));
 });
 
 module.exports = AdminRouter;
