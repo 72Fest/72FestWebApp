@@ -1,9 +1,11 @@
 <div class="imageDiv">
     <a class="imageLink" href="/{{photo.photoUrl}}">
-        <img class="lazy" src="css/loader.gif" data-original="/{{photo.thumbUrl}}">
+        <img width="100" height="100" class="lazy" src="images/loader.gif" data-original="/{{photo.thumbUrl}}">
     </a>
 
-    <a class="button"
-       ng-click="toggleApproval(photo)"
-       ng-class="{ approveButton: photo.isRejected, disapproveButton: !photo.isRejected}" src="#"></a>
+    <div class="imageButtonContainer">
+        <button type class="btn  btn-default" ng-click="toggleApproval(photo)">
+           <span class="glyphicon" ng-class="{ 'glyphicon-star': photo.isRejected, 'glyphicon-remove': !photo.isRejected}" src="#"></span> {{ photo.isRejected ? "Approve" : "Reject" }}
+        </button>
+    </div>
 </div>

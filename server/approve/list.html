@@ -2,14 +2,25 @@
 <html lang="en" ng-app="App">
 <head>
     <meta charset="UTF-8">
-    <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no">
     <title>Approve Photos</title>
 
     <link href="css/approval.css" rel="stylesheet" type="text/css" />
     <link href="css/photoswipe.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <script type="text/javascript" src="js/klass.min.js"></script>
     <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
@@ -18,10 +29,26 @@
     <script src="js/angular.min.js"></script>
 </head>
 <body>
-    <div ng-controller="PhotosController">
-        <lg-photo-thumb ng-repeat="photo in photos | filter: { isRejected: showingRejected }"></lg-photo-photo-thumb>
+
+    <div id="photosContainer" ng-controller="PhotosController">
+        <div class="tabsContainer">
+            <h3>Approval Page</h3>
+            <div id="tabs">
+                <div class="btn-group">
+                    <button id="approvedBtn" type="button"
+                            class="btn btn-default"
+                            ng-class="{ active: !stateData.showingRejected }">Approved</button>
+                    <button id="rejectedBtn" type="button"
+                            class="btn btn-default"
+                            ng-class="{ active: stateData.showingRejected }">Rejected</button>
+                </div>
+            </div>
+        </div>
+
+        <lg-photo-thumb ng-animate=" 'animate' " ng-repeat="photo in photos | filter: { isRejected: stateData.showingRejected }"></lg-photo-photo-thumb>
     </div>
 
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/approve.js"></script>
     <script>
     </script>

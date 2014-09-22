@@ -24,7 +24,6 @@ app.directive('lgPhotoThumb', function ($timeout) {
                         enableMouseWheel: false,
                         enableKeyboard: false
                     });
-                    window.scrollTo(0, 10);
                 });
             }
         }
@@ -33,6 +32,17 @@ app.directive('lgPhotoThumb', function ($timeout) {
 
 app.controller("PhotosController", function ($scope, photoService) {
     "use strict";
+
+    //set up event listeners
+    $("#approvedBtn").click(function () {
+        $scope.stateData.showingRejected = false;
+        $scope.$digest();
+    });
+
+    $("#rejectedBtn").click(function () {
+        $scope.stateData.showingRejected = true;
+        $scope.$digest();
+    });
 
     //retrieve photos
     photoService.getPhotos()
@@ -44,7 +54,9 @@ app.controller("PhotosController", function ($scope, photoService) {
         });
 
     //we want to toggle this value on and off
-    $scope.showingRejected = false;
+    $scope.stateData = {
+        showingRejected: false
+    };
 
     $scope.toggleApproval = function (curPhoto) {
         console.dir(curPhoto.isRejected);
