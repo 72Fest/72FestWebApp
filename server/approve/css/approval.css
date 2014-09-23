@@ -72,11 +72,13 @@ body {
 
 
 .tabsContainer {
+    top: 0;
     position: fixed;
     height: 50px;
     margin: 0px;
     z-index: 5;
     background-color: #cc4747;
+    border-bottom: 1px solid #8b3232;
     width: 100%;
 }
 

@@ -5,7 +5,7 @@
 
     <div class="imageButtonContainer">
         <button type class="btn  btn-default" ng-click="toggleApproval(photo)">
-           <span class="glyphicon" ng-class="{ 'glyphicon-star': photo.isRejected, 'glyphicon-remove': !photo.isRejected}" src="#"></span> {{ photo.isRejected ? "Approve" : "Reject" }}
+           <span class="glyphicon" ng-class="{ 'glyphicon-ok': photo.isRejected, 'glyphicon-remove': !photo.isRejected}" src="#"></span> {{ photo.isRejected ? "Approve" : "Reject" }}
         </button>
     </div>
 </div>
