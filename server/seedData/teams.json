@@ -360,10 +360,13 @@
                  "url": "https://www.youtube.com/embed/kqEVBRXxO3Y?feature=player_embedded"
             }
         ]
-    }
-    ,
+    },
     {
         "teamName": "Mango City Media",
         "bio": "We organized in haste, and conquered with impunity."
+    },
+    {
+        "teamName": "We are BAD (Believing a Dream)",
+        "bio": "A group of creative people, who love creative arts in many forms."
     }
 ]
