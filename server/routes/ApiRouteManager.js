@@ -362,17 +362,6 @@ router.get('/teams', function (req, res) {
                                  teamModel.logo;
             });
 
-            //Temporary patch to fix current iOS app
-            var tmpObj = {
-                "teamName": "",
-                "bio": "",
-                "website": "",
-                "logo": ""
-            };
-
-            models.push(tmpObj);
-            models.push(tmpObj);
-
             sendResult(res, true, models);
         }
 
