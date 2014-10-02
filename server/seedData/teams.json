@@ -300,7 +300,7 @@
         "logo": "On-Call-Collective-logo.jpg"
     },
     {
-        "teamName": "Visually Wird",
+        "teamName": "Visually Weird",
         "bio": "A team of Digital Film Production Students of the Art Institute of Washington.",
         "logo": "Team_VisuallyWired_Logo.png"
     },
@@ -348,6 +348,7 @@
         "teamName": "Chimney Sweep Pictures",
         "bio": "The minds that brought you DOOM COP. Writing, shooting, and chopping pictures & sounds since 2012.",
         "website": "http://originalhampster.ytmnd.com",
+        "logo": "chimneysweep.png",
         "films": [
             {
                 "title": "DOOM COP",
@@ -386,5 +387,21 @@
         "bio": "We are classic kids who have a passion for film making!",
         "website": "https://www.youtube.com/user/ggfilms1998/feed",
         "logo": "classickids.png"
+    },
+    {
+        "teamName": "Noticeable Grain",
+        "bio": "Do it to it."
+    },
+    {
+        "teamName": "Never Shut Up",
+        "bio": "Technical skill is in short supply. Acting's abysmal, so why do we try? In five years you'd think, we'd have this thing down... But like gum on your shoe, we just stick around."
+    },
+    {
+        "teamName": "Ambidextrous Productions",
+        "bio": "Actually, none of us can write with both hands, but we can film with them!"
+    },
+    {
+        "teamName": "It's Like A Metaphor",
+        "bio": "What does it all mean?"
     }
 ]
