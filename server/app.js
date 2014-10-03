@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var moment = require('moment');
 var auth = require('./auth');
 
 //monog db connection
@@ -46,6 +47,10 @@ var api = new ApiRouteManager(mongoose, app);
 var admin = new AdminRouteManager(mongoose, app);
 
 // set up logging
+//reformat date to apache standards
+logger.token('date', function(){
+  return moment().format('DD/MMM/YYYY:HH:mm:ss ZZ');
+});
 var logPath = __dirname + '/logs';
 var logFile = logPath + '/access.log';
 //if log path doesn't exist, create it
