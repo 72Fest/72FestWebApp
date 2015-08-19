@@ -1,88 +1,51 @@
 [
     {
         "teamName": "Film.Lovables",
-        "bio": "We are that team with the cool t-shirts every year",
+        "bio": "Back. Bigger. Better. Which button is the Record button again?",
         "website": "http://www.filmlovables.com",
         "logo": "filmLovablesLogo.png",
         "films": [
             {
-                "title": "2013 Entry",
+                "title": "Putt and Die",
+                "year": 2014,
+                "url": "http://www.youtube.com/embed/URJbZE9nUuA?feature=player_embedded"
+            },
+            {
+                "title": "Painted Lady",
                 "year": 2013,
                 "url": "http://www.youtube.com/embed/sZV42YMz96Q?feature=player_embedded"
             },
             {
-                "title": "2012 Entry",
+                "title": "Shakes",
                 "year": 2012,
                 "url": "https://www.youtube.com/embed/IO56A47IA0g?feature=player_embedded"
             },
             {
-                "title": "2011 Entry",
+                "title": "Lavender",
                 "year": 2011,
                 "url": "https://www.youtube.com/embed/zXCQRRNfaJY?feature=player_embedded"
             }
         ]
-    },
-    {
-        "teamName": "The Collective",
-        "bio": "The Collective is one of the most significant groups of filmmakers ever to exist collectively.",
-        "website": "http://xthecollectivex.webs.com/",
-        "logo": "theCollectiveLogo.png"
-    },
-    {
-        "teamName": "Henlivision",
-        "bio": "Anthropomorphizing inanimate objects and calling it art",
-        "website": "http://www.henlivision.com",
-        "logo": "henlivisionLogo.jpg",
-        "films": [
-            {
-                "title": "Shape the Future",
-                "year": 2013,
-                "url": "http://player.vimeo.com/video/76356276"
-            },
-            {
-                "title": "Trip or Treat",
-                "year": 2012,
-                "url": "http://player.vimeo.com/video/51414160"
-            },
-            {
-                "title": "Duty of the Beast",
-                "year": 2010,
-                "url": "https://www.youtube.com/embed/xb6oNQCXS6Y?feature=player_embedded"
-            }
-        ]
-    },
-    {
-        "teamName": "Haunted Sideshow",
-        "bio": "Haunted Sideshow Press is a small vanity press and creative group based in Ashburn, VA.",
-        "website": "http://www.hauntedsideshow.com/",
-        "logo": "Haunted_Sideshow_logo.jpg"
-    },
-    {
-        "teamName": "Lounge Rat Productions",
-        "bio": "Back for more!",
-        "logo": "Loungerats-2.jpg",
-        "films": [
-            {
-                "title": "The Death(s) of Gabe",
-                "year": 2013,
-                "url": "https://www.youtube.com/embed/dCY1BAV0kEI?feature=player_embedded"
-            },
-            {
-                "title": "Hearts, Trees, and Cardboard Dreams",
-                "year": 2012,
-                "url": "https://www.youtube.com/embed/78MPrhkMZyE?feature=player_embedded"
-            }
-        ]
-    },
+    },    
     {
         "teamName": "Pecos Bill & The Wranglers",
-        "bio": "There’s a snake in my boots!",
+        "bio": "You know those guys that do things sometimes? Yeah, that's us.",
         "logo": "Pecos-FREEZE-TOMMY.jpg",
         "films": [
+            {
+                "title": "Meet the Harts",
+                "year": 2014,
+                "url": "http://player.vimeo.com/video/108187584"
+            },
             {
                 "title": "Jeffery",
                 "year": 2013,
                 "url": "http://player.vimeo.com/video/76384225"
+            },
+             {
+                "title": "Alien Love",
+                "year": 2012,
+                "url": "http://player.vimeo.com/video/51882532"
             },
             {
                 "title": "The Great Adventure",
@@ -98,9 +61,14 @@
     },
     {
         "teamName": "Great Vengeance & Furious Anger",
-        "bio": "Returning for a 3rd year… this time, with even Greater Vengeance & more Furious Anger!",
+        "bio": "#FeartheMullet",
         "logo": "Great-VEngeance-IMG_8310.jpg",
         "films": [
+            {
+                "title": "The Commons of Avalon",
+                "year": 2014,
+                "url": "https://www.youtube.com/embed/_n5dlE9SzG0?feature=player_embedded"
+            },
             {
                 "title": "Domus",
                 "year": 2013,
@@ -115,9 +83,15 @@
     },
     {
         "teamName": "Stepdad Productions",
-        "bio": "A group of people involved in the Frederick County Correctional Work Release Program. Once a year, we are let out to participate in the Frederick 72 Film Fest. In the past years, we’ve killed it.",
+        "bio": "Stepdad Productions is a group of teenage runaways, hoping to make it in this cruel world in whatever way they can. They're hoping to win the 72 fest to have enough money to buy a train ticket to boston.",
         "logo": "stepdadCHAIRS-IMAGE-.jpg",
+        "website" : "https://m.youtube.com/channel/UCaU-vFs46PT6Jgz1w8wmE8Q",
         "films": [
+            {
+                "title": "White Magic",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/7ITgGezgcZs?feature=player_embedded"
+            },
             {
                 "title": "Chairs",
                 "year": 2013,
@@ -134,25 +108,7 @@
                 "url": "https://www.youtube.com/embed/y6f4dYne8j0?feature=player_embedded"
             }
         ]
-    },
-    {
-        "teamName": "Black Lagoon",
-        "bio": "We have this crazy fetish where we have to point cameras at things and record them. It’s weird.",
-        "website": "https://www.youtube.com/channel/UCjhlV5GZVV0KmNVTM5IpnVw",
-        "logo": "BlackLagoon.png",
-        "films": [
-            {
-                "title": "Cult Classic",
-                "year": 2013,
-                "url": "https://www.youtube.com/embed/F0l2eXbofTY?feature=player_embedded"
-            },
-            {
-                "title": "Resolution",
-                "year": 2012,
-                "url": "https://www.youtube.com/embed/BKHG6-ghM6A?feature=player_embedded"
-            }
-        ]
-    },
+    },    
     {
         "teamName": "Bright Boy Alert",
         "bio": "Animation. Plagued.",
@@ -160,10 +116,15 @@
     },
     {
         "teamName": "Unimental",
-        "bio": "Casey Morin and Adam Grayson were born. Born to make movies.",
+        "bio": "Adam Grayson and Casey Morin have come here to chew bubblegum and make movies...and we're all out of bubblegum...",
         "logo": "unimental-with-background.png",
          "films": [
             {
+                "title": "B.E.T.",
+                "year": 2014,
+                "url": "http://player.vimeo.com/video/108955868"
+            },
+             {
                 "title": "Deadmeat Pete",
                 "year": 2013,
                 "url": "http://player.vimeo.com/video/78491843"
@@ -177,10 +138,15 @@
     },
     {
         "teamName": "Ophiuchus Pictures",
-        "bio": "Ophiuchus Pictures is a team of filmmakers dedicated to creating innovative and original video productions.",
+        "bio": "A team dedicated to creating great films!",
         "website": "http://www.vimeo.com/josiekaye",
         "logo": "Ophiuchus-logo-thumbnail.png",
         "films": [
+            {
+                "title": "A Mob of Their Own",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/BYywvZ7ZqN4?feature=player_embedded"
+            },
             {
                 "title": "High Stakes",
                 "year": 2013,
@@ -189,7 +155,7 @@
             {
                 "title": "Night Walk",
                 "year": 2012,
-                "url": "http://player.vimeo.com/video/57035121"
+                "url": "https://www.youtube.com/embed/Tvxdf8B_6YE?feature=player_embedded"
             },
             {
                 "title": "The World's Smelliest Man",
@@ -199,41 +165,16 @@
         ]
     },
      {
-        "teamName": "Moonslaves",
-        "bio": "A fun, a dedicated group in dangerous relationship with cinematography.",
-        "logo": "MoonslavesSmall.jpg",
-         "films": [
-            {
-                "title": "Screw",
-                "year": 2013,
-                "url": "https://www.youtube.com/embed/Dt36eHopbaU?feature=player_embedded"
-            }
-        ]
-    },
-     {
-        "teamName": "DW Films",
-        "bio": "A committed film group who want to provoke and surprise ALL viewers.",
-        "website": "http://www.72fest.com/dallas-white-films/www.facebook.com/dallaswhitefilms",
-        "logo": "DWFILMS.jpg",
-         "films": [
-            {
-                "title": "Irreversible",
-                "year": 2013,
-                "url": "https://www.youtube.com/embed/1zo6cXLS2GQ?feature=player_embedded"
-            },
-            {
-                "title": "The Vanishing Field",
-                "year": 2012,
-                "url": "https://www.youtube.com/embed/neNfyIX3reU?feature=player_embedded"
-            }
-        ]
-    },
-     {
         "teamName": "Crowded Elevator Pictures",
         "bio": "We make short films in the DC metro area. 2,500 lbs is less of a \"limit\" and more of a \"goal.\"",
         "website": "https://www.facebook.com/CrowdedElevator",
         "logo": "CEP2.jpg",
          "films": [
+            {
+                "title": "Til Death Do Us Part",
+                "year": 2014,
+                "url": "http://player.vimeo.com/video/108744231"
+            },
             {
                 "title": "Parental Advisory",
                 "year": 2013,
@@ -251,6 +192,29 @@
             }
         ]
     },
+    {
+        "teamName": "SRK Video",
+        "bio": "We're a group of slick lizards who smoke cigars and play backgammon. Ain't nobody messin' with us.   (Previously known as Directors from the Black Lagoon)",
+        "website": "https://www.facebook.com/pages/SRK-Video/413612968791065",
+        "logo": "BlackLagoon.png",
+        "films": [
+            {
+                "title": "Andy from Accounting",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/Ox0jpSD83is?feature=player_embedded"
+            },
+            {
+                "title": "Cult Classic",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/F0l2eXbofTY?feature=player_embedded"
+            },
+            {
+                "title": "Resolution",
+                "year": 2012,
+                "url": "https://www.youtube.com/embed/BKHG6-ghM6A?feature=player_embedded"
+            }
+        ]
+    },
      {
         "teamName": "Missing Link Cinema",
         "bio": "Two guys, a girl, and a camera. That’s the dream",
@@ -258,6 +222,11 @@
         "logo": "mlc.jpg",
          "films": [
             {
+                "title": "Fight",
+                "year": 2013,
+                "url": "http://player.vimeo.com/video/108735540"
+            },
+             {
                 "title": "Uncertian Principles",
                 "year": 2013,
                 "url": "http://player.vimeo.com/video/76802253"
@@ -271,137 +240,87 @@
     },
      {
         "teamName": "Weapons Grade Geranium",
-        "bio": "We came from the future to dominate the 72 with the powers of friendship, teamwork, and boobies",
-        "logo": "wgg200pxlogo.jpg"
-    },
-     {
-        "teamName": "The Hateful Seven",
-        "bio": "The Hateful Seven is a group of film, communications, and music performance students at Camden County College in Blackwood, NJ. The members are Joe Romano, Matthew Mahoney, Emily Vidas, Spencer Taylor, Kellar Moore, Samantha Hitman, and Harrison Hitman. After being united over a forced love for beat poetry, the students decided to do another project together before they graduate and move apart.",
-        "logo": "hateful-seven-logo.png"
-    },
-    {
-        "teamName": "Ah Muh Face!",
-        "bio": "Offending old people since 2002!",
-        "logo": "amf.jpg"
-    },
-    {
-        "teamName": "Carpet Wall",
-        "bio": "Making movies after the bell",
-        "logo": "carpet.png"
-    },
-    {
-        "teamName": "Eye Jelly Cinema",
-        "bio": "We are the inevitable crusty stuff that gathers in the corners of your eye after a long sleep. The unattractive aftermath of a beautiful dream. The ‘rheum’ of life makes for the most interesting stories.",
-        "logo": "eye-jelly-logo.jpg"
-    },
-    {
-        "teamName": "On Call Collective",
-        "bio": "Art articulated to capture the attention of your senses. Youth meeting experience. Visual, Audio, and Written expression under one collective, displaying the passion and creativity of the next wave artists. On Call Collective consists of artists from the Frederick area spanning to California, New York and New Orleans.",
-        "logo": "On-Call-Collective-logo.jpg"
+        "bio": "After a year of hibernation in a bunker deep within the earth, we've emerged to embark on a mission of vengeance.",
+        "logo": "wgg200pxlogo.jpg",
+        "website": "weaponsgradegeranium.com",
+        "films": [
+              {
+                "title": "Deadened Echoes",
+                "year": 2014,
+                "url": "https://www.youtube.com/embed/TvJLJoxFGmA?feature=player_embedded"
+            }
+        ]
     },
     {
         "teamName": "Visually Wired",
-        "bio": "A team of Digital Film Production Students of the Art Institute of Washington.",
-        "logo": "Team_VisuallyWired_Logo.png"
-    },
-    {
-        "teamName": "Empty Bottle Studios",
-        "bio": "Empty Bottle Studios is the combined effort of several individuals to make something worthwhile and entertaining.",
-        "logo": "empbotstu-logo-sized-for-film-fest.png",
+        "bio": "Not to be confused with team Visually Weird.",
+        "logo": "Team_VisuallyWired_Logo.png",
         "films": [
-            {
-                "title": "Dimishing Returns",
-                "year": 2013,
-                 "url": "https://www.youtube.com/embed/2YrbZIN3r1A?feature=player_embedded"
+              {
+                "title": "5th and Murder",
+                "year": 2014,
+                "url": "https://www.youtube.com/embed/l1BIk7fRy7w?feature=player_embedded"
             }
         ]
     },
     {
-        "teamName": "Molten Llama Films",
-        "bio": "We were once a bunch of high school kids making movies. Now we’re a bunch of college kids making movies.",
-        "logo": "Molten-Llama-Logo-2014.png",
-        "website":"https://www.facebook.com/MoltenLlamaFilms",
+        "teamName": "Laserstar",
+        "bio": "We like to make neat stuff.",    
         "films": [
-            {
-                "title": "Resistance",
-                "year": 2013,
-                 "url": "https://www.youtube.com/embed/2mMf3qi1f6c?feature=player_embedded"
-            },
-            {
-                "title": "A Bad Day at the Office",
-                "year": 2012,
-                 "url": "https://www.youtube.com/embed/kEaje5EWJgM?feature=player_embedded"
+              {
+                "title": "Playback",
+                "year": 2014,
+                "url": "http://player.vimeo.com/video/108920501"
             }
         ]
-    },
-    {
-        "teamName": "Brunch Club Productions",
-        "bio": "Students from Fairhaven School, all hyped up about filming. \"All hyped up? Are you kidding? We’re all dorks.\" – Student",
-        "website":"www.fairhavenschool.com"
-    },
-    {
-        "teamName": "Smith Brothers Productions",
-        "bio": "We’re about kicking ass, taking names, and making movies!",
-        "website": "http://smithbrothersproductions.com/"
-    },
-    {
-        "teamName": "Chimney Sweep Pictures",
-        "bio": "The minds that brought you DOOM COP. Writing, shooting, and chopping pictures & sounds since 2012.",
-        "website": "http://originalhampster.ytmnd.com",
-        "logo": "chimneysweep.png",
-        "films": [
-            {
-                "title": "DOOM COP",
-                "year": 2013,
-                 "url": "https://www.youtube.com/embed/OgZ2lrwoTBw?feature=player_embedded"
-            },
-            {
-                "title": "The Lebeaux File",
-                "year": 2012,
-                 "url": "https://www.youtube.com/embed/kqEVBRXxO3Y?feature=player_embedded"
-            }
-        ]
-    },
-    {
-        "teamName": "Mango City Media",
-        "bio": "We organized in haste, and conquered with impunity."
-    },
-    {
-        "teamName": "We are BAD (Believing a Dream)",
-        "bio": "A group of creative people, who love creative arts in many forms."
-    },
-    {
-        "teamName": "Made in China",
-        "bio": "We are good students who love movies!"
-    },
+    },   
     {
         "teamName": "Bear Minimum Productions",
-        "bio": "The folks behind Bear Minimum Productions love to entertain people. Alas, they don't always succeed. Despite this, they try, and sometimes it's pathetic. Perhpas today is that fabled day when, finally, a member of the audience will turn to an other member of the audience (perhaps a friends?) and utter those long sought after words: \"Eh, I guess that was alright.\""
+        "bio": "Second time's the charm"
     },
     {
-        "teamName": "Tray Girls & Box Jumpers",
-        "bio": "Familiar faces. New Incarnation."
+        "teamName": "Rocket Bike",
+        "bio": "Our team is comprised of mostly military veterans, all of whom are members of Veterans in Film & Television Los Angeles. Our Civilian team members, like our Vets, are working professionals in this little industry of ours. We've been a part of the 24 and 48 hour film projects and are thrilled to be a part of the 72 Hour Film Fest. "
     },
     {
-        "teamName": "Classic Kids",
-        "bio": "We are classic kids who have a passion for film making!",
-        "website": "https://www.youtube.com/user/ggfilms1998/feed",
-        "logo": "classickids.png"
+        "teamName": "OG PIF",
+        "bio": "We're a group of Presidential Innovation Fellows looking to innovate the bejesus out of films (or at least learn how to use a camera)."
     },
     {
-        "teamName": "Noticeable Grain",
-        "bio": "Do it to it."
+        "teamName": "Skybox Productions",
+        "bio": "We're here to chew bubblegum and make movies...and we're all out of bubblegum."
     },
     {
-        "teamName": "Never Shut Up",
-        "bio": "Technical skill is in short supply. Acting's abysmal, so why do we try? In five years you'd think, we'd have this thing down... But like gum on your shoe, we just stick around."
+        "teamName": "Asserttive Creative works",
+        "bio": "loading ..."
     },
     {
-        "teamName": "Ambidextrous Productions",
-        "bio": "Actually, none of us can write with both hands, but we can film with them!"
+        "teamName": "Da/Nu Productions",
+        "bio": "Da/Nu Productions led by Daniel Wyland , actor /writer/producer/director decided to put together some of the best acting students from Maryland Ensemble Theater and join the 72FF 2015 competition as a film makers team."
     },
     {
-        "teamName": "It's Like A Metaphor",
-        "bio": "What does it all mean?"
+        "teamName": "Spartans",
+        "bio": "Our team is made up of military veterans, spouses and dependents."
+    },
+    {
+        "teamName": "Galaxy 42",
+        "bio": "Just a ragtag team of adventurers out on a mission to make a cool film."
+    },
+    {
+        "teamName": "The Comedy Pigs",
+        "bio": "Formed in 1992, The Comedy Pigs are the Maryland Ensemble Theatre's resident improv and sketch comedy group, and have been known to make a catchy video or two. Now they are throwing their hats into the ring with the big dogs in order to get a sweet slice of some 72 hour film-fest action!",
+        "website": "http://comedypigs.org"
+    },
+    {
+        "teamName": "The Winchester Film Collective",
+        "bio": "Diverse group of students from South Jersey who bonded over a class project making a silent film interpretation of the classic radio play, Under Milk Wood."
+    },
+    {
+        "teamName": "Bad Moan Media",
+        "bio": "Our creative team consists of a couple who are far too familiar with maladaptive daydreaming for their own good. Kimber, an experienced amateur screenwriter - discovered her passion five years ago. Five happy years, 30 scripts later. She's been writing ever since. A self proclaimed film junkie, with more film trivia stored in her head than IMDB, she's in route to becoming an architect.    Brayden, being both brains and brawn - brings a level of genius to the mix, all his own. He is vastly experienced with sound and video editing. While in school full time pursuing a degree in mathematics, he has helped create and shoot several short projects.    With the help of some inspired friends and family, we join together in hopes of making our best project yet."
+    },
+    {
+        "teamName": "Brigand Filmworks",
+        "bio": "We are a new production with previous experience. We're excited to be participating in the 2015, 72 film fest."
     }
 ]
