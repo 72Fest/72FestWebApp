@@ -338,5 +338,23 @@
         {
         "teamName": "Never Shut Up",
         "bio": "Back again to the critics' dismay.  Our filming family in disarray.  Our dreams of reaching the second round,  Long now buried six feet down.  With children grown and too much time.  Our best production is this rhyme."
+    },
+        {
+        "teamName": "Moonslaves",
+        "bio": "RE: FW: FW: FW: Moonslaves team bio! This team thought they could make a short film, you won't believe what happened next. LIKE/&COMMENT/&SUBSCRIBE",
+        "logo": "MoonslavesSmall.jpg",
+        "website": "https://www.youtube.com/channel/UC3PxOO4LGuN9kQ8wWCkPSxw",
+        "films": [
+              {
+                "title": "Three Days Notice",
+                "year": 2014,
+                "url": "https://www.youtube.com/embed/-TGz93-WmBk?feature=player_embedded"
+            },
+              {
+                "title": "Screw",
+                "year": 2013,
+                "url": "https://www.youtube.com/embed/Dt36eHopbaU?feature=player_embedded"
+            }
+        ]
     }
 ]
