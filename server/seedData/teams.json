@@ -356,5 +356,70 @@
                 "url": "https://www.youtube.com/embed/Dt36eHopbaU?feature=player_embedded"
             }
         ]
+    },
+    {
+        "teamName": "Empty Bottle Studios",
+        "bio": "Empty Bottle Studios is the combined effort of several individuals to make something worthwhile and entertaining.",
+        "logo": "empbotstu-logo-sized-for-film-fest.png",
+        "website": "https://twitter.com/empbotstu",
+        "films": [
+            {
+                "title": "The Other Side Of The Coin",
+                "year": 2014,
+                 "url": "https://www.youtube.com/embed/a2qyZKoIuZs?feature=player_embedded"
+            },
+            {
+                "title": "Dimishing Returns",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/2YrbZIN3r1A?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Team Sparkly Fresh",
+        "bio": "A group of Towson graduates and students who make cool movies and stuff."
+    },
+    {
+        "teamName": "Pathos Productions",
+        "bio": "From the Career and Technology Center in Frederick Maryland, a group of teens from diverse backgrounds have come together to apply our knowledge, creativity, and passion for film production. With experience in video shooting, editing, and screen writing, we use our talents to bring a story to life to inspire others."
+    },
+    {
+        "teamName": "Moyst Productions",
+        "bio": "The ultimate goal is to have access to the 8th dimension."
+    },
+    {
+        "teamName": "Inkling Adrift",
+        "bio": "Wayne Denier and David Wahl are lifelong friends (and nerds) who have collaborated on creative ventures in the past, including a recent board game, TUNDRA. David has worked on Henlivision entries for 72 Film Fest in previous years, providing artwork, voice acting, and assistant shooting for their trademark stop-motion animated films. Wayne has experience with marker board animation and live stage performance and puppetry, including the recent Maryland Ensemble hit, Materialize. Both men have a great passion for the blend of creative and technical acumen required for animation and film."
+    },
+    {
+        "teamName": "Paradoxin Productions",
+        "bio": "Garrison, a seasoned editor and Ellie, a professional nail biter are coming to create a kick-butt film!... If all goes as planed.",
+        "website": "https://www.youtube.com/channel/UCgktKZbqhxqR1Z9POeKYXHg",
+        "films": [
+            {
+                "title": "Young Minded",
+                "year": 2014,
+                 "url": "https://www.youtube.com/embed/y7RenHef9WA?feature=player_embedded"
+            }
+        ]
+    },
+     {
+        "teamName": "Kennedy Productions",
+        "bio": "We're back with some fresh faces and new ideas.",
+        "films": [
+            {
+                "title": "Samantha Spade and the Case of the Speeding Brain",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/1Qpw4oCayMM?feature=player_embedded"
+            }
+        ]
+    },
+        {
+        "teamName": "Nas-t productions",
+        "bio": "returning from a brief hiatus to film something heinous"
+    },
+        {
+        "teamName": "Average Society",
+        "bio": "Our team is a new team based out of the Catoctin area. We are Student film makers wanting to show our stuff."
     }
 ]
