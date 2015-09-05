@@ -11,4 +11,10 @@ router.get('/news', function (req, res) {
     //res.sendFile(express.static(path.resolve(path.join(__dirname, 'public/news_feed.html'))));
     res.sendFile(path.resolve(path.join(__dirname, '../public/news_feed.html')));
 });
+
+router.get('/sponsors', function (req, res) {
+    res.sendFile(path.resolve(path.join(__dirname, '../public/sponsors.html')));
+});
+
+
 module.exports = router;
