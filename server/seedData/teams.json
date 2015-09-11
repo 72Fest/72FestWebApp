@@ -62,7 +62,7 @@
     {
         "teamName": "Great Vengeance & Furious Anger",
         "bio": "#FeartheMullet",
-        "logo": "Great-VEngeance-IMG_8310.jpg",
+        "logo": "GreatVengeance.png",
         "films": [
             {
                 "title": "The Commons of Avalon",
@@ -140,7 +140,7 @@
         "teamName": "Ophiuchus Pictures",
         "bio": "A team dedicated to creating great films!",
         "website": "http://www.vimeo.com/josiekaye",
-        "logo": "Ophiuchus-logo-thumbnail.png",
+        "logo": "Ophiuchus-logo.jpg",
         "films": [
             {
                 "title": "A Mob of Their Own",
@@ -304,7 +304,8 @@
     },
     {
         "teamName": "Galaxy 42",
-        "bio": "Just a ragtag team of adventurers out on a mission to make a cool film."
+        "bio": "Just a ragtag team of adventurers out on a mission to make a cool film.",
+        "logo": "Galaxy42.jpg"
     },
     {
         "teamName": "The Comedy Pigs",
