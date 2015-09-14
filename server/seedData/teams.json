@@ -449,5 +449,23 @@
     {
         "teamName": "Lil' Deb's Sweatshop Snax Haüs",
         "bio": "High octane high efficiency high overhead high concept high fructose corn syrup films delivered straight to your eye sockets in delightfully wrapped packages."
+    },
+    {
+        "teamName": "The Collective",
+        "bio": "The Collective is one of the most significant groups of filmmakers ever to exist collectively.",
+        "website": "http://xthecollectivex.webs.com/",
+        "logo": "theCollectiveLogo.png",
+        "films": [
+            {
+                "title": "Bellebe Reserve",
+                "year": 2014,
+                 "url": "https://www.youtube.com/embed/kqb01F1b77I?feature=player_embedded"
+            },
+            {
+                "title": "Checkmate",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/eiEntbPTKWU?feature=player_embedded"
+            }
+        ]
     }
 ]
