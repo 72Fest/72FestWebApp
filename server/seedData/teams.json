@@ -196,7 +196,7 @@
         "teamName": "SRK Video",
         "bio": "We're a group of slick lizards who smoke cigars and play backgammon. Ain't nobody messin' with us.   (Previously known as Directors from the Black Lagoon)",
         "website": "https://www.facebook.com/pages/SRK-Video/413612968791065",
-        "logo": "BlackLagoon.png",
+        "logo": "srk.jpg",
         "films": [
             {
                 "title": "Andy from Accounting",
@@ -288,7 +288,8 @@
     },
     {
         "teamName": "Skybox Productions",
-        "bio": "We're here to chew bubblegum and make movies...and we're all out of bubblegum."
+        "bio": "We're here to chew bubblegum and make movies...and we're all out of bubblegum.",
+        "logo": "skybox.png"
     },
     {
         "teamName": "Asserttive Creative works",
@@ -467,5 +468,19 @@
                  "url": "https://www.youtube.com/embed/eiEntbPTKWU?feature=player_embedded"
             }
         ]
+        "teamName": "Failling Squares",
+        "bio": "WILDCARD"
+    },
+    {
+        "teamName": "We just paid $85 to probably not finish this fucking film",
+        "bio": "Is this tax deductible?"
+    },
+    {
+        "teamName": "DBZ Cinema",
+        "bio": "Local Frederick team"
+    },
+    {
+        "teamName": "not dmb",
+        "bio": "not dmb"
     }
 ]
