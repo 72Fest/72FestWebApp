@@ -387,7 +387,8 @@
     },
     {
         "teamName": "Moyst Productions",
-        "bio": "The ultimate goal is to have access to the 8th dimension."
+        "bio": "The ultimate goal is to have access to the 8th dimension.",
+        "logo": "moyst.jpg
     },
     {
         "teamName": "Inkling Adrift",
@@ -474,7 +475,7 @@
         "bio": "WILDCARD"
     },
     {
-        "teamName": "We just paid $85 to probably not finish this fucking film",
+        "teamName": "We just paid $85 to probably not finish this &$#ing film",
         "bio": "Is this tax deductible?"
     },
     {
@@ -484,5 +485,10 @@
     {
         "teamName": "not dmb",
         "bio": "not dmb"
+    },
+      {
+        "teamName": "Mango City Media",
+        "bio": "We're here to make movies and eat mangos.  And it looks like Jeff ate all the mangos because he hates to share",
+        "logo": "mango.png
     }
 ]
