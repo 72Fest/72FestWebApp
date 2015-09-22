@@ -1,5 +1,5 @@
 body {
-    background-color: #599ea8 !important;
+    background-color: #E0DFD6 !important;
     padding: 0px !important;
     margin: 0px !important;
 }
@@ -77,8 +77,8 @@ body {
     height: 50px;
     margin: 0px;
     z-index: 5;
-    background-color: #cc4747;
-    border-bottom: 1px solid #8b3232;
+    background-color: rgba(98, 105, 145, 0.90);
+    border-bottom: 1px solid rgba(74, 80, 116, 0.9);
     width: 100%;
 }
 
