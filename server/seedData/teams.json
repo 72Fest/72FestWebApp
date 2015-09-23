@@ -409,6 +409,7 @@
      {
         "teamName": "Kennedy Productions",
         "bio": "We're back with some fresh faces and new ideas.",
+        "logo": "kennedypro.jpg",
         "films": [
             {
                 "title": "Samantha Spade and the Case of the Speeding Brain",
@@ -490,5 +491,28 @@
         "teamName": "Mango City Media",
         "bio": "We're here to make movies and eat mangos.  And it looks like Jeff ate all the mangos because he hates to share",
         "logo": "mango.png"
+    },
+    {
+        "teamName": "Chimney Sweep Pictures",
+        "bio": "You bring the chimney, we'll bring the sweep.",
+        "website": "http://originalhampster.ytmnd.com",
+        "logo": "chimneysweep.png",
+        "films": [
+             {
+                "title": "Fish Trip",
+                "year": 2014,
+                 "url": "https://www.youtube.com/embed/B_4vsp5-HzQ?feature=player_embedded"
+            },
+            {
+                "title": "DOOM COP",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/OgZ2lrwoTBw?feature=player_embedded"
+            },
+            {
+                "title": "The Lebeaux File",
+                "year": 2012,
+                 "url": "https://www.youtube.com/embed/kqEVBRXxO3Y?feature=player_embedded"
+            }
+        ]
     }
 ]
