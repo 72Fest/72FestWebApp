@@ -288,12 +288,14 @@
         "logo": "skybox.png"
     },
     {
-        "teamName": "Asserttive Creative works",
-        "bio": "loading ..."
+        "teamName": "Assertive Creative works",
+        "bio": "loading ...",
+        "logo": "assertive.jpg"
     },
     {
         "teamName": "Da/Nu Productions",
-        "bio": "Da/Nu Productions led by Daniel Wyland , actor /writer/producer/director decided to put together some of the best acting students from Maryland Ensemble Theater and join the 72FF 2015 competition as a film makers team."
+        "bio": "Da/Nu Productions led by Daniel Wyland , actor /writer/producer/director decided to put together some of the best acting students from Maryland Ensemble Theater and join the 72FF 2015 competition as a film makers team.",
+        "logo": "danu.jpg"
     },
     {
         "teamName": "Spartans",
@@ -307,7 +309,8 @@
     {
         "teamName": "The Comedy Pigs",
         "bio": "Formed in 1992, The Comedy Pigs are the Maryland Ensemble Theatre's resident improv and sketch comedy group, and have been known to make a catchy video or two. Now they are throwing their hats into the ring with the big dogs in order to get a sweet slice of some 72 hour film-fest action!",
-        "website": "http://comedypigs.org"
+        "website": "http://comedypigs.org",
+        "logo": "pigs1.jpg"
     },
     {
         "teamName": "The Winchester Film Collective",
@@ -388,7 +391,8 @@
     },
     {
         "teamName": "Inkling Adrift",
-        "bio": "Wayne Denier and David Wahl are lifelong friends (and nerds) who have collaborated on creative ventures in the past, including a recent board game, TUNDRA. David has worked on Henlivision entries for 72 Film Fest in previous years, providing artwork, voice acting, and assistant shooting for their trademark stop-motion animated films. Wayne has experience with marker board animation and live stage performance and puppetry, including the recent Maryland Ensemble hit, Materialize. Both men have a great passion for the blend of creative and technical acumen required for animation and film."
+        "bio": "Wayne Denier and David Wahl are lifelong friends (and nerds) who have collaborated on creative ventures in the past, including a recent board game, TUNDRA. David has worked on Henlivision entries for 72 Film Fest in previous years, providing artwork, voice acting, and assistant shooting for their trademark stop-motion animated films. Wayne has experience with marker board animation and live stage performance and puppetry, including the recent Maryland Ensemble hit, Materialize. Both men have a great passion for the blend of creative and technical acumen required for animation and film.",
+        "logo": "inklingadrift.jpg"
     },
     {
         "teamName": "Paradoxin Productions",
