@@ -1,0 +1,11 @@
+<div class="imageDiv">
+    <a class="imageLink" href="/{{photo.photoUrl}}">
+        <img width="100" height="100" class="lazy" src="images/loader.gif" data-original="/{{photo.thumbUrl}}">
+    </a>
+
+    <div class="imageButtonContainer">
+        <button type class="btn  btn-default" ng-click="toggleApproval(photo)">
+           <span class="glyphicon" ng-class="{ 'glyphicon-ok': photo.isRejected, 'glyphicon-remove': !photo.isRejected}" src="#"></span> {{ photo.isRejected ? "Approve" : "Reject" }}
+        </button>
+    </div>
+</div>

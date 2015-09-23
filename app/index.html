@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>72FestWebApp</title>
+        <meta name="description" content="">
+        <!-- Sets initial viewport load and disables zooming  -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="format-detection" content="telephone=no" />
+
+
+        <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:css(.tmp) -->
+        <link rel="stylesheet" href="bower_components/swipebox/src/css/swipebox.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Make sure all your bars are the first things in your <body> -->
+        <header class="bar bar-nav">
+          <h1 class="title">72 Fest</h1>
+        </header>
+
+        <nav id="tabBar" class="bar bar-tab">
+          <a class="tab-item active" data-ignore="push" href="#">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">Home</span>
+          </a>
+          <a class="tab-item" data-ignore="push" href="#gallery">
+            <span class="icon icon-gear"></span>
+            <span class="tab-label">Gallery</span>
+          </a>
+          <a class="tab-item" data-ignore="push" href="#teams">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Teams</span>
+          </a>
+          <a class="tab-item" data-ignore="push" href="#about">
+            <span class="icon icon-info"></span>
+            <span class="tab-label">About</span>
+          </a>
+          <a class="tab-item" data-ignore="push" href="#search">
+            <span class="icon icon-search"></span>
+            <span class="tab-label">Search</span>
+          </a>
+        </nav>
+
+        <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+        <div id="contentContainer" class="content">
+
+        </div>
+
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

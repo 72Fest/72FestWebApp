@@ -1,0 +1,24 @@
+<div id="countdownLabel">
+    {{caption}}
+</div>
+{{#with remainingTime}}
+<div id="countdownCounterContainer">
+    <div id="countdownDayCounter" class="counterContainer">
+        <div class="countdownCounterLabel">Days</div>
+
+        <div class="countdownCounterNumbers">{{day}}</div>
+    </div>
+    <div id="countdownHourCounter" class="counterContainer">
+        <div class="countdownCounterLabel">Hours</div>
+        <div class="countdownCounterNumbers">{{hour}}</div>
+    </div>
+    <div id="countdownMinuteCounter" class="counterContainer">
+        <div class="countdownCounterLabel">Minutes</div>
+        <div class="countdownCounterNumbers">{{minute}}</div>
+    </div>
+    <div id="countdownSecondCounter" class="counterContainer">
+        <div class="countdownCounterLabel">Seconds</div>
+        <div class="countdownCounterNumbers">{{second}}</div>
+    </div>
+</div>
+{{/with}}
