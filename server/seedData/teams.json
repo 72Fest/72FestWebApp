@@ -275,10 +275,6 @@
         ]
     },   
     {
-        "teamName": "Bear Minimum Productions",
-        "bio": "Second time's the charm"
-    },
-    {
         "teamName": "Rocket Bike",
         "bio": "Our team is comprised of mostly military veterans, all of whom are members of Veterans in Film & Television Los Angeles. Our Civilian team members, like our Vets, are working professionals in this little industry of ours. We've been a part of the 24 and 48 hour film projects and are thrilled to be a part of the 72 Hour Film Fest. "
     },    
@@ -501,6 +497,29 @@
                 "year": 2012,
                  "url": "https://www.youtube.com/embed/kqEVBRXxO3Y?feature=player_embedded"
             }
+        ]
+    },
+    {
+        "teamName": "Ah Muh Face!",
+        "bio": "Offending old people since 2012",
+        "logo": "amf.jpg"
+    },
+    {
+        "teamName": "Demon/Angel Production",
+        "bio": "Been making short films since 2005.  Competed in 72fest in 2010 and 2011.  Semi-finalist for the 72 script fest in 2012 and 2014.",
+        "website":"https://www.youtube.com/channel/UC6nyOqaIWM5ZU6om4",
+        "films": [
+            {
+                "title": "The Testimony",
+                "year": 2011,
+                 "url": "https://www.youtube.com/embed/DJB0z8XaoGY?feature=player_embedded"
+            },
+            {
+                "title": "Goldi vs The Bears",
+                "year": 2010,
+                 "url": "https://www.youtube.com/embed/6PVALArtEtY?feature=player_embedded"
+            }
+            
         ]
     }
 ]
