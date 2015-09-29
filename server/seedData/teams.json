@@ -551,5 +551,16 @@
     {
         "teamName": "Pug Media",
         "bio": "Far away, across the field The tolling of the iron bell Calls the faithful to their knees To hear the softly spoken magic spells."
+    },
+     {
+        "teamName": "Twelve-Sided Entertainment",
+        "bio": "thug THəɡ/ noun 1. a violent person, especially a criminal. synonyms: ruffian, hooligan, vandal, hoodlum, gangster, villain, criminal; More",
+        "films": [
+            {
+                "title": "Face Mask",
+                "year": 2014,
+                "url": "http://player.vimeo.com/video/108828356"
+            }
+        ]
     }
 ]
