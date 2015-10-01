@@ -265,7 +265,8 @@
     },
     {
         "teamName": "Laserstar",
-        "bio": "We like to make neat stuff.",    
+        "bio": "We like to make neat stuff.",   
+        "logo": "laserstar.png",
         "films": [
               {
                 "title": "Playback",
@@ -409,7 +410,8 @@
     },
         {
         "teamName": "Average Society",
-        "bio": "Our team is a new team based out of the Catoctin area. We are Student film makers wanting to show our stuff."
+        "bio": "Our team is a new team based out of the Catoctin area. We are Student film makers wanting to show our stuff.",
+        "logo": "averagesociety.png"
     },
     {
         "teamName": "Molten Llama Films",
