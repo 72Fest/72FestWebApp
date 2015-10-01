@@ -285,11 +285,6 @@
         "logo": "skybox.png"
     },
     {
-        "teamName": "Assertive Creative works",
-        "bio": "loading ...",
-        "logo": "assertive.jpg"
-    },
-    {
         "teamName": "Da/Nu Productions",
         "bio": "Da/Nu Productions led by Daniel Wyland , actor /writer/producer/director decided to put together some of the best acting students from Maryland Ensemble Theater and join the 72FF 2015 competition as a film makers team.",
         "logo": "danu.jpg"
@@ -320,7 +315,8 @@
     },
     {
         "teamName": "Brigand Filmworks",
-        "bio": "We are a new production with previous experience. We're excited to be participating in the 2015, 72 film fest."
+        "bio": "We are a new production with previous experience. We're excited to be participating in the 2015, 72 film fest.",
+        "logo": "BrigandFilmworks.jpg"
     },
         {
         "teamName": "Carpet Wall",
@@ -336,7 +332,8 @@
     },
         {
         "teamName": "Never Shut Up",
-        "bio": "Back again to the critics' dismay.  Our filming family in disarray.  Our dreams of reaching the second round,  Long now buried six feet down.  With children grown and too much time.  Our best production is this rhyme."
+        "bio": "Back again to the critics' dismay.  Our filming family in disarray.  Our dreams of reaching the second round,  Long now buried six feet down.  With children grown and too much time.  Our best production is this rhyme.",
+        "logo": "nevershutup.jpg"
     },
         {
         "teamName": "Moonslaves",
@@ -455,8 +452,9 @@
         ]
     },
     {
-        "teamName": "Failling Squares",
-        "bio": "WILDCARD"
+        "teamName": "Falling Squares",
+        "bio": "WILDCARD",
+        "logo": "fallingsquares.png"
     },
     {
         "teamName": "We just paid $85 to probably not finish this &$#ing film",
@@ -468,7 +466,8 @@
     },
     {
         "teamName": "not dmb",
-        "bio": "not dmb"
+        "bio": "not dmb",
+        "logo": "notdmb.jpg"
     },
       {
         "teamName": "Mango City Media",
