@@ -521,6 +521,7 @@
     {
         "teamName": "Noticable Grain",
         "bio": "Go with the Grain.",
+        "logo": "NOTICEABLE GRAIN PRODUCTIONS.jpg",
         "films": [
             {
                 "title": "Chowder House Love",
@@ -542,7 +543,8 @@
     },
     {
         "teamName": "Harlequin Films",
-        "bio": "The revolution will be written, filmed, edited for time and presented in an air-conditioned theater."
+        "bio": "The revolution will be written, filmed, edited for time and presented in an air-conditioned theater.",
+        "logo": "harlequin.jpg"
     },
     {
         "teamName": "Pug Media",
