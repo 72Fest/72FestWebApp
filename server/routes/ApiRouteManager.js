@@ -136,7 +136,8 @@ var express = require('express'),
                         id: models[idx]._id,
                         photoUrl: models[idx].photoUrl,
                         thumbUrl: models[idx].thumbUrl,
-                        isRejected: models[idx].isRejected
+                        isRejected: models[idx].isRejected,
+                        timestamp: models[idx].timestamp
                     };
 
                     results.push(curObj);
