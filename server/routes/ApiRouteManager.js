@@ -11,7 +11,7 @@ var express = require('express'),
     extend = require('util')._extend,
     config = require('../config.json'),
     photosBasePath = 'public/photos',
-    thumbnailDimension = 100,
+    thumbnailDimension = 384,
     io = null,
     db = null,
     Photo = null,
@@ -70,10 +70,9 @@ var express = require('express'),
                 //now create a thumbnail image
                 easyimg.thumbnail({
                     width: thumbnailDimension,
-                    height: thumbnailDimension,
                     src: newPhotoPath,
                     dst: thumbPath,
-                    quality: 85
+                    quality: 90
                 }, function (err, img) {
 
                     if (err) {
