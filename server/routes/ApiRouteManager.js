@@ -9,8 +9,9 @@ var express = require('express'),
     path = require('path'),
     ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
     extend = require('util')._extend,
+    config = require('../config.json'),
     photosBasePath = 'public/photos',
-    thumbnailDimension = 100,
+    thumbnailDimension = 384,
     io = null,
     db = null,
     Photo = null,
@@ -18,18 +19,7 @@ var express = require('express'),
     Team = null,
     schemas = require('../schemas'),
     delegate = null,
-    //TODO: remove hardcoded reference into Mongo DB
-    countdownMetadata = {
-        caption: "Launch PartyCountdown",
-        time: {
-            year: 2014,
-            month: 10,
-            day: 2,
-            hour: 19,
-            minute: 0,
-            second: 0
-        }
-    },
+    countdownMetadata = config.filmingCountdownMetadata,
     PhotoListType = {
         ALL: "allPhotos",
         REJECTED: "rejectedPhotos",
@@ -37,8 +27,8 @@ var express = require('express'),
     },
     //default photos metadata if not retreived from DB
     photosMetadata = {
-        baseUrl: "http://192.168.1.10:3000",
-        logosPath: "/logos"
+        baseUrl: config.baseUrl,
+        logosPath: config.logosPath
     },
     sendResult = function (res, isSucc, msg) {
         "use strict";
@@ -80,10 +70,9 @@ var express = require('express'),
                 //now create a thumbnail image
                 easyimg.thumbnail({
                     width: thumbnailDimension,
-                    height: thumbnailDimension,
                     src: newPhotoPath,
                     dst: thumbPath,
-                    quality: 85
+                    quality: 90
                 }, function (err, img) {
 
                     if (err) {
@@ -147,7 +136,8 @@ var express = require('express'),
                         id: models[idx]._id,
                         photoUrl: models[idx].photoUrl,
                         thumbUrl: models[idx].thumbUrl,
-                        isRejected: models[idx].isRejected
+                        isRejected: models[idx].isRejected,
+                        timestamp: models[idx].timestamp
                     };
 
                     results.push(curObj);

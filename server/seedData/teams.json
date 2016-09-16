@@ -84,7 +84,7 @@
     {
         "teamName": "Stepdad Productions",
         "bio": "Stepdad Productions is a group of teenage runaways, hoping to make it in this cruel world in whatever way they can. They're hoping to win the 72 fest to have enough money to buy a train ticket to boston.",
-        "logo": "stepdadCHAIRS-IMAGE-.jpg",
+        "logo": "stepdad.jpg",
         "website" : "https://m.youtube.com/channel/UCaU-vFs46PT6Jgz1w8wmE8Q",
         "films": [
             {
@@ -265,7 +265,8 @@
     },
     {
         "teamName": "Laserstar",
-        "bio": "We like to make neat stuff.",    
+        "bio": "We like to make neat stuff.",   
+        "logo": "laserstar.png",
         "films": [
               {
                 "title": "Playback",
@@ -275,33 +276,23 @@
         ]
     },   
     {
-        "teamName": "Bear Minimum Productions",
-        "bio": "Second time's the charm"
-    },
-    {
         "teamName": "Rocket Bike",
         "bio": "Our team is comprised of mostly military veterans, all of whom are members of Veterans in Film & Television Los Angeles. Our Civilian team members, like our Vets, are working professionals in this little industry of ours. We've been a part of the 24 and 48 hour film projects and are thrilled to be a part of the 72 Hour Film Fest. "
-    },
-    {
-        "teamName": "OG PIF",
-        "bio": "We're a group of Presidential Innovation Fellows looking to innovate the bejesus out of films (or at least learn how to use a camera)."
-    },
+    },    
     {
         "teamName": "Skybox Productions",
         "bio": "We're here to chew bubblegum and make movies...and we're all out of bubblegum.",
         "logo": "skybox.png"
     },
     {
-        "teamName": "Asserttive Creative works",
-        "bio": "loading ..."
-    },
-    {
         "teamName": "Da/Nu Productions",
-        "bio": "Da/Nu Productions led by Daniel Wyland , actor /writer/producer/director decided to put together some of the best acting students from Maryland Ensemble Theater and join the 72FF 2015 competition as a film makers team."
+        "bio": "Da/Nu Productions led by Daniel Wyland , actor /writer/producer/director decided to put together some of the best acting students from Maryland Ensemble Theater and join the 72FF 2015 competition as a film makers team.",
+        "logo": "danu.jpg"
     },
     {
-        "teamName": "Spartans",
-        "bio": "Our team is made up of military veterans, spouses and dependents."
+        "teamName": "Team Spartans",
+        "bio": "Spartans is a team of strong female warriors known to the world as military veterans. We have joined forces with other goddesses to help us with this endeavor. Along side of these strong women will be a few selfless protectors known as our brothers in arms.",
+        "logo": "teamspartan.JPG"
     },
     {
         "teamName": "Galaxy 42",
@@ -311,19 +302,17 @@
     {
         "teamName": "The Comedy Pigs",
         "bio": "Formed in 1992, The Comedy Pigs are the Maryland Ensemble Theatre's resident improv and sketch comedy group, and have been known to make a catchy video or two. Now they are throwing their hats into the ring with the big dogs in order to get a sweet slice of some 72 hour film-fest action!",
-        "website": "http://comedypigs.org"
+        "website": "http://comedypigs.org",
+        "logo": "pigs1.jpg"
     },
     {
         "teamName": "The Winchester Film Collective",
         "bio": "Diverse group of students from South Jersey who bonded over a class project making a silent film interpretation of the classic radio play, Under Milk Wood."
     },
     {
-        "teamName": "Bad Moan Media",
-        "bio": "Our creative team consists of a couple who are far too familiar with maladaptive daydreaming for their own good. Kimber, an experienced amateur screenwriter - discovered her passion five years ago. Five happy years, 30 scripts later. She's been writing ever since. A self proclaimed film junkie, with more film trivia stored in her head than IMDB, she's in route to becoming an architect.    Brayden, being both brains and brawn - brings a level of genius to the mix, all his own. He is vastly experienced with sound and video editing. While in school full time pursuing a degree in mathematics, he has helped create and shoot several short projects.    With the help of some inspired friends and family, we join together in hopes of making our best project yet."
-    },
-    {
         "teamName": "Brigand Filmworks",
-        "bio": "We are a new production with previous experience. We're excited to be participating in the 2015, 72 film fest."
+        "bio": "We are a new production with previous experience. We're excited to be participating in the 2015, 72 film fest.",
+        "logo": "BrigandFilmworks.jpg"
     },
         {
         "teamName": "Carpet Wall",
@@ -339,7 +328,8 @@
     },
         {
         "teamName": "Never Shut Up",
-        "bio": "Back again to the critics' dismay.  Our filming family in disarray.  Our dreams of reaching the second round,  Long now buried six feet down.  With children grown and too much time.  Our best production is this rhyme."
+        "bio": "Back again to the critics' dismay.  Our filming family in disarray.  Our dreams of reaching the second round,  Long now buried six feet down.  With children grown and too much time.  Our best production is this rhyme.",
+        "logo": "nevershutup.jpg"
     },
         {
         "teamName": "Moonslaves",
@@ -392,23 +382,13 @@
     },
     {
         "teamName": "Inkling Adrift",
-        "bio": "Wayne Denier and David Wahl are lifelong friends (and nerds) who have collaborated on creative ventures in the past, including a recent board game, TUNDRA. David has worked on Henlivision entries for 72 Film Fest in previous years, providing artwork, voice acting, and assistant shooting for their trademark stop-motion animated films. Wayne has experience with marker board animation and live stage performance and puppetry, including the recent Maryland Ensemble hit, Materialize. Both men have a great passion for the blend of creative and technical acumen required for animation and film."
-    },
-    {
-        "teamName": "Paradoxin Productions",
-        "bio": "Garrison, a seasoned editor and Ellie, a professional nail biter are coming to create a kick-butt film!... If all goes as planed.",
-        "website": "https://www.youtube.com/channel/UCgktKZbqhxqR1Z9POeKYXHg",
-        "films": [
-            {
-                "title": "Young Minded",
-                "year": 2014,
-                 "url": "https://www.youtube.com/embed/y7RenHef9WA?feature=player_embedded"
-            }
-        ]
-    },
+        "bio": "Wayne Denier and David Wahl are lifelong friends (and nerds) who have collaborated on creative ventures in the past, including a recent board game, TUNDRA. David has worked on Henlivision entries for 72 Film Fest in previous years, providing artwork, voice acting, and assistant shooting for their trademark stop-motion animated films. Wayne has experience with marker board animation and live stage performance and puppetry, including the recent Maryland Ensemble hit, Materialize. Both men have a great passion for the blend of creative and technical acumen required for animation and film.",
+        "logo": "inklingadrift.jpg"
+    },   
      {
         "teamName": "Kennedy Productions",
         "bio": "We're back with some fresh faces and new ideas.",
+        "logo": "kennedypro.jpg",
         "films": [
             {
                 "title": "Samantha Spade and the Case of the Speeding Brain",
@@ -423,12 +403,13 @@
     },
         {
         "teamName": "Average Society",
-        "bio": "Our team is a new team based out of the Catoctin area. We are Student film makers wanting to show our stuff."
+        "bio": "Our team is a new team based out of the Catoctin area. We are Student film makers wanting to show our stuff.",
+        "logo": "averagesociety.png"
     },
     {
         "teamName": "Molten Llama Films",
         "bio": "Fourth year doing this / Can't think of a good bio / It's snowing on Mt. Fuji",
-        "logo": "Molten-Llama-Logo-2014.png",
+        "logo": "moltellama.jpg",
         "website":"https://www.facebook.com/MoltenLlamaFilms",
         "films": [
             {
@@ -449,10 +430,6 @@
         ]
     },
     {
-        "teamName": "Lil' Deb's Sweatshop Snax Haüs",
-        "bio": "High octane high efficiency high overhead high concept high fructose corn syrup films delivered straight to your eye sockets in delightfully wrapped packages."
-    },
-    {
         "teamName": "The Collective",
         "bio": "The Collective is one of the most significant groups of filmmakers ever to exist collectively.",
         "website": "http://xthecollectivex.webs.com/",
@@ -471,8 +448,9 @@
         ]
     },
     {
-        "teamName": "Failling Squares",
-        "bio": "WILDCARD"
+        "teamName": "Falling Squares",
+        "bio": "WILDCARD",
+        "logo": "fallingsquares.png"
     },
     {
         "teamName": "We just paid $85 to probably not finish this &$#ing film",
@@ -480,15 +458,111 @@
     },
     {
         "teamName": "DBZ Cinema",
-        "bio": "Local Frederick team"
+        "bio": "Local Frederick team",
+        "logo": "dbz.jpg"
     },
     {
         "teamName": "not dmb",
-        "bio": "not dmb"
+        "bio": "not dmb",
+        "logo": "notdmb.jpg"
     },
       {
         "teamName": "Mango City Media",
         "bio": "We're here to make movies and eat mangos.  And it looks like Jeff ate all the mangos because he hates to share",
         "logo": "mango.png"
+    },
+    {
+        "teamName": "Chimney Sweep Pictures",
+        "bio": "You bring the chimney, we'll bring the sweep.",
+        "website": "http://originalhampster.ytmnd.com",
+        "logo": "chimneysweep.png",
+        "films": [
+             {
+                "title": "Fish Trip",
+                "year": 2014,
+                 "url": "https://www.youtube.com/embed/B_4vsp5-HzQ?feature=player_embedded"
+            },
+            {
+                "title": "DOOM COP",
+                "year": 2013,
+                 "url": "https://www.youtube.com/embed/OgZ2lrwoTBw?feature=player_embedded"
+            },
+            {
+                "title": "The Lebeaux File",
+                "year": 2012,
+                 "url": "https://www.youtube.com/embed/kqEVBRXxO3Y?feature=player_embedded"
+            }
+        ]
+    },
+    {
+        "teamName": "Ah Muh Face!",
+        "bio": "Offending old people since 2012",
+        "logo": "amf.jpg"
+    },
+    {
+        "teamName": "Demon/Angel Production",
+        "bio": "Been making short films since 2005.  Competed in 72fest in 2010 and 2011.  Semi-finalist for the 72 script fest in 2012 and 2014.",
+        "website":"https://www.youtube.com/channel/UC6nyOqaIWM5ZU6om4",
+        "logo": "demonangel.jpg",
+        "films": [
+            {
+                "title": "The Testimony",
+                "year": 2011,
+                 "url": "https://www.youtube.com/embed/DJB0z8XaoGY?feature=player_embedded"
+            },
+            {
+                "title": "Goldi vs The Bears",
+                "year": 2010,
+                 "url": "https://www.youtube.com/embed/6PVALArtEtY?feature=player_embedded"
+            }
+            
+        ]
+    },
+    {
+        "teamName": "Noticable Grain",
+        "bio": "Go with the Grain.",
+        "logo": "NOTICEABLE GRAIN PRODUCTIONS.jpg",
+        "films": [
+            {
+                "title": "Chowder House Love",
+                "year": 2012,
+                 "url": "https://www.youtube.com/embed/41kxVPBkiWY?feature=player_embedded"
+            },
+            {
+                "title": "The Longest Journey",
+                "year": 2011,
+                 "url": "https://www.youtube.com/embed/7F2UubRhCrA?feature=player_embedded"
+            },
+            {
+                "title": "Billy",
+                "year": 2010,
+                 "url": "https://www.youtube.com/embed/yD2wOhqY-sg?feature=player_embedded"
+            }
+            
+        ]
+    },
+    {
+        "teamName": "Harlequin Films",
+        "bio": "The revolution will be written, filmed, edited for time and presented in an air-conditioned theater.",
+        "logo": "harlequin.jpg"
+    },
+    {
+        "teamName": "Pug Media",
+        "bio": "Far away, across the field The tolling of the iron bell Calls the faithful to their knees To hear the softly spoken magic spells."
+    },
+     {
+        "teamName": "Twelve-Sided Entertainment",
+        "bio": "thug THəɡ/ noun 1. a violent person, especially a criminal. synonyms: ruffian, hooligan, vandal, hoodlum, gangster, villain, criminal; More",
+        "films": [
+            {
+                "title": "Face Mask",
+                "year": 2014,
+                "url": "http://player.vimeo.com/video/108828356"
+            }
+        ]
+    },
+    {
+        "teamName": "Consistently Kinda Funny",
+        "bio": "Friends from Frederick who like to make films."
     }
 ]
