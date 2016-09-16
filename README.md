@@ -98,6 +98,13 @@ $ cd server
 $ npm install
 ```
 
+Create the config.json file and edit the baseUrl and start time for when the filming begins for the 72Fest event
+
+```
+$ cp config.example.json
+$ vi config.json
+```
+
 The node server uses imagemagick to process the images and must be installed on your system.
 
 #### On Ubuntu

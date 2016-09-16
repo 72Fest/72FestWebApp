@@ -1,0 +1,15 @@
+{
+    "baseUrl": "http://localhost:1234",
+    "logosPath": "/logos",
+    "filmingCountdownMetadata": {
+        "caption": "Film Countdown",
+        "time": {
+            "year": 2016,
+            "month": 10,
+            "day": 2,
+            "hour": 19,
+            "minute": 0,
+            "second": 0
+        }
+    }
+}
