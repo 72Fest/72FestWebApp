@@ -9,6 +9,7 @@ var express = require('express'),
     path = require('path'),
     ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
     extend = require('util')._extend,
+    config = require('../config.json'),
     photosBasePath = 'public/photos',
     thumbnailDimension = 100,
     io = null,
@@ -18,18 +19,7 @@ var express = require('express'),
     Team = null,
     schemas = require('../schemas'),
     delegate = null,
-    //TODO: remove hardcoded reference into Mongo DB
-    countdownMetadata = {
-        caption: "Launch PartyCountdown",
-        time: {
-            year: 2014,
-            month: 10,
-            day: 2,
-            hour: 19,
-            minute: 0,
-            second: 0
-        }
-    },
+    countdownMetadata = config.filmingCountdownMetadata,
     PhotoListType = {
         ALL: "allPhotos",
         REJECTED: "rejectedPhotos",
@@ -37,8 +27,8 @@ var express = require('express'),
     },
     //default photos metadata if not retreived from DB
     photosMetadata = {
-        baseUrl: "http://192.168.1.10:3000",
-        logosPath: "/logos"
+        baseUrl: config.baseUrl,
+        logosPath: config.logosPath
     },
     sendResult = function (res, isSucc, msg) {
         "use strict";
