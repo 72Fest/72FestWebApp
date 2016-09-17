@@ -40,3 +40,4 @@ test/bower_components/
 app/styles/*.css
 config.json
 server/public/logos/*-thumb.*
+phonegap
