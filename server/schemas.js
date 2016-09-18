@@ -7,6 +7,7 @@
         Photo,
         Vote,
         Team,
+        News,
         initPhotoSchema = function (mg) {
             var schema = new mg.Schema({
                 size: Number,
@@ -47,6 +48,15 @@
 
             return schema;
         },
+        initNewsSchema = function (mg) {
+            var schema = new mg.Schema({
+                title: String,
+                timestamp: { type: Date, default: Date.now },
+                content: String
+            });
+
+            return schema;
+        },
         init = function (dbVal) {
             this.db = dbVal;
 
@@ -68,10 +78,17 @@
             } catch (err3) {
                 this.Team = dbVal.model("Team", initTeamSchema(dbVal));
             }
+
+            try {
+                this.News = dbVal.model("News");
+            } catch (err3) {
+                this.News = dbVal.model("News", initNewsSchema(dbVal));
+            }
         };
 
     exports.init = init;
     exports.Photo = Photo;
     exports.Vote = Vote;
     exports.Team = Team;
+    exports.News = News;
 }());

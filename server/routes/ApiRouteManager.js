@@ -17,6 +17,7 @@ var express = require('express'),
     Photo = null,
     Vote = null,
     Team = null,
+    News = null,
     schemas = require('../schemas'),
     delegate = null,
     countdownMetadata = config.filmingCountdownMetadata,
@@ -163,6 +164,7 @@ var express = require('express'),
         Photo = schemas.Photo;
         Vote = schemas.Vote;
         Team = schemas.Team;
+        News = schemas.News;
 
         //create the ouptfolder if it doesn't already exist
         //make sure dir exists
@@ -405,6 +407,32 @@ router.post('/upload', function (req, res) {
     });
 
     return;
+});
+
+router.get('/news', function (req, res) {
+    "use strict";
+
+    var idx,
+        results = [];
+
+    News.find({}).sort({date: 'asc'}).exec(function (err, models) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve news feed!");
+        } else {
+            //loop through all votes
+            for (idx = 0; idx < models.length; idx += 1) {
+                results.push({
+                    id: models[idx].id,
+                    timestamp: models[idx].timestamp,
+                    content: models[idx].content
+                });
+            }
+
+            sendResult(res, true, results);
+        }
+
+    });
+
 });
 
 module.exports = ApiRouter;
