@@ -415,7 +415,7 @@ router.get('/news', function (req, res) {
     var idx,
         results = [];
 
-    News.find({}).sort({date: 'asc'}).exec(function (err, models) {
+    News.find({}).sort({timestamp: -1}).exec(function (err, models) {
         if (err) {
             sendResult(res, false, "Failed to retrieve news feed!");
         } else {
@@ -424,6 +424,7 @@ router.get('/news', function (req, res) {
                 results.push({
                     id: models[idx].id,
                     timestamp: models[idx].timestamp,
+                    title: models[idx].title,
                     content: models[idx].content
                 });
             }
