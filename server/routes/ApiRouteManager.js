@@ -29,7 +29,8 @@ var express = require('express'),
     //default photos metadata if not retreived from DB
     photosMetadata = {
         baseUrl: config.baseUrl,
-        logosPath: config.logosPath
+        logosPath: config.logosPath,
+        defaultTeamLogo: 'no-logo.png'
     },
     sendResult = function (res, isSucc, msg) {
         "use strict";
@@ -343,15 +344,22 @@ router.get('/teams', function (req, res) {
     var idx;
 
     Team.find({}).sort({teamName: 'asc'}).exec(function (err, models) {
+        var baseLogoUrl = photosMetadata.baseUrl + "/" +
+                photosMetadata.logosPath,
+            defaultLogoUrl = photosMetadata.baseUrl + "/" +
+                photosMetadata.defaultTeamLogo;
+
         if (err) {
             sendResult(res, false, "Failed to retrieve list of teams!");
         } else {
             //return team models minus the _id field
             //also append full URL onto each model
             models.forEach(function (teamModel) {
-                teamModel.logo = photosMetadata.baseUrl +
-                                 photosMetadata.logosPath + "/" +
-                                 teamModel.logo;
+                if (teamModel.logo) {
+                    teamModel.logo = baseLogoUrl + "/" + teamModel.logo;
+                } else {
+                    teamModel.logo = defaultLogoUrl;
+                }
             });
 
             sendResult(res, true, models);
@@ -363,7 +371,9 @@ router.get('/teams/:teamId', function (req, res) {
     "use strict";
 
     var that = this,
-        teamId = req.params.teamId;
+        teamId = req.params.teamId,
+        baseLogoUrl = photosMetadata.baseUrl + "/" + photosMetadata.logosPath,
+        defaultLogoUrl = photosMetadata.baseUrl + "/" + photosMetadata.defaultTeamLogo;
 
     //TODO: sanatize the teamId
     Team.findOne({ _id: teamId}, function (err, teamModel) {
@@ -375,9 +385,11 @@ router.get('/teams/:teamId', function (req, res) {
         } else {
             //return team data
             //pass full URL of logo when querying an individual team
-            teamModel.logo = photosMetadata.baseUrl +
-                             photosMetadata.logosPath + "/" +
-                             teamModel.logo;
+            if (teamModel.logo) {
+                teamModel.logo = baseLogoUrl + "/" + teamModel.logo;
+            } else {
+                teamModel.logo = defaultLogoUrl;
+            }
             sendResult(res, true, teamModel);
         }
     });
