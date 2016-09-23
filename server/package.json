@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "mongo 72Fest --eval 'db.teams.drop()' && node ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "basic-auth": "^1.0.0",
