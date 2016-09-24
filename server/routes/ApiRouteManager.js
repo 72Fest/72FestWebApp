@@ -289,53 +289,48 @@ router.get('/votes/:voteId', function (req, res) {
 router.post('/vote', function (req, res) {
     "use strict";
 
-    var form = new formidable.IncomingForm(),
-        voteId,
-        voteTotal,
-        unliked;
+    var voteId = req.body.id,
+        unliked = req.body.unlike,
+        voteTotal;
 
-    form.parse(req, function (err, fields, files) {
+    if (!voteId) {
+        sendResult(res, false, "Invalid vote request!");
+        return;
+    }
+
+    //lets get current value
+    Vote.findOne({ id: voteId}, 'id votes', function (err, voteModel) {
         if (err) {
             sendResult(res, false, "Failed to process vote request!");
-        } else {
-            voteId = fields.id;
-            unliked = (fields.unlike === undefined) ? false : true;
-
-            if (!voteId) {
-                sendResult(res, false, "Invalid vote request!");
-                return;
-            }
-
-            //lets get current value
-            Vote.findOne({ id: voteId}, 'id votes', function (err, voteModel) {
-                if (err) {
-                    sendResult(res, false, "Failed to process vote request!");
-                    return;
-                }
-
-                if (voteModel) {
-                    voteTotal = Math.max((unliked) ? voteModel.votes -= 1 : voteModel.votes += 1, 0);
-                    voteModel.votes = voteTotal;
-                } else {
-                    voteTotal = 1;
-                    voteModel = new Vote({id: voteId, votes: voteTotal});
-                }
-
-                voteModel.save(function (err) {
-                    if (err) {
-                        sendResult(res, false, "Failed to process vote request!");
-                    } else {
-                        console.log("TOTAL VOTES: " + voteId + ", " + voteTotal);
-                        sendResult(res, true, { id: voteId, votes: voteTotal});
-                    }
-                });
-
-            });
-
-            console.log("the ID:" + voteId + ", and unlike status:" + unliked);
+            return;
         }
+
+        if (voteModel) {
+            voteTotal = Math.max((unliked) ? voteModel.votes -= 1 : voteModel.votes += 1, 0);
+            voteModel.votes = voteTotal;
+        } else {
+            voteTotal = 1;
+            voteModel = new Vote({id: voteId, votes: voteTotal});
+        }
+
+        voteModel.save(function (err) {
+            var vote = {};
+            if (err) {
+                sendResult(res, false, "Failed to process vote request!");
+            } else {
+                vote.id = voteId;
+                vote.votes = voteTotal;
+                console.log("TOTAL VOTES: " + voteId + ", " + voteTotal);
+                if (delegate) {
+                    delegate.getSocket().emit('voteCast', vote);
+                }
+                sendResult(res, true, vote);
+            }
+        });
+
     });
 
+    console.log("the ID:" + voteId + ", and unlike status:" + unliked);
 });
 
 router.get('/teams', function (req, res) {
