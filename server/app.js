@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var moment = require('moment');
+var cors = require('cors');
 var auth = require('./auth');
 
 //monog db connection
@@ -66,7 +67,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.enable("jsonp callback");
-
+app.use(cors());
 app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
