@@ -19,6 +19,7 @@ var express = require('express'),
     Vote = null,
     Team = null,
     News = null,
+    Sponsor = null,
     schemas = require('../schemas'),
     delegate = null,
     countdownMetadata = config.filmingCountdownMetadata,
@@ -169,6 +170,7 @@ var express = require('express'),
         Vote = schemas.Vote;
         Team = schemas.Team;
         News = schemas.News;
+        Sponsor = schemas.Sponsor;
 
         //create the ouptfolder if it doesn't already exist
         //make sure dir exists
@@ -444,6 +446,18 @@ router.get('/news', function (req, res) {
 
     });
 
+});
+
+router.get('/sponsors', function (req, res) {
+    "use strict";
+
+    Sponsor.find({}).exec(function (err, models) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve list of sponsors!");
+        } else {
+            sendResult(res, true, models);
+        }
+    });
 });
 
 module.exports = ApiRouter;
