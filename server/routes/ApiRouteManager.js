@@ -11,7 +11,8 @@ var express = require('express'),
     extend = require('util')._extend,
     config = require('../config.json'),
     photosBasePath = 'public/photos',
-    thumbnailDimension = 384,
+    thumbnailWidthDimension = 384,
+    thumbnailHeightDimension = 384,
     io = null,
     db = null,
     Photo = null,
@@ -70,11 +71,13 @@ var express = require('express'),
                 photo.photoUrl = path.join(path.basename(photosBasePath), path.basename(newPhotoPath));
 
                 //now create a thumbnail image
-                easyimg.thumbnail({
-                    width: thumbnailDimension,
+                easyimg.resize({
+                    width: thumbnailWidthDimension,
+                    height: thumbnailHeightDimension,
                     src: newPhotoPath,
                     dst: thumbPath,
-                    quality: 90
+                    quality: 90,
+                    ignoreAspectRatio: false
                 }, function (err, img) {
 
                     if (err) {
