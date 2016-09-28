@@ -1,10 +1,9 @@
 /*jslint nomen: true */
-/*global require, module, exports, __dirname */
+/*global require, module, __dirname */
 var express = require('express'),
     router = express.Router(),
     formidable = require('formidable'),
     easyimg = require('easyimage'),
-    util = require('util'),
     fs = require('fs'),
     path = require('path'),
     ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
@@ -13,7 +12,6 @@ var express = require('express'),
     photosBasePath = 'public/photos',
     thumbnailWidthDimension = 384,
     thumbnailHeightDimension = 384,
-    io = null,
     db = null,
     Photo = null,
     Vote = null,
@@ -341,8 +339,6 @@ router.post('/vote', function (req, res) {
 router.get('/teams', function (req, res) {
     "use strict";
 
-    var idx;
-
     Team.find({}).sort({teamName: 'asc'}).exec(function (err, models) {
         var baseLogoUrl = photosMetadata.baseUrl + "/" +
                 photosMetadata.logosPath,
@@ -370,8 +366,7 @@ router.get('/teams', function (req, res) {
 router.get('/teams/:teamId', function (req, res) {
     "use strict";
 
-    var that = this,
-        teamId = req.params.teamId,
+    var teamId = req.params.teamId,
         baseLogoUrl = photosMetadata.baseUrl + "/" + photosMetadata.logosPath,
         defaultLogoUrl = photosMetadata.baseUrl + "/" + photosMetadata.defaultTeamLogo;
 
@@ -401,8 +396,7 @@ router.post('/upload', function (req, res) {
     var form = new formidable.IncomingForm();
 
     form.parse(req, function (err, fields, files) {
-        var fileObj,
-            photo;
+        var fileObj;
 
         //if a file is provided, continue to process image
         if (files && Object.keys(files).length) {
