@@ -372,6 +372,8 @@ router.get('/teams/:teamId', function (req, res) {
 
     //TODO: sanatize the teamId
     Team.findOne({ _id: teamId}, function (err, teamModel) {
+        var films;
+
         if (err) {
             sendResult(res, false, "Failed to retrieve details for specified team id!");
         } else if (teamModel === null) {
@@ -385,6 +387,22 @@ router.get('/teams/:teamId', function (req, res) {
             } else {
                 teamModel.logo = defaultLogoUrl;
             }
+
+            //sort the films by year before returning
+            films = teamModel.films;
+            if (Array.isArray(films) && films.length > 1 ) {
+                films = films.sort(function (a, b) {
+                    if (a.year < b.year) {
+                        return 1;
+                    }
+                    if (a.year > b.year) {
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
+
+            //sort the films
             sendResult(res, true, teamModel);
         }
     });
