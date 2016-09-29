@@ -9,6 +9,7 @@ var express = require('express'),
     ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
     extend = require('util')._extend,
     config = require('../config.json'),
+    moment = require('moment'),
     photosBasePath = 'public/photos',
     thumbnailWidthDimension = 384,
     thumbnailHeightDimension = 384,
@@ -109,7 +110,18 @@ var express = require('express'),
     },
     processPhotoList = function (req, res, listType) {
         "use strict";
-        var photosQuery = Photo.find({});
+        var photosQuery = Photo.find({}),
+            metaDataTimestamp = extend({}, countdownMetadata.time),
+            filmStartTime,
+            filmEndTime,
+            curTimestamp,
+            timeLeft;
+
+        //decrease month value as it is zero-indexed
+        metaDataTimestamp.month -= 1;
+        //calculate the start and end timestamps for filming
+        filmStartTime = moment(metaDataTimestamp);
+        filmEndTime = moment(filmStartTime).add(72, 'hours');
 
         //handle the different cases for listing photos
         switch (listType) {
@@ -144,6 +156,31 @@ var express = require('express'),
                         isRejected: models[idx].isRejected,
                         timestamp: models[idx].timestamp
                     };
+
+                    //determine if current photo was taken during filming
+                    //if so, update the object to tag the hour it was taken
+                    curTimestamp = moment(curObj.timestamp);
+                    if (curTimestamp.isBetween(filmStartTime, filmEndTime)) {
+                        curObj.isFilmHour = true;
+                        timeLeft = filmEndTime.diff(curTimestamp, 'hours');
+
+                        //calculate how many hours are left
+                        if (timeLeft > 1) {
+                            //if there is at least 2 hours left, it's plural
+                            curObj.filmHour = timeLeft + ' hours left';
+                        } else if (timeLeft === 1) {
+                            //if there is 1 hour left, hours is singular
+                            curObj.filmHour = timeLeft + ' hour left';
+                        } else {
+                            //it is less than zero, so it must be minutes left
+                            timeLeft = filmEndTime.diff(curTimestamp, 'minutes');
+                            if (timeLeft > 1) {
+                                curObj.filmHour = timeLeft + ' minutes left';
+                            } else {
+                                curObj.filmHour = timeLeft + ' minute left';
+                            }
+                        }
+                    }
 
                     results.push(curObj);
                 }
