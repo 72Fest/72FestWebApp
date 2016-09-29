@@ -9,6 +9,7 @@
         Team,
         News,
         Sponsor,
+        Countdown,
         initPhotoSchema = function (mg) {
             var schema = new mg.Schema({
                 size: Number,
@@ -68,6 +69,21 @@
 
             return schema;
         },
+        initCountdownSchema = function (mg) {
+            var schema = new mg.Schema({
+                caption: String,
+                time: {
+                    year: Number,
+                    month: Number,
+                    day: Number,
+                    hour: Number,
+                    minute: Number,
+                    second: Number
+                }
+            });
+
+            return schema;
+        },
         init = function (dbVal) {
             this.db = dbVal;
 
@@ -101,6 +117,12 @@
             } catch (err3) {
                 this.Sponsor = dbVal.model("Sponsor", initSponsorSchema(dbVal));
             }
+
+            try {
+                this.Countdown = dbVal.model("Countdown");
+            } catch (err3) {
+                this.Countdown = dbVal.model("Countdown", initCountdownSchema(dbVal));
+            }
         };
 
     exports.init = init;
@@ -108,5 +130,6 @@
     exports.Vote = Vote;
     exports.Team = Team;
     exports.News = News;
+    exports.Countdown = Countdown;
     exports.Sponsor = Sponsor;
 }());
