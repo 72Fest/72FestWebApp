@@ -18,6 +18,7 @@ var express = require('express'),
     Team = null,
     News = null,
     Sponsor = null,
+    Countdown = null,
     schemas = require('../schemas'),
     delegate = null,
     countdownMetadata = config.filmingCountdownMetadata,
@@ -169,6 +170,7 @@ var express = require('express'),
         Team = schemas.Team;
         News = schemas.News;
         Sponsor = schemas.Sponsor;
+        Countdown = schemas.Countdown;
 
         //create the ouptfolder if it doesn't already exist
         //make sure dir exists
@@ -196,7 +198,16 @@ router.get('/', function (req, res) {
 router.get('/countDown', function (req, res) {
     "use strict";
 
-    sendResult(res, true, countdownMetadata);
+    Countdown.findOne({}, function (err, countdownModel) {
+        if (err) {
+            sendResult(res, false, "Failed to retrieve countdown");
+        } else if (countdownModel === null) {
+            //if not in the DB, return the default from config
+            sendResult(res, true, countdownMetadata);
+        } else {
+            sendResult(res, true, countdownModel);
+        }
+    });
 });
 
 router.get('/photos', function (req, res) {
