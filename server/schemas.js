@@ -1,10 +1,9 @@
 /*jslint nomen: true */
-/*global require, exports, module */
+/*global exports */
 (function () {
     "use strict";
 
-    var db,
-        Photo,
+    var Photo,
         Vote,
         Team,
         News,
