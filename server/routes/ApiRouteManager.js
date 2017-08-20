@@ -24,9 +24,9 @@ var express = require('express'),
     delegate = null,
     countdownMetadata = config.filmingCountdownMetadata,
     PhotoListType = {
-        ALL: "allPhotos",
-        REJECTED: "rejectedPhotos",
-        APPROVED: "approvedPhotos"
+        ALL: 'allPhotos',
+        REJECTED: 'rejectedPhotos',
+        APPROVED: 'approvedPhotos'
     },
     //default photos metadata if not retreived from DB
     photosMetadata = {
@@ -35,7 +35,7 @@ var express = require('express'),
         defaultTeamLogo: 'no-logo.png'
     },
     sendResult = function (res, isSucc, msg) {
-        "use strict";
+        'use strict';
 
         var obj = {
             isSuccess: isSucc,
@@ -45,7 +45,7 @@ var express = require('express'),
         res.jsonp(obj);
     },
     processUpload = function (fileObj, callback) {
-        "use strict";
+        'use strict';
 
         var photo,
             thumbPath,
@@ -59,13 +59,13 @@ var express = require('express'),
         });
 
         //TODO: fix this to not hardcode extensions
-        newPhotoPath = path.resolve(path.join(__dirname, "..", photosBasePath, photo._id + ".jpg"));
-        thumbPath = path.resolve(path.join(__dirname, "..", photosBasePath, photo._id + "-thumb.jpg"));
+        newPhotoPath = path.resolve(path.join(__dirname, '..', photosBasePath, photo._id + '.jpg'));
+        thumbPath = path.resolve(path.join(__dirname, '..', photosBasePath, photo._id + '-thumb.jpg'));
         //lets move the photo into the uploads folder
 
         fs.rename(fileObj.path, newPhotoPath, function (err) {
             if (err) {
-                callback(err, "Could not move image to final destination");
+                callback(err, 'Could not move image to final destination');
             } else {
                 //store path info
                 photo.originalPath = newPhotoPath;
@@ -79,10 +79,10 @@ var express = require('express'),
                     dst: thumbPath,
                     quality: 90,
                     ignoreAspectRatio: false
-                }, function (err, img) {
+                }, function (err) {
 
                     if (err) {
-                        callback(true, "Failed to create thumbnail!");
+                        callback(true, 'Failed to create thumbnail!');
                     } else {
                         //great, we have the thumbnail!
                         //upadate the photo model to have the thumbnail
@@ -90,14 +90,14 @@ var express = require('express'),
                         photo.thumbUrl = path.join(path.basename(photosBasePath), path.basename(thumbPath));
 
                         //now lets save the model
-                        photo.save(function (err, model) {
+                        photo.save(function (err) {
                             if (err) {
-                                callback(true, "Failed while processing image!");
+                                callback(true, 'Failed while processing image!');
                             } else {
                                 if (delegate) {
-                                    delegate.getSocket().emit('photoUploaded', {"photo": photo});
+                                    delegate.getSocket().emit('photoUploaded', {'photo': photo});
                                 }
-                                callback(false, "Photo upload was a success");
+                                callback(false, 'Photo upload was a success');
                             }
                         });
 
@@ -109,7 +109,7 @@ var express = require('express'),
         });
     },
     processPhotoList = function (req, res, listType) {
-        "use strict";
+        'use strict';
         var photosQuery = Photo.find({}),
             metaDataTimestamp = extend({}, countdownMetadata.time),
             filmStartTime,
@@ -145,7 +145,7 @@ var express = require('express'),
 
             //handle photo results
             if (err) {
-                sendResult(res, false, "Failed to retrieve list of photos!");
+                sendResult(res, false, 'Failed to retrieve list of photos!');
             } else {
                 //loop through results and build index
                 for (idx = 0; idx < models.length; idx += 1) {
@@ -192,7 +192,7 @@ var express = require('express'),
     },
     ApiRouter = function (dbRef, d) {
         //we want the base path to be reference from parent folder of cur directory
-        var fullPhotoPath = path.resolve(path.join(__dirname, "..", photosBasePath));
+        var fullPhotoPath = path.resolve(path.join(__dirname, '..', photosBasePath));
 
         //save reference to delegate
         delegate = d;
@@ -216,7 +216,7 @@ var express = require('express'),
                 //TODO: should this be async?
                 fs.mkdir(fullPhotoPath, 0766, function (err) {
                     if (err) {
-                        throw new Error("Could not create photos path!");
+                        throw new Error('Could not create photos path!');
                     }
                 });
             }
@@ -228,16 +228,16 @@ var express = require('express'),
     };
 
 router.get('/', function (req, res) {
-    "use strict";
-    sendResult(res, true, "Invalid API call");
+    'use strict';
+    sendResult(res, true, 'Invalid API call');
 });
 
 router.get('/countDown', function (req, res) {
-    "use strict";
+    'use strict';
 
     Countdown.findOne({}, function (err, countdownModel) {
         if (err) {
-            sendResult(res, false, "Failed to retrieve countdown");
+            sendResult(res, false, 'Failed to retrieve countdown');
         } else if (countdownModel === null) {
             //if not in the DB, return the default from config
             sendResult(res, true, countdownMetadata);
@@ -248,32 +248,32 @@ router.get('/countDown', function (req, res) {
 });
 
 router.get('/photos', function (req, res) {
-    "use strict";
+    'use strict';
 
     processPhotoList(req, res, PhotoListType.APPROVED);
 });
 
 router.get('/photos/all', function (req, res) {
-    "use strict";
+    'use strict';
 
     processPhotoList(req, res, PhotoListType.ALL);
 });
 
 router.get('/photos/rejected', function (req, res) {
-    "use strict";
+    'use strict';
 
     processPhotoList(req, res, PhotoListType.REJECTED);
 });
 
 router.get('/photo/reject/:photoId', function (req, res) {
-    "use strict";
+    'use strict';
 
     var photoId = req.params.photoId,
         query = { _id: new ObjectId(photoId) };
 
     Photo.findOneAndUpdate(query, { isRejected: true }, function (err, model) {
         if (err) {
-            sendResult(res, false, "Failed to reject photo!");
+            sendResult(res, false, 'Failed to reject photo!');
         } else {
             sendResult(res, true, {success: true});
             delegate.getSocket().emit('photoRejected', { photo: model });
@@ -282,14 +282,14 @@ router.get('/photo/reject/:photoId', function (req, res) {
 });
 
 router.get('/photo/approve/:photoId', function (req, res) {
-    "use strict";
+    'use strict';
 
     var photoId = req.params.photoId,
         query = { _id: new ObjectId(photoId) };
 
     Photo.findOneAndUpdate(query, { isRejected: false }, function (err, model) {
         if (err) {
-            sendResult(res, false, "Failed to approve photo!");
+            sendResult(res, false, 'Failed to approve photo!');
         } else {
             sendResult(res, true, {success: true});
             delegate.getSocket().emit('photoApproved', { photo: model });
@@ -298,14 +298,14 @@ router.get('/photo/approve/:photoId', function (req, res) {
 });
 
 router.get('/votes', function (req, res) {
-    "use strict";
+    'use strict';
 
     var idx,
         results = [];
 
     Vote.find({}).exec(function (err, models) {
         if (err) {
-            sendResult(res, false, "Failed to retrieve list of votes!");
+            sendResult(res, false, 'Failed to retrieve list of votes!');
         } else {
             //loop through all votes
             for (idx = 0; idx < models.length; idx += 1) {
@@ -321,14 +321,14 @@ router.get('/votes', function (req, res) {
     });
 });
 router.get('/votes/:voteId', function (req, res) {
-    "use strict";
+    'use strict';
 
     var voteId = req.params.voteId;
 
     //TODO: sanatize the voteId
     Vote.findOne({ id: voteId}, 'id votes', function (err, voteModel) {
         if (err) {
-            sendResult(res, false, "Failed to retrieve votes for specified id!");
+            sendResult(res, false, 'Failed to retrieve votes for specified id!');
         } else if (voteModel === null) {
             //if not in the DB, just return zero votes
             sendResult(res, true, { id: voteId, votes: 0});
@@ -338,21 +338,21 @@ router.get('/votes/:voteId', function (req, res) {
     });
 });
 router.post('/vote', function (req, res) {
-    "use strict";
+    'use strict';
 
     var voteId = req.body.id,
         unliked = req.body.unlike,
         voteTotal;
 
     if (!voteId) {
-        sendResult(res, false, "Invalid vote request!");
+        sendResult(res, false, 'Invalid vote request!');
         return;
     }
 
     //lets get current value
     Vote.findOne({ id: voteId}, 'id votes', function (err, voteModel) {
         if (err) {
-            sendResult(res, false, "Failed to process vote request!");
+            sendResult(res, false, 'Failed to process vote request!');
             return;
         }
 
@@ -367,11 +367,11 @@ router.post('/vote', function (req, res) {
         voteModel.save(function (err) {
             var vote = {};
             if (err) {
-                sendResult(res, false, "Failed to process vote request!");
+                sendResult(res, false, 'Failed to process vote request!');
             } else {
                 vote.id = voteId;
                 vote.votes = voteTotal;
-                console.log("TOTAL VOTES: " + voteId + ", " + voteTotal);
+                console.log('TOTAL VOTES: ' + voteId + ', ' + voteTotal);
                 if (delegate) {
                     delegate.getSocket().emit('voteCast', vote);
                 }
@@ -381,26 +381,26 @@ router.post('/vote', function (req, res) {
 
     });
 
-    console.log("the ID:" + voteId + ", and unlike status:" + unliked);
+    console.log('the ID:' + voteId + ', and unlike status:' + unliked);
 });
 
 router.get('/teams', function (req, res) {
-    "use strict";
+    'use strict';
 
     Team.find({}).sort({teamName: 'asc'}).exec(function (err, models) {
-        var baseLogoUrl = photosMetadata.baseUrl + "/" +
+        var baseLogoUrl = photosMetadata.baseUrl + '/' +
                 photosMetadata.logosPath,
-            defaultLogoUrl = photosMetadata.baseUrl + "/" +
+            defaultLogoUrl = photosMetadata.baseUrl + '/' +
                 photosMetadata.defaultTeamLogo;
 
         if (err) {
-            sendResult(res, false, "Failed to retrieve list of teams!");
+            sendResult(res, false, 'Failed to retrieve list of teams!');
         } else {
             //return team models minus the _id field
             //also append full URL onto each model
             models.forEach(function (teamModel) {
                 if (teamModel.logo) {
-                    teamModel.logo = baseLogoUrl + "/" + teamModel.logo;
+                    teamModel.logo = baseLogoUrl + '/' + teamModel.logo;
                 } else {
                     teamModel.logo = defaultLogoUrl;
                 }
@@ -412,18 +412,18 @@ router.get('/teams', function (req, res) {
     });
 });
 router.get('/teams/:teamId', function (req, res) {
-    "use strict";
+    'use strict';
 
     var teamId = req.params.teamId,
-        baseLogoUrl = photosMetadata.baseUrl + "/" + photosMetadata.logosPath,
-        defaultLogoUrl = photosMetadata.baseUrl + "/" + photosMetadata.defaultTeamLogo;
+        baseLogoUrl = photosMetadata.baseUrl + '/' + photosMetadata.logosPath,
+        defaultLogoUrl = photosMetadata.baseUrl + '/' + photosMetadata.defaultTeamLogo;
 
     //TODO: sanatize the teamId
     Team.findOne({ _id: teamId}, function (err, teamModel) {
         var films;
 
         if (err) {
-            sendResult(res, false, "Failed to retrieve details for specified team id!");
+            sendResult(res, false, 'Failed to retrieve details for specified team id!');
         } else if (teamModel === null) {
             //if not in the DB, just return empty object
             sendResult(res, false, {});
@@ -431,7 +431,7 @@ router.get('/teams/:teamId', function (req, res) {
             //return team data
             //pass full URL of logo when querying an individual team
             if (teamModel.logo) {
-                teamModel.logo = baseLogoUrl + "/" + teamModel.logo;
+                teamModel.logo = baseLogoUrl + '/' + teamModel.logo;
             } else {
                 teamModel.logo = defaultLogoUrl;
             }
@@ -457,7 +457,7 @@ router.get('/teams/:teamId', function (req, res) {
 });
 
 router.post('/upload', function (req, res) {
-    "use strict";
+    'use strict';
 
     var form = new formidable.IncomingForm();
 
@@ -474,7 +474,7 @@ router.post('/upload', function (req, res) {
             });
 
         } else {
-            sendResult(res, false, "No photo was supplied!");
+            sendResult(res, false, 'No photo was supplied!');
         }
     });
 
@@ -482,14 +482,14 @@ router.post('/upload', function (req, res) {
 });
 
 router.get('/news', function (req, res) {
-    "use strict";
+    'use strict';
 
     var idx,
         results = [];
 
     News.find({}).sort({timestamp: -1}).exec(function (err, models) {
         if (err) {
-            sendResult(res, false, "Failed to retrieve news feed!");
+            sendResult(res, false, 'Failed to retrieve news feed!');
         } else {
             //loop through all votes
             for (idx = 0; idx < models.length; idx += 1) {
@@ -509,11 +509,11 @@ router.get('/news', function (req, res) {
 });
 
 router.get('/sponsors', function (req, res) {
-    "use strict";
+    'use strict';
 
     Sponsor.find({}).exec(function (err, models) {
         if (err) {
-            sendResult(res, false, "Failed to retrieve list of sponsors!");
+            sendResult(res, false, 'Failed to retrieve list of sponsors!');
         } else {
             sendResult(res, true, models);
         }

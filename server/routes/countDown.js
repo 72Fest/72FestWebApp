@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var countdownMetadata = {
-    caption: "Film Screening Countdown",
+    caption: 'Film Screening Countdown',
     time: {
         year: 2014,
         month: 10,
@@ -16,7 +16,7 @@ var countdownMetadata = {
 
 /* GET countdown. */
 router.get('/', function (req, res) {
-    "use strict";
+    'use strict';
 
     res.jsonp(countdownMetadata);
 });

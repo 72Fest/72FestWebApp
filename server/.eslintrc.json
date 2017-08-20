@@ -20,6 +20,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-octal": [ "off" ],
+        "no-console": [ "off" ]
     }
 }

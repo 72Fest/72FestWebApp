@@ -1,7 +1,7 @@
 /*jslint nomen: true */
 /*global exports */
 (function () {
-    "use strict";
+    'use strict';
 
     var Photo,
         Vote,
@@ -88,39 +88,39 @@
 
             //define or retrieve schemas and save to a namespace
             try {
-                this.Photo = dbVal.model("Photo");
+                this.Photo = dbVal.model('Photo');
             } catch (err) {
-                this.Photo = dbVal.model("Photo", initPhotoSchema(dbVal));
+                this.Photo = dbVal.model('Photo', initPhotoSchema(dbVal));
             }
 
             try {
-                this.Vote = dbVal.model("Vote");
+                this.Vote = dbVal.model('Vote');
             } catch (err2) {
-                this.Vote = dbVal.model("Vote", initVoteSchema(dbVal));
+                this.Vote = dbVal.model('Vote', initVoteSchema(dbVal));
             }
 
             try {
-                this.Team = dbVal.model("Team");
+                this.Team = dbVal.model('Team');
             } catch (err3) {
-                this.Team = dbVal.model("Team", initTeamSchema(dbVal));
+                this.Team = dbVal.model('Team', initTeamSchema(dbVal));
             }
 
             try {
-                this.News = dbVal.model("News");
+                this.News = dbVal.model('News');
             } catch (err3) {
-                this.News = dbVal.model("News", initNewsSchema(dbVal));
+                this.News = dbVal.model('News', initNewsSchema(dbVal));
             }
 
             try {
-                this.Sponsor = dbVal.model("Sponsor");
+                this.Sponsor = dbVal.model('Sponsor');
             } catch (err3) {
-                this.Sponsor = dbVal.model("Sponsor", initSponsorSchema(dbVal));
+                this.Sponsor = dbVal.model('Sponsor', initSponsorSchema(dbVal));
             }
 
             try {
-                this.Countdown = dbVal.model("Countdown");
+                this.Countdown = dbVal.model('Countdown');
             } catch (err3) {
-                this.Countdown = dbVal.model("Countdown", initCountdownSchema(dbVal));
+                this.Countdown = dbVal.model('Countdown', initCountdownSchema(dbVal));
             }
         };
 

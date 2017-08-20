@@ -11,14 +11,14 @@ var basicAuth = require('basic-auth');
  * @returns {function} Express 4 middleware requiring the given credentials
  */
 exports.basicAuth = function(username, password) {
-  return function(req, res, next) {
-    var user = basicAuth(req);
+    return function(req, res, next) {
+        var user = basicAuth(req);
 
-    if (!user || user.name !== username || user.pass !== password) {
-      res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-      return res.status(401).end();
-    }
+        if (!user || user.name !== username || user.pass !== password) {
+            res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+            return res.status(401).end();
+        }
 
-    next();
-  };
+        next();
+    };
 };
