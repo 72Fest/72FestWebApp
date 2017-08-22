@@ -10,6 +10,8 @@ var express = require('express'),
     extend = require('util')._extend,
     config = require('../config.json'),
     moment = require('moment'),
+    Cloud = require('../lib/cloud'),
+    cloud = new Cloud('72fest-photos-dev', 'uploads'),
     photosBasePath = 'public/photos',
     thumbnailWidthDimension = 384,
     thumbnailHeightDimension = 384,
@@ -69,7 +71,7 @@ var express = require('express'),
             } else {
                 //store path info
                 photo.originalPath = newPhotoPath;
-                photo.photoUrl = path.join(path.basename(photosBasePath), path.basename(newPhotoPath));
+                // photo.photoUrl = path.join(path.basename(photosBasePath), path.basename(newPhotoPath));
 
                 //now create a thumbnail image
                 easyimg.resize({
@@ -87,20 +89,39 @@ var express = require('express'),
                         //great, we have the thumbnail!
                         //upadate the photo model to have the thumbnail
                         photo.thumbPath = thumbPath;
-                        photo.thumbUrl = path.join(path.basename(photosBasePath), path.basename(thumbPath));
+                        // photo.thumbUrl = path.join(path.basename(photosBasePath), path.basename(thumbPath));
 
-                        //now lets save the model
-                        photo.save(function (err) {
-                            if (err) {
-                                callback(true, 'Failed while processing image!');
-                            } else {
-                                if (delegate) {
-                                    delegate.getSocket().emit('photoUploaded', {'photo': photo});
-                                }
-                                callback(false, 'Photo upload was a success');
-                            }
-                        });
+                        // upload images to s3 bucket
+                        cloud.upload(newPhotoPath)
+                            .then((uploadRes) => {
+                                console.log('full img url:', uploadRes.Location);
+                                photo.photoUrl = uploadRes.Location;
 
+                                return cloud.upload(thumbPath)
+                                    .then((thumbUploadRes) => {
+                                        console.log('thumb img url:', thumbUploadRes.Location);
+                                        photo.thumbUrl = thumbUploadRes.Location;
+                                    })
+                                    .catch((errMsg) => {
+                                        console.log(errMsg);
+                                    });
+                            })
+                            .then(() => {
+                                //now lets save the model
+                                photo.save(function (err) {
+                                    if (err) {
+                                        callback(true, 'Failed while processing image!');
+                                    } else {
+                                        if (delegate) {
+                                            delegate.getSocket().emit('photoUploaded', {'photo': photo});
+                                        }
+                                        callback(false, 'Photo upload was a success');
+                                    }
+                                });
+                            })
+                            .catch((errMsg) => {
+                                console.log(errMsg);
+                            });
                     }
                 });
 
