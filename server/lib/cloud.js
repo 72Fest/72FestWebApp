@@ -1,10 +1,10 @@
 
 const fs = require('fs');
 const AWS = require('aws-sdk');
-const aws = new AWS.S3();
+const s3 = new AWS.S3();
 const path = require('path');
 
-module.exports = class FileUploads {
+module.exports = class CloudUtils {
     constructor(bucketName, basePath) {
         this.bucketName = bucketName;
         this.basePath = basePath;
@@ -28,7 +28,7 @@ module.exports = class FileUploads {
 
             readStream.on('error', (err) => reject(err.message));
 
-            aws.upload(params, (err, data) => {
+            s3.upload(params, (err, data) => {
                 // reject on failure
                 if (err) {
                     reject(err.message);
