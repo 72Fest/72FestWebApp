@@ -541,4 +541,22 @@ router.get('/sponsors', function (req, res) {
     });
 });
 
+router.post('/register', function (req, res) {
+    var tokenId = req.body.tokenId;
+    var platform = req.body.platform;
+
+    if (!tokenId || !platform) {
+        res.status = 400;
+        return res.end('Missing parameters!');
+    }
+
+    cloud.registerEndPoint(tokenId, platform)
+        .then((results) => {
+            res.json({isSuccess: true, data: results});
+        })
+        .catch((err) => {
+            res.json({isSuccess: false, data: err.message});
+        });
+});
+
 module.exports = ApiRouter;
