@@ -16,7 +16,7 @@ exports.basicAuth = function(username, password) {
 
         if (!user || user.name !== username || user.pass !== password) {
             res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-            return res.status(401).end();
+            return res.status(401).end('Authentication Failure');
         }
 
         next();

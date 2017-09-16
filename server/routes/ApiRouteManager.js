@@ -9,6 +9,7 @@ var express = require('express'),
     ObjectId = require('mongoose').Types.ObjectId, //needed for mongo's _id
     extend = require('util')._extend,
     config = require('../config.json'),
+    auth = require('../auth'),
     moment = require('moment'),
     Cloud = require('../lib/cloud'),
     cloud = new Cloud('72fest-photos-dev', 'uploads'),
@@ -567,13 +568,18 @@ router.post('/register', function (req, res) {
         });
 });
 
-router.post('/publish', function (req, res) {
+router.post('/publish', auth.basicAuth(config.adminUser, config.adminPass), function (req, res) {
     var srcHost = req.headers.host.split(':').shift();
     var form = new formidable.IncomingForm();
 
     // parse form for fields
     form.parse(req, function (err, fields) {
-        if (!fields.message) {
+        if (err) {
+            return res.json({
+                isSuccess: false,
+                data: err.message
+            });
+        } else if (!fields.message) {
             return res.json({
                 isSuccess: false,
                 data: 'Message not provided'
