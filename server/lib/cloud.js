@@ -83,4 +83,28 @@ module.exports = class CloudUtils {
             });
         });
     }
+
+    /**
+     * Publish a message to an SNS topic
+     * @param {string} message - message to publish
+     * @param {string} topicArn - SNS topic ARN
+     */
+    publishToTopic(message, topicArn) {
+        return new Promise((resolve, reject) => {
+            var params = {
+                Message: message,
+                TopicArn: topicArn
+            };
+
+            // publish message to SNS topic
+            sns.publish(params, function(err, data) {
+                if (err) {
+                    reject(err.message);
+                } else {
+                    resolve(data);
+                }
+            });
+        });
+
+    }
 };
