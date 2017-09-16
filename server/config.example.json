@@ -4,6 +4,8 @@
     "logosPath": "/logos",
     "awsApplicationArn": "arn:aws:sns:us-east-1:123456789:app/APNS_SANDBOX/app-name",
     "awsTopicArn": "arn:aws:sns:us-east-1:123456789:app-name",
+    "adminUser": "default",
+    "adminPass": "tluafed",
     "filmingCountdownMetadata": {
         "caption": "Film Countdown",
         "time": {
