@@ -82,6 +82,7 @@ app.use('/users', users);
 app.use('/api', api.router);
 app.use('/admin', auth.basicAuth(config.adminUser, config.adminPass), admin.router);
 app.use('/admin/approve', express.static(path.resolve(path.join(__dirname, 'approve'))));
+app.use('/notify', express.static(path.resolve(__dirname, 'notify')));
 
 /// catch 404 and forwarding to error handler
 app.use(function (req, res, next) {

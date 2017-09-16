@@ -559,21 +559,27 @@ router.post('/register', function (req, res) {
 });
 
 router.post('/publish', function (req, res) {
-    if (!req.body.message) {
-        return res.json({
-            isSuccess: false,
-            data: 'Message not provided'
-        });
-    }
+    var srcHost = req.headers.host.split(':').shift();
+    var form = new formidable.IncomingForm();
 
-    cloud.publishToTopic(req.body.message, config.awsTopicArn)
-        .then((results) => {
-            console.log('results:', results);
-            res.json(results);
-        })
-        .catch((err) => {
-            res.json({isSuccess: false, data: err});
-        });
+    // parse form for fields
+    form.parse(req, function (err, fields) {
+        if (!fields.message) {
+            return res.json({
+                isSuccess: false,
+                data: 'Message not provided'
+            });
+        }
+
+        // publish message to SNS topic
+        cloud.publishToTopic(fields.message, config.awsTopicArn)
+            .then((results) => {
+                res.json(results);
+            })
+            .catch((err) => {
+                res.json({isSuccess: false, data: err});
+            });
+    });
 });
 
 module.exports = ApiRouter;
