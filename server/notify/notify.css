@@ -34,7 +34,15 @@ body {
     border-radius: 4px;
 }
 
+.notify-form-title {
+    color: #424242;
+    font-size: 18px;
+    margin-bottom: 5px;
+    width: 95%;
+}
+
 .notify-textarea {
+    color: #424242;
     width: 98%;
     font-size: 18px;
     background-color: #fff;
