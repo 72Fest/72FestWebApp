@@ -115,7 +115,6 @@ var express = require('express'),
                                         if (delegate) {
                                             delegate.getSocket().emit('photoUploaded', {'photo': photo});
                                         }
-                                        callback(false, 'Photo upload was a success');
                                     }
                                 });
                             })
@@ -556,6 +555,24 @@ router.post('/register', function (req, res) {
         })
         .catch((err) => {
             res.json({isSuccess: false, data: err.message});
+        });
+});
+
+router.post('/publish', function (req, res) {
+    if (!req.body.message) {
+        return res.json({
+            isSuccess: false,
+            data: 'Message not provided'
+        });
+    }
+
+    cloud.publishToTopic(req.body.message, config.awsTopicArn)
+        .then((results) => {
+            console.log('results:', results);
+            res.json(results);
+        })
+        .catch((err) => {
+            res.json({isSuccess: false, data: err});
         });
 });
 
