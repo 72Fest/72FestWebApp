@@ -1,6 +1,0 @@
-{
-    "uid": "72Fest",
-    "append": true,
-    "watch": true,
-    "script": "bin/www"
-}
