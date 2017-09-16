@@ -120,7 +120,7 @@ var express = require('express'),
 
                                         // send notification of photo upload
                                         var photoMsg = 'A new photo was added to the gallery.';
-                                        cloud.publishToTopic(photoMsg, config.awsTopicArn);
+                                        cloud.publishToTopic(config.awsTopicArn, photoMsg);
 
                                         // finish by invoking callback
                                         callback(false, 'Photo upload was a success');
@@ -569,7 +569,6 @@ router.post('/register', function (req, res) {
 });
 
 router.post('/publish', auth.basicAuth(config.adminUser, config.adminPass), function (req, res) {
-    var srcHost = req.headers.host.split(':').shift();
     var form = new formidable.IncomingForm();
 
     // parse form for fields
@@ -587,7 +586,7 @@ router.post('/publish', auth.basicAuth(config.adminUser, config.adminPass), func
         }
 
         // publish message to SNS topic
-        cloud.publishToTopic(fields.message, config.awsTopicArn)
+        cloud.publishToTopic(config.awsTopicArn, fields.message, fields.title)
             .then((results) => {
                 res.json(results);
             })

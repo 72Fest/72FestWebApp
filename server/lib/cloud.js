@@ -86,13 +86,37 @@ module.exports = class CloudUtils {
 
     /**
      * Publish a message to an SNS topic
-     * @param {string} message - message to publish
      * @param {string} topicArn - SNS topic ARN
+     * @param {string} message - message to publish
+     * @param {string} title - optional title message to publish
      */
-    publishToTopic(message, topicArn) {
+    publishToTopic(topicArn, message, title) {
+        function genAPNSMsg(msg, title) {
+            var obj = {
+                aps: {
+                    alert: {
+                        body: msg
+                    },
+                    badge: 1,
+                    sound: 'default'
+                }
+            };
+
+            if (title) {
+                obj.aps.alert.title = title;
+            }
+
+            return JSON.stringify(obj);
+        }
+
         return new Promise((resolve, reject) => {
             var params = {
-                Message: message,
+                MessageStructure: 'json',
+                Message: JSON.stringify({
+                    default: message,
+                    APNS: genAPNSMsg(message, title),
+                    APNS_SANDBOX: genAPNSMsg(message, title)
+                }),
                 TopicArn: topicArn
             };
 
