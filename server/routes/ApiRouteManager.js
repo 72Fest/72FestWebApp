@@ -103,7 +103,8 @@ var express = require('express'),
                                         photo.thumbUrl = thumbUploadRes.Location;
                                     })
                                     .catch((errMsg) => {
-                                        console.log(errMsg);
+                                        console.log(`S3 error: ${errMsg}`);
+                                        callback(true, errMsg);
                                     });
                             })
                             .then(() => {
@@ -115,11 +116,19 @@ var express = require('express'),
                                         if (delegate) {
                                             delegate.getSocket().emit('photoUploaded', {'photo': photo});
                                         }
+
+                                        // send notification of photo upload
+                                        var photoMsg = 'A new photo was added to the gallery.';
+                                        cloud.publishToTopic(photoMsg, config.awsTopicArn);
+
+                                        // finish by invoking callback
+                                        callback(false, 'Photo upload was a success');
                                     }
                                 });
                             })
                             .catch((errMsg) => {
-                                console.log(errMsg);
+                                console.log(`S3 error: ${errMsg}`);
+                                callback(true, errMsg);
                             });
                     }
                 });
