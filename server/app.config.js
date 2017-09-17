@@ -9,7 +9,7 @@ module.exports = {
     {
       name      : '72api',
       script    : 'bin/www',
-      watch: ["*.js", "*.json", "routes"],
+      watch: false,
       env: {
         NODE_ENV: 'development'
       },
