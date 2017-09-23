@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="countdown.css">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no">
+    <title>Update Countdown</title>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="header-container">
+        <h3>72Fest Countdown</h3>
+    </div>
+    <form id="countdownForm" class="countdown-form">
+        <input class="countdown-form-title" type="text" name="caption" placeholder="Enter caption" maxlength="55">
+        <br>
+        <br>
+        <input type="date" name="date">
+        <br>
+        <br>
+        <input type="time" name="time">
+        <br>
+        <br>
+        <input class="countdown-btn" type="submit" value="Update">
+    </form>
+
+    <script src="countdown.js"></script>
+</body>
+
+</html>
