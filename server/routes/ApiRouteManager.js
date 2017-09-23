@@ -277,7 +277,7 @@ router.get('/countDown', function (req, res) {
     });
 });
 
-router.post('/countDown', function (req, res) {
+router.post('/countDown', auth.basicAuth(config.adminUser, config.adminPass), function (req, res) {
     var countdown = null;
     var form = new formidable.IncomingForm();
 
