@@ -12,7 +12,7 @@
 
         // Define what happens on successful data submission
         XHR.addEventListener('load', function () {
-            alert('Successufly sent notification');
+            alert('Updated countdown');
         });
 
         // Define what happens in case of error

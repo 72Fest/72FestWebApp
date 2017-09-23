@@ -41,6 +41,11 @@ body {
     width: 95%;
 }
 
+.form-label {
+    display: block;
+    color: #424242;
+}
+
 .btn {
     background-color: #263d95;
     border: none;

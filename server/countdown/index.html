@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/shared/css/base.css">
     <link rel="stylesheet" type="text/css" href="countdown.css">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -23,17 +24,18 @@
     <div class="header-container">
         <h3>72Fest Countdown</h3>
     </div>
-    <form id="countdownForm" class="countdown-form">
-        <input class="countdown-form-title" type="text" name="caption" placeholder="Enter caption" maxlength="55">
+    <form id="countdownForm" class="form">
+        <input class="form-title" type="text" name="caption" placeholder="Enter caption" maxlength="55">
         <br>
         <br>
+        <label class="form-label" for="date">Enter date:</label>
         <input type="date" name="date">
         <br>
-        <br>
+        <label class="form-label" for="time">Enter time:</label>
         <input type="time" name="time">
         <br>
         <br>
-        <input class="countdown-btn" type="submit" value="Update">
+        <input class="btn" type="submit" value="Update">
     </form>
 
     <script src="countdown.js"></script>
