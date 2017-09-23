@@ -279,47 +279,70 @@ router.get('/countDown', function (req, res) {
 
 router.post('/countDown', function (req, res) {
     var countdown = null;
-    var {caption, year, month, day, hour, min = 0, sec = 0} = req.body;
+    var form = new formidable.IncomingForm();
 
-    // ensure required fields are passed in
-    if (!caption || !year || !month || !day || !hour) {
-        return sendResult(res, false, 'Missing parameters');
-    }
-
-    // confirm valid numbers
-    if (isNaN(year) || isNaN(month) || isNaN(day) ||
-        isNaN(hour) || isNaN(min) || isNaN(sec)) {
-        return sendResult(res, false, 'Times must be valid');
-    }
-
-    // create model based on input
-    countdown = new Countdown({
-        caption,
-        time: {
-            year,
-            month,
-            day,
-            hour,
-            minute: min,
-            second: sec
+    // parse form for fields
+    form.parse(req, function (err, fields) {
+        if (err) {
+            return res.json({
+                isSuccess: false,
+                data: err.message
+            });
         }
+
+        processForm(fields);
     });
 
-    // remove current countdowns
-    Countdown.remove({}, function (rmErr) {
-        if (rmErr) {
-            return sendResult(res, false, 'Failed reset countdown');
+    function processForm(fields) {
+        var {caption, date, time} = fields;
+
+        // ensure required fields are passed in
+        if (!caption || !date || !time ) {
+            return sendResult(res, false, 'Missing parameters');
         }
 
-        // persists new countdown
-        countdown.save(function (err) {
-            if (err) {
-                return sendResult(res, false, 'Failed to update countdown');
+        // parse form values
+        var [year, month, day] = fields.date.split(/-/);
+        var [hour, minute] = fields.time.split(/:/);
+        if (!year || !month || !day || !hour || !minute) {
+            return sendResult(res, false, 'Missing parameters');
+        }
+
+        // confirm valid numbers
+        if (isNaN(year) || isNaN(month) || isNaN(day) ||
+            isNaN(hour) || isNaN(minute)) {
+            return sendResult(res, false, 'Times must be valid');
+        }
+
+        // create model based on input
+        countdown = new Countdown({
+            caption,
+            time: {
+                year,
+                month,
+                day,
+                hour,
+                minute,
+                second: 0
+            }
+        });
+
+        // remove current countdowns
+        Countdown.remove({}, function (rmErr) {
+            if (rmErr) {
+                return sendResult(res, false, 'Failed reset countdown');
             }
 
-            return sendResult(res, true, {success: true});
+            // persists new countdown
+            countdown.save(function (err) {
+                if (err) {
+                    return sendResult(res, false, 'Failed to update countdown');
+                }
+
+                return sendResult(res, true, {success: true});
+            });
         });
-    })
+    }
 
 });
 
