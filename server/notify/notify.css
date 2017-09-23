@@ -1,61 +1,6 @@
-body {
-    background-color: #B3B3B3;
-    margin: 0px;
-    font-family: sans-serif;
-}
-
-.header-container {
-    position: relative;
-    height: 50px;
-    margin: 0px;
-    background-color: #263d95;
-    border-bottom: 1px solid #1D3075;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.header-container h3 {
-    font-family: 'Roboto Condensed', sans-serif;
-    letter-spacing: 2px;
-    font-size: 24px;
-    display: inline;
-    color: #F7F7F7;
-    vertical-align: middle;
-    line-height: 50px;
-    padding-left: 5px;
-}
-
-.notify-form {
-    background-color: #EBEBEB;
-    margin: 6px 10px;
-    padding: 10px 5px;
-    max-width: 800px;
-    box-shadow: 5px 5px 5px #888888;
-    border-radius: 4px;
-}
-
-.notify-form-title {
-    color: #424242;
-    font-size: 18px;
-    margin-bottom: 5px;
-    width: 95%;
-}
-
 .notify-textarea {
     color: #424242;
     width: 98%;
     font-size: 18px;
     background-color: #fff;
-}
-
-.notify-btn {
-    background-color: #263d95;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    -webkit-appearance: none;
 }
