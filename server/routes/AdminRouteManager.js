@@ -36,7 +36,7 @@ var express = require('express'),
 
 router.get('/', function (req, res) {
     'use strict';
-    sendResult(res, true, 'Invalid API call');
+    res.sendFile(path.resolve(path.join(__dirname, '../dashboard/index.html')));
 });
 
 //add route to html page related to approvals

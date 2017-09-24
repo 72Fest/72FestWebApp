@@ -57,3 +57,23 @@ body {
     font-size: 18px;
     -webkit-appearance: none;
 }
+
+.icon-container {
+    padding: 10px;
+    text-align: center;
+}
+
+.icon-item {
+    display: inline-block;
+    margin: 5px 20px;
+}
+
+.icon {
+    color: #464646;
+}
+
+.icon-label {
+    color: #727272;
+    font-weight: bold;
+    font-size: 20px;
+}
