@@ -83,8 +83,9 @@ body {
 }
 
 .tabsContainer h3 {
-    font-family: 'Bevan', serif;
+    font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 2px;
+    font-size: 24px;
     display: inline;
     color: #f5f5f5;
     vertical-align: middle;
@@ -124,13 +125,6 @@ body {
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
-}
-
-@media only screen and (max-width: 500px) {
-    .tabsContainer h3 {
-        font-size: 18px;
-        letter-spacing: 1px;
-    }
 }
 
 #tabs {
