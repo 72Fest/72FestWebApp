@@ -56,6 +56,13 @@ module.exports = class CloudUtils {
             CustomUserData: platformType
         };
 
+        // TODO: determine a better method to distinguish token id's
+        if (tokenId.length > 80) {
+            // android registration ids are longer than APNS tokens
+            params.PlatformApplicationArn = config.androidAwsApplicationArn;
+            params.CustomUserData = 'android';
+        }
+
         return new Promise((resolve, reject) => {
             sns.createPlatformEndpoint(params, function(err, data) {
                 var subscribeParams = {
