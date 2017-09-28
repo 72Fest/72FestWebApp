@@ -116,13 +116,28 @@ module.exports = class CloudUtils {
             return JSON.stringify(obj);
         }
 
+        function genGCMMsg(msg, title) {
+            var obj = {
+                data: {
+                    message: msg
+                }
+            };
+
+            if (title) {
+                obj.data.title = title;
+            }
+
+            return JSON.stringify(obj);
+        }
+
         return new Promise((resolve, reject) => {
             var params = {
                 MessageStructure: 'json',
                 Message: JSON.stringify({
                     default: message,
                     APNS: genAPNSMsg(message, title),
-                    APNS_SANDBOX: genAPNSMsg(message, title)
+                    APNS_SANDBOX: genAPNSMsg(message, title),
+                    GCM: genGCMMsg(message, title)
                 }),
                 TopicArn: topicArn
             };
