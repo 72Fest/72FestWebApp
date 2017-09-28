@@ -51,7 +51,7 @@ module.exports = class CloudUtils {
      */
     registerEndPoint(tokenId, platformType) {
         const params = {
-            PlatformApplicationArn: config.awsApplicationArn,
+            PlatformApplicationArn: config.iosAwsApplicationArn,
             Token: tokenId,
             CustomUserData: platformType
         };
