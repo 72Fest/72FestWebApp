@@ -104,7 +104,6 @@ module.exports = class CloudUtils {
                     alert: {
                         body: msg
                     },
-                    badge: 1,
                     sound: 'default'
                 }
             };
