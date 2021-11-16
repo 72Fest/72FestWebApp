@@ -7,7 +7,7 @@
     "updateConfig": "aws s3 cp config.json  s3://72fest-configs/server/config.json"
   },
   "dependencies": {
-    "aws-sdk": "^2.100.0",
+    "aws-sdk": "^2.814.0",
     "basic-auth": "^1.0.0",
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
