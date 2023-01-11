@@ -12,7 +12,7 @@
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "cors": "^2.8.1",
-    "debug": "~0.7.4",
+    "debug": "~2.6.9",
     "easyimage": "~0.1.6",
     "express": "~4.8.0",
     "formidable": "~1.0.14",
